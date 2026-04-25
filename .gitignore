@@ -13,6 +13,9 @@
 /training_metrics.csv
 /success_rate_comparison.png
 
+# Personal test notebooks (not for submission)
+notebooks/colab_quick_train.ipynb
+
 # Python
 __pycache__/
 *.py[cod]
