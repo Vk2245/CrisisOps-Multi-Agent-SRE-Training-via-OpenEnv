@@ -41,7 +41,7 @@
 param(
     [string]$Flavor = "a100-large",
     [string]$Timeout = "6h",
-    [string]$OutputRepo = "Vk2245/crisisops-qwen3-8b-grpo",
+    [string]$OutputRepo = "Vk224/crisisops-qwen3-8b-grpo",
     [string]$RepoUrl = "https://github.com/Vk2245/CrisisOps-Multi-Agent-SRE-Training-via-OpenEnv.git",
     [string]$RepoRef = "main",
     [int]$MaxGrpoSteps = 300,

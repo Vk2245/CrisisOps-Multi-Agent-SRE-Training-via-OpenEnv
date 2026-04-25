@@ -9,7 +9,7 @@ launched via:
         --secrets HF_TOKEN --secrets WANDB_API_KEY \
         --timeout 6h \
         --env REPO_URL=https://github.com/Vk2245/CrisisOps-Multi-Agent-SRE-Training-via-OpenEnv.git \
-        --env HF_OUTPUT_REPO=Vk2245/crisisops-qwen3-8b-grpo \
+        --env HF_OUTPUT_REPO=Vk224/crisisops-qwen3-8b-grpo \
         pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime \
         bash -c "set -e && git clone $REPO_URL /workspace/repo && cd /workspace/repo \
             && pip install -q -U pip \
@@ -68,7 +68,7 @@ def _env(name: str, default: Optional[str] = None) -> Optional[str]:
     return value
 
 
-HF_OUTPUT_REPO = _env("HF_OUTPUT_REPO", "Vk2245/crisisops-qwen3-8b-grpo")
+HF_OUTPUT_REPO = _env("HF_OUTPUT_REPO", "Vk224/crisisops-qwen3-8b-grpo")
 HF_TOKEN = _env("HF_TOKEN")
 WANDB_API_KEY = _env("WANDB_API_KEY")
 MODEL_NAME = _env("MODEL_NAME", "unsloth/Qwen3-8B")
