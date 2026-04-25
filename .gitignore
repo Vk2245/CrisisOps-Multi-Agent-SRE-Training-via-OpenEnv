@@ -1,0 +1,61 @@
+# Internal planning and text files (not for submission)
+*.txt
+*.md
+!README.md
+!*/README.md
+
+# Hackathon reference PDFs (not part of submission)
+*.pdf
+
+# Root-level duplicate/generated artifacts
+/reward_curve.png
+/judge_breakdown.png
+/training_metrics.csv
+/success_rate_comparison.png
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets and local credentials
+.env
+.env.*
+*.pem
+*.key
+hf_token*
+wandb_api_key*
+
+# Weights & Biases
+wandb/
+runs/
+outputs/
+artifacts/
+
+# Model checkpoints (too large for git)
+checkpoints/
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.ckpt

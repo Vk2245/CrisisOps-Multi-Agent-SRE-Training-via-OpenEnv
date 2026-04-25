@@ -1,0 +1,8 @@
+spec_version: 1
+name: crisisops_env
+version: 0.1.0
+description: "CrisisOps buddy-agent incident response environment for OpenEnv."
+type: space
+runtime: fastapi
+app: server.app:app
+port: 8000
