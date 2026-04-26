@@ -49,6 +49,11 @@ import traceback
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
+# Keep vLLM enabled, but avoid the vLLM V1 torch.compile path that failed on
+# both L40S and A10G with "Tried to erase Node size_*" during graph capture.
+os.environ.setdefault("VLLM_USE_V1", "0")
+os.environ.setdefault("VLLM_ENABLE_V1_MULTIPROCESSING", "0")
+
 # --- 0. Path setup ----------------------------------------------------------
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
