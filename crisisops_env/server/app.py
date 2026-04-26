@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from pathlib import Path
 from typing import Any, Dict
 
 from fastapi import FastAPI
@@ -9,6 +10,8 @@ from fastapi.responses import HTMLResponse
 
 from crisisops_env.env import CrisisOpsEnv
 from crisisops_env.models import Action, BuddyAction, Observation
+
+_COCKPIT_HTML_PATH = Path(__file__).parent / "cockpit.html"
 
 try:
     from openenv.core.env_server.http_server import create_app
@@ -95,9 +98,15 @@ def _install_demo_frontend(target_app: FastAPI) -> None:
 
 
 def _demo_html() -> str:
-    """Return the standalone CrisisOps frontend."""
+    """Return the standalone CrisisOps frontend cockpit (cyberpunk redesign)."""
 
-    return r"""<!doctype html>
+    try:
+        return _COCKPIT_HTML_PATH.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        return _LEGACY_DEMO_HTML
+
+
+_LEGACY_DEMO_HTML = r"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />

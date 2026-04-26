@@ -62,3 +62,6 @@ checkpoints/
 *.pt
 *.pth
 *.ckpt
+
+# other files 
+crisisops_cyberpunk_redesign_analysis.html

@@ -1,0 +1,1442 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>// CRISISOPS // SRE OPS COCKPIT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       CRISISOPS v2 // CYBERPUNK NEON DARK // HUD TERMINAL
+       Pure HTML5 + CSS3 + Vanilla JS - no frameworks
+       ============================================================ */
+
+    :root {
+      --void: #020817;
+      --abyss: #060E1E;
+      --panel: #0A1628;
+      --surface: #0F2040;
+      --edge: #1E293B;
+      --edge2: #1E3A5F;
+
+      --cyan: #00F5FF;
+      --pink: #FF2D6F;
+      --purple: #9F00FF;
+      --green: #00FF9D;
+      --amber: #FFAA00;
+
+      --text: #E2E8F0;
+      --muted: #94A3B8;
+      --dim: #64748B;
+      --faint: #475569;
+      --whisper: #334155;
+
+      --glow-cyan:   0 0 20px #00F5FF44, 0 0 60px #00F5FF11;
+      --glow-pink:   0 0 20px #FF2D6F44, 0 0 60px #FF2D6F11;
+      --glow-green:  0 0 20px #00FF9D44, 0 0 60px #00FF9D11;
+      --glow-purple: 0 0 20px #9F00FF44, 0 0 60px #9F00FF11;
+      --glow-amber:  0 0 20px #FFAA0044, 0 0 60px #FFAA0011;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+
+    body {
+      background: var(--void);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* CRT scanlines */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.15) 2px,
+        rgba(0,0,0,0.15) 4px
+      );
+      will-change: opacity;
+      animation: scanline-flicker 12s infinite;
+    }
+
+    /* Subtle circuit dots */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.05;
+      background-image: radial-gradient(circle at 1px 1px, var(--cyan) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    /* ============================================================
+       TOP NAV
+       ============================================================ */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: 44px;
+      background: var(--abyss);
+      border-bottom: 1px solid var(--edge);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+    .topbar::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cyan), var(--purple), transparent);
+    }
+    .brand {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: 14px;
+      color: var(--cyan);
+      letter-spacing: 2px;
+      text-shadow: 0 0 8px #00F5FF55;
+    }
+    .mini-metrics {
+      display: flex;
+      gap: 24px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: var(--dim);
+      letter-spacing: 1px;
+    }
+    .mini { display: flex; align-items: center; gap: 6px; }
+    .mini .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 6px var(--cyan);
+    }
+    .mini .dot.active { background: var(--green); box-shadow: 0 0 6px var(--green); }
+    .mini .dot.warn   { background: var(--amber); box-shadow: 0 0 6px var(--amber); }
+    .mini .dot.crit   { background: var(--pink);  box-shadow: 0 0 6px var(--pink); }
+    .mini .dot.pulse  { animation: pulse-dot 1.5s ease-in-out infinite; }
+
+    /* ============================================================
+       MAIN GRID
+       ============================================================ */
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 40%) minmax(0, 60%);
+      gap: 2px;
+      padding: 24px;
+      max-width: 1640px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .col {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    /* ============================================================
+       HUD PANEL SYSTEM
+       Cyan corner brackets top, pink-dim corner brackets bottom
+       ============================================================ */
+    .hud-panel {
+      position: relative;
+      background: var(--abyss);
+      border: 1px solid #1E3A5F55;
+      padding: 22px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    /* Corner brackets composed from gradient backgrounds (no extra DOM) */
+    .hud-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        /* TL */
+        linear-gradient(to right,  var(--cyan) 14px, transparent 14px) top left   / 14px 2px no-repeat,
+        linear-gradient(to bottom, var(--cyan) 14px, transparent 14px) top left   / 2px 14px no-repeat,
+        /* TR */
+        linear-gradient(to left,   var(--cyan) 14px, transparent 14px) top right  / 14px 2px no-repeat,
+        linear-gradient(to bottom, var(--cyan) 14px, transparent 14px) top right  / 2px 14px no-repeat;
+    }
+    .hud-panel::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        /* BL */
+        linear-gradient(to right,  #FF2D6F66 14px, transparent 14px) bottom left  / 14px 2px no-repeat,
+        linear-gradient(to top,    #FF2D6F66 14px, transparent 14px) bottom left  / 2px 14px no-repeat,
+        /* BR */
+        linear-gradient(to left,   #FF2D6F66 14px, transparent 14px) bottom right / 14px 2px no-repeat,
+        linear-gradient(to top,    #FF2D6F66 14px, transparent 14px) bottom right / 2px 14px no-repeat;
+    }
+    .hud-panel > .accent-line {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #00F5FF44, transparent);
+      pointer-events: none;
+    }
+    .panel-id {
+      position: absolute;
+      top: 8px;
+      right: 16px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 8px;
+      color: var(--whisper);
+      letter-spacing: 2px;
+      pointer-events: none;
+    }
+    .hud-panel.flashing {
+      border-color: var(--cyan);
+      box-shadow: var(--glow-cyan);
+    }
+    .hud-panel.active-load {
+      outline: 1px dashed #00F5FF55;
+      outline-offset: 2px;
+    }
+
+    h2.section-h {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--text);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    /* ============================================================
+       HERO PANEL
+       ============================================================ */
+    .hero-panel { padding: 30px 26px; }
+
+    .eyebrow {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 400;
+      font-size: 9px;
+      letter-spacing: 6px;
+      color: var(--whisper);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: 42px;
+      color: var(--cyan);
+      letter-spacing: -1px;
+      line-height: 1;
+      text-shadow: 0 0 40px #00F5FF66, 3px 0 #FF2D6F33, -3px 0 #9F00FF33;
+      cursor: pointer;
+      margin-bottom: 14px;
+      user-select: none;
+    }
+    .logo:hover { animation: glitch-anim 0.3s steps(2) 3; }
+
+    .tagline {
+      color: var(--muted);
+      font-size: 12.5px;
+      max-width: 100%;
+      margin-bottom: 18px;
+      line-height: 1.7;
+    }
+    .chips, .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .chip {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border: 1px solid #00F5FF22;
+      color: var(--cyan);
+      background: #00F5FF08;
+      transition: all 0.2s;
+      cursor: default;
+    }
+    .chip::before { content: '// '; opacity: 0.4; }
+    .chip:hover {
+      border-color: #00F5FF66;
+      background: #00F5FF15;
+      box-shadow: 0 0 10px #00F5FF22;
+    }
+    .chip-link {
+      cursor: pointer;
+      text-decoration: none;
+      border-color: var(--edge);
+      color: var(--faint);
+      background: transparent;
+    }
+    .chip-link:hover {
+      border-color: var(--whisper);
+      color: var(--dim);
+      box-shadow: 0 0 10px #00F5FF11;
+    }
+
+    /* ============================================================
+       CONTROLS
+       ============================================================ */
+    .control-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .button-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    /* Custom select */
+    .select-wrap {
+      position: relative;
+      display: inline-block;
+      flex: 1;
+      min-width: 140px;
+    }
+    .select-wrap select {
+      appearance: none;
+      width: 100%;
+      background: var(--void);
+      border: 1px solid #00F5FF33;
+      color: var(--cyan);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      padding: 11px 32px 11px 12px;
+      cursor: pointer;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+      outline: none;
+      transition: all 0.2s;
+    }
+    .select-wrap::after {
+      content: '▾';
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--cyan);
+      font-size: 11px;
+      pointer-events: none;
+      text-shadow: 0 0 6px #00F5FF44;
+    }
+    .select-wrap select:focus,
+    .select-wrap select:hover {
+      border-color: var(--cyan);
+      box-shadow: 0 0 12px #00F5FF22;
+    }
+    .select-wrap select option {
+      background: var(--void);
+      color: var(--cyan);
+    }
+
+    /* Buttons */
+    .btn {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 22px;
+      border: 1px solid;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+      background: transparent;
+      width: 100%;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.10) 50%, transparent 70%);
+      transform: translateX(-110%);
+      transition: transform 0.6s;
+      pointer-events: none;
+    }
+    .btn:hover::after { transform: translateX(110%); }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: scale(0.97); box-shadow: none !important; }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    .btn-pink   { background: #FF2D6F15; border-color: var(--pink);   color: var(--pink); }
+    .btn-pink:hover   { box-shadow: var(--glow-pink); }
+    .btn-cyan   { background: #00F5FF15; border-color: var(--cyan);   color: var(--cyan); }
+    .btn-cyan:hover   { box-shadow: var(--glow-cyan); }
+    .btn-purple { background: #9F00FF15; border-color: var(--purple); color: #B366FF; }
+    .btn-purple:hover { box-shadow: var(--glow-purple); }
+
+    .btn .ripple {
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      animation: ripple 0.55s linear;
+      background: currentColor;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .status {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: var(--dim);
+      letter-spacing: 1px;
+      padding: 9px 12px;
+      background: #060E1E;
+      border-left: 2px solid var(--whisper);
+      transition: all 0.3s;
+    }
+    .status.processing { border-left-color: var(--amber); color: var(--amber); }
+    .status.ok         { border-left-color: var(--green); color: var(--green); }
+    .status.err        { border-left-color: var(--pink);  color: var(--pink); }
+
+    /* ============================================================
+       ACTION LOG STREAM
+       ============================================================ */
+    .log-container {
+      display: flex;
+      flex-direction: column;
+      max-height: 320px;
+      overflow-y: auto;
+      gap: 2px;
+      padding-right: 4px;
+    }
+    .log-container::-webkit-scrollbar { width: 4px; }
+    .log-container::-webkit-scrollbar-track { background: var(--void); }
+    .log-container::-webkit-scrollbar-thumb { background: #00F5FF22; border-radius: 2px; }
+    .log-container::-webkit-scrollbar-thumb:hover { background: #00F5FF44; }
+
+    .log-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 8px 12px;
+      background: #060E1E;
+      border-left: 2px solid var(--edge);
+      transition: all 0.3s;
+      animation: slide-in-bottom 0.22s ease;
+    }
+    .log-item.latest {
+      border-left-color: var(--cyan);
+      background: #00F5FF06;
+    }
+    .log-item .ts {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 8px;
+      color: var(--whisper);
+      letter-spacing: 1px;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+    .log-item .content {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: var(--dim);
+      flex: 1;
+      min-width: 0;
+      word-break: break-word;
+      line-height: 1.5;
+    }
+    .log-item.latest .content { color: var(--text); }
+    .log-item .content strong { color: var(--cyan); font-weight: 400; }
+
+    .badge {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 7px;
+      border: 1px solid;
+      flex-shrink: 0;
+      align-self: flex-start;
+    }
+    .badge-approve { color: var(--green);  border-color: #00FF9D33; background: #00FF9D08; }
+    .badge-flag    { color: var(--amber);  border-color: #FFAA0033; background: #FFAA0008; }
+    .badge-suggest { color: #B366FF;       border-color: #9F00FF33; background: #9F00FF08; }
+    .badge-info    { color: var(--cyan);   border-color: #00F5FF33; background: #00F5FF08; }
+    .badge-err     { color: var(--pink);   border-color: #FF2D6F33; background: #FF2D6F08; }
+
+    /* ============================================================
+       STAT CARDS
+       ============================================================ */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+    }
+    .stat-card {
+      position: relative;
+      background: var(--abyss);
+      padding: 18px 18px 16px;
+      border-left: 2px solid var(--edge2);
+      clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+      transition: all 0.4s;
+      overflow: hidden;
+      min-height: 110px;
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--card-color, var(--cyan)), transparent);
+      opacity: 0.6;
+    }
+    .stat-card.flash { box-shadow: 0 0 30px var(--card-glow, #00F5FF44); }
+    .stat-card .stat-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      color: var(--faint);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .stat-card .stat-value {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: 26px;
+      color: var(--card-color, var(--cyan));
+      text-shadow: 0 0 18px var(--card-glow, #00F5FF55);
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .stat-card .stat-value.small { font-size: 16px; letter-spacing: 1px; }
+    .stat-card .corner-deco {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      width: 8px;
+      height: 8px;
+      border-right: 1px solid var(--card-color, var(--cyan));
+      border-bottom: 1px solid var(--card-color, var(--cyan));
+      opacity: 0.5;
+    }
+    .stat-cyan   { --card-color: var(--cyan);   --card-glow: #00F5FF44; border-left-color: var(--cyan); }
+    .stat-amber  { --card-color: var(--amber);  --card-glow: #FFAA0044; border-left-color: var(--amber); }
+    .stat-green  { --card-color: var(--green);  --card-glow: #00FF9D44; border-left-color: var(--green); }
+    .stat-pink   { --card-color: var(--pink);   --card-glow: #FF2D6F44; border-left-color: var(--pink); }
+    .stat-purple { --card-color: var(--purple); --card-glow: #9F00FF44; border-left-color: var(--purple); }
+
+    .alive-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      box-shadow: 0 0 6px currentColor;
+      animation: pulse-dot 1.5s ease-in-out infinite;
+    }
+
+    .reward-bar {
+      height: 2px;
+      background: var(--surface);
+      margin-top: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    .reward-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--pink), var(--amber), var(--cyan));
+      transition: width 0.5s ease;
+      box-shadow: 0 0 8px currentColor;
+    }
+
+    /* ============================================================
+       TERMINAL / JSON PANEL
+       ============================================================ */
+    .terminal-panel {
+      padding: 0;
+      background: var(--abyss);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .terminal-header {
+      background: #060E1E;
+      border-bottom: 1px solid var(--edge);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .lights { display: flex; gap: 6px; }
+    .light {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .light:hover { transform: scale(1.3); }
+    .light-pink  { background: var(--pink);  box-shadow: 0 0 6px var(--pink); }
+    .light-amber { background: var(--amber); box-shadow: 0 0 6px var(--amber); }
+    .light-green { background: var(--green); box-shadow: 0 0 6px var(--green); }
+    .terminal-title {
+      flex: 1;
+      text-align: center;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      color: var(--faint);
+      letter-spacing: 2px;
+    }
+    .live-badge {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 8px;
+      color: var(--green);
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .live-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 4px var(--green);
+      animation: blink 1s linear infinite;
+    }
+
+    .terminal-body {
+      background: var(--void);
+      padding: 16px 18px;
+      flex: 1;
+      max-height: 600px;
+      overflow-y: auto;
+      position: relative;
+    }
+    .terminal-body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 6px);
+      opacity: 0.5;
+    }
+    .terminal-body::-webkit-scrollbar { width: 4px; }
+    .terminal-body::-webkit-scrollbar-track { background: var(--void); }
+    .terminal-body::-webkit-scrollbar-thumb { background: #00F5FF22; border-radius: 2px; }
+    .terminal-body::-webkit-scrollbar-thumb:hover { background: #00F5FF44; }
+
+    #json-pre {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      line-height: 1.85;
+      color: var(--text);
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      position: relative;
+      z-index: 1;
+    }
+    #json-pre .jk { color: var(--cyan); }
+    #json-pre .js { color: var(--green); }
+    #json-pre .jn { color: var(--amber); }
+    #json-pre .jb { color: var(--pink); }
+    #json-pre .ju { color: var(--faint); }
+    #json-pre .jp { color: var(--whisper); }
+    #json-pre .jc { color: var(--whisper); font-style: italic; }
+
+    .terminal-body.slide-in { animation: slide-in-right 0.25s ease; }
+
+    /* Loading hex spinner */
+    .hex-spinner {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      vertical-align: middle;
+      margin-right: 4px;
+      position: relative;
+    }
+    .hex-spinner svg { display: block; width: 100%; height: 100%; }
+
+    /* ============================================================
+       BOOT OVERLAY
+       ============================================================ */
+    #boot-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--void);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 18px;
+      transition: opacity 0.5s;
+    }
+    #boot-overlay.fade { opacity: 0; pointer-events: none; }
+    #boot-overlay .big-spinner { width: 64px; height: 64px; }
+    #boot-overlay .boot-text {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: var(--cyan);
+      letter-spacing: 4px;
+      text-shadow: 0 0 8px #00F5FF55;
+    }
+    #boot-overlay .boot-cursor {
+      display: inline-block;
+      width: 8px;
+      height: 12px;
+      background: var(--cyan);
+      animation: blink 0.8s steps(2) infinite;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+
+    /* ============================================================
+       ANIMATIONS
+       ============================================================ */
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 6px currentColor; opacity: 1; }
+      50%      { box-shadow: 0 0 14px currentColor; opacity: 0.7; }
+    }
+    @keyframes blink {
+      0%, 50%  { opacity: 1; }
+      51%, 100%{ opacity: 0.2; }
+    }
+    @keyframes spin     { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+    @keyframes spin-rev { from { transform: rotate(0); } to { transform: rotate(-360deg); } }
+    @keyframes glitch-anim {
+      0%, 100% { text-shadow: 0 0 40px #00F5FF66, 3px 0 #FF2D6F33, -3px 0 #9F00FF33; transform: translate(0); }
+      20%      { text-shadow: -3px 0 var(--pink), 3px 0 var(--purple); transform: translate(-2px, 0); }
+      40%      { text-shadow: 3px 0 var(--pink), -3px 0 var(--purple); transform: translate(2px, 0); }
+      60%      { text-shadow: -1px 0 var(--pink), 1px 0 var(--purple); transform: translate(0); }
+      80%      { text-shadow: 2px 2px var(--pink), -2px -2px var(--purple); transform: translate(0, 1px); }
+    }
+    @keyframes slide-in-right {
+      from { transform: translateX(20px); opacity: 0; }
+      to   { transform: translateX(0);     opacity: 1; }
+    }
+    @keyframes slide-in-bottom {
+      from { transform: translateY(8px);   opacity: 0; }
+      to   { transform: translateY(0);     opacity: 1; }
+    }
+    @keyframes ripple { to { transform: scale(4); opacity: 0; } }
+    @keyframes panel-in {
+      from { transform: translateY(20px); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+    @keyframes scanline-flicker {
+      0%, 96%, 100% { opacity: 1; }
+      97% { opacity: 1.4; }
+      98% { opacity: 0.85; }
+    }
+
+    .hud-panel.in {
+      animation: panel-in 0.5s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; padding: 12px; gap: 4px; }
+      .col { gap: 4px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .logo { font-size: 32px; }
+      .topbar { padding: 0 12px; }
+      .mini-metrics { gap: 12px; font-size: 9px; }
+      .hud-panel { padding: 16px; }
+    }
+    @media (max-width: 520px) {
+      .stats-grid { grid-template-columns: 1fr; }
+      .mini-metrics .mini:not(:last-child) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BOOT OVERLAY -->
+  <div id="boot-overlay">
+    <svg class="big-spinner" viewBox="0 0 100 100">
+      <polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5"
+               fill="none" stroke="#00F5FF" stroke-width="1.5" stroke-dasharray="6 6">
+        <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="3s" repeatCount="indefinite"/>
+      </polygon>
+      <polygon points="50,20 76,35 76,65 50,80 24,65 24,35"
+               fill="none" stroke="#9F00FF" stroke-width="1">
+        <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="2s" repeatCount="indefinite"/>
+      </polygon>
+      <circle cx="50" cy="50" r="3" fill="#9F00FF">
+        <animate attributeName="opacity" values="1;0.3;1" dur="1s" repeatCount="indefinite"/>
+      </circle>
+    </svg>
+    <div class="boot-text">// INITIALIZING CRISISOPS COCKPIT<span class="boot-cursor"></span></div>
+  </div>
+
+  <!-- TOP NAV -->
+  <nav class="topbar" aria-label="status bar">
+    <div class="brand">// CRISISOPS</div>
+    <div class="mini-metrics">
+      <span class="mini"><span class="dot crit" id="mini-dot-r"></span>REWARD: <span id="mini-reward">0.000</span></span>
+      <span class="mini"><span class="dot" id="mini-dot-s"></span>STEP: <span id="mini-step">0</span></span>
+      <span class="mini"><span class="dot pulse warn" id="mini-dot-status"></span><span id="mini-status">READY</span></span>
+    </div>
+  </nav>
+
+  <main class="grid">
+
+    <!-- LEFT COLUMN -->
+    <section class="col">
+
+      <!-- HERO -->
+      <div class="hud-panel hero-panel" data-sys="SYS:001">
+        <span class="accent-line"></span>
+        <span class="panel-id">SYS:001</span>
+        <div class="eyebrow">// TEAM AI APEX // META PYTORCH OPENENV HACKATHON 2026</div>
+        <h1 class="logo">CRISISOPS</h1>
+        <p class="tagline">
+          Multi-agent SRE training cockpit. Every action below calls the live OpenEnv
+          backend used to compute GRPO reward — a Primary SRE proposes, a Buddy reviews,
+          and the Layered Judge System scores the trajectory.
+        </p>
+        <div class="chips">
+          <span class="chip">5 microservices</span>
+          <span class="chip">10 SRE actions</span>
+          <span class="chip">4 incident families</span>
+          <span class="chip">PBRS</span>
+          <span class="chip">DIFFERENCE REWARDS</span>
+          <span class="chip">QWEN3-8B GRPO</span>
+        </div>
+        <div class="links">
+          <a class="chip chip-link" href="/docs" target="_blank" rel="noopener">API DOCS</a>
+          <a class="chip chip-link" href="/openapi.json" target="_blank" rel="noopener">OPENAPI</a>
+          <a class="chip chip-link" href="https://huggingface.co/Vk224/crisisops-qwen3-8b-grpo" target="_blank" rel="noopener">MODEL REPO</a>
+          <a class="chip chip-link" href="https://github.com/Vk2245/CrisisOps-Multi-Agent-SRE-Training-via-OpenEnv" target="_blank" rel="noopener">GITHUB</a>
+        </div>
+      </div>
+
+      <!-- CONTROLS -->
+      <div class="hud-panel" data-sys="SYS:002">
+        <span class="accent-line"></span>
+        <span class="panel-id">SYS:002</span>
+        <h2 class="section-h">// LIVE_DEMO_CONTROLS</h2>
+        <div class="control-row">
+          <div class="select-wrap">
+            <select id="difficulty">
+              <option value="easy">DIFFICULTY: EASY</option>
+              <option value="medium" selected>DIFFICULTY: MEDIUM</option>
+              <option value="hard">DIFFICULTY: HARD</option>
+              <option value="expert">DIFFICULTY: EXPERT</option>
+            </select>
+          </div>
+          <div class="select-wrap">
+            <select id="scenario">
+              <option value="">SCENARIO: RANDOM</option>
+              <option value="memory_leak">MEMORY LEAK</option>
+              <option value="connection_pool_exhaustion">CONN. POOL EXHAUSTION</option>
+              <option value="cascading_retry_storm">RETRY STORM</option>
+              <option value="config_drift">CONFIG DRIFT</option>
+            </select>
+          </div>
+        </div>
+        <div class="button-row">
+          <button class="btn btn-pink"   id="btn-reset" type="button">↺ RESET INCIDENT</button>
+          <button class="btn btn-cyan"   id="btn-step"  type="button">▶ RUN NEXT EXPERT BUDDYACTION</button>
+          <button class="btn btn-purple" id="btn-auto"  type="button">⚡ AUTO-SOLVE EPISODE</button>
+        </div>
+        <div class="status" id="status">// AWAITING INPUT // PRESS RESET TO GENERATE A 3 AM PAGERDUTY INCIDENT</div>
+      </div>
+
+      <!-- ACTION LOG -->
+      <div class="hud-panel" data-sys="SYS:003">
+        <span class="accent-line"></span>
+        <span class="panel-id">SYS:003</span>
+        <h2 class="section-h">// ACTION_LOG_STREAM</h2>
+        <div class="log-container" id="log">
+          <div class="log-item">
+            <span class="ts">--:--.---</span>
+            <span class="content">Log empty. Reset an incident to begin.</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- RIGHT COLUMN -->
+    <section class="col">
+
+      <!-- STAT CARDS -->
+      <div class="stats-grid">
+        <div class="stat-card stat-cyan" id="card-step">
+          <div class="stat-label">// ENV_STEP</div>
+          <div class="stat-value" id="stat-step">0</div>
+          <span class="corner-deco"></span>
+        </div>
+        <div class="stat-card stat-pink" id="card-reward">
+          <div class="stat-label">// TERMINAL_REWARD</div>
+          <div class="stat-value" id="stat-reward">— —</div>
+          <div class="reward-bar"><div class="reward-bar-fill" id="reward-bar-fill"></div></div>
+          <span class="corner-deco"></span>
+        </div>
+        <div class="stat-card stat-amber" id="card-status">
+          <div class="stat-label">// EPISODE_STATUS</div>
+          <div class="stat-value small" id="stat-status">READY <span class="alive-dot"></span></div>
+          <span class="corner-deco"></span>
+        </div>
+        <div class="stat-card stat-amber" id="card-incident">
+          <div class="stat-label">// CURRENT_INCIDENT</div>
+          <div class="stat-value small" id="stat-incident">NOT RESET</div>
+          <span class="corner-deco"></span>
+        </div>
+      </div>
+
+      <!-- TERMINAL JSON PANEL -->
+      <div class="hud-panel terminal-panel" data-sys="SYS:004">
+        <span class="accent-line"></span>
+        <div class="terminal-header">
+          <div class="lights">
+            <span class="light light-pink"  title="critical"></span>
+            <span class="light light-amber" title="warn"></span>
+            <span class="light light-green" title="ok"></span>
+          </div>
+          <div class="terminal-title">// OBSERVATION_STREAM.json</div>
+          <div class="live-badge"><span class="live-dot"></span>LIVE</div>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+<pre id="json-pre"><span class="jc">// AWAITING /reset RESPONSE...</span>
+<span class="jc">//</span>
+<span class="jc">// Press RESET INCIDENT at left to spawn a procedural PagerDuty alert.</span>
+<span class="jc">// Then RUN EXPERT BUDDYACTION will step the multi-agent</span>
+<span class="jc">// query_metrics &gt; read_logs &gt; check_dependencies &gt; remediate &gt; diagnose</span>
+<span class="jc">// trajectory through the live OpenEnv backend.</span>
+<span class="jc">//</span>
+<span class="jc">// All responses appear here with Layered Judge reward breakdown.</span></pre>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    /* ============================================================
+       STATE
+       ============================================================ */
+    const state = {
+      observation: null,
+      actions: [],
+      actionIndex: 0,
+      done: false,
+      reward: 0,
+      step: 0,
+      busy: false,
+    };
+
+    const services = ["api_gateway", "auth_service", "user_db", "order_service", "payment_service"];
+    const remediationByScenario = {
+      memory_leak: "restart_service",
+      connection_pool_exhaustion: "drain_connections",
+      cascading_retry_storm: "set_rate_limit",
+      config_drift: "rollback_config",
+    };
+
+    /* ============================================================
+       HELPERS
+       ============================================================ */
+    const el = (id) => document.getElementById(id);
+
+    function fmtTs() {
+      const d = new Date();
+      const mm = String(d.getMinutes()).padStart(2, '0');
+      const ss = String(d.getSeconds()).padStart(2, '0');
+      const ms = String(d.getMilliseconds()).padStart(3, '0');
+      return `${mm}:${ss}.${ms}`;
+    }
+
+    function escHtml(s) {
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    function pickObservation(payload) {
+      if (!payload) return {};
+      return payload.observation || payload;
+    }
+
+    function scenarioFromObservation(obs) {
+      const t = JSON.stringify(obs || {}).toLowerCase();
+      if (t.includes("config")) return "config_drift";
+      if (t.includes("connection") || t.includes("pool")) return "connection_pool_exhaustion";
+      if (t.includes("retry") || t.includes("rate")) return "cascading_retry_storm";
+      if (t.includes("memory") || t.includes("leak")) return "memory_leak";
+      return "memory_leak";
+    }
+
+    function serviceFromObservation(obs) {
+      const t = JSON.stringify(obs || {});
+      let best = "api_gateway", n = 0;
+      for (const s of services) {
+        if (s === "api_gateway") continue;
+        const matches = (t.match(new RegExp(s, 'g')) || []).length;
+        if (matches > n) { best = s; n = matches; }
+      }
+      return n === 0 ? "api_gateway" : best;
+    }
+
+    function wrap(action_type, target_service, rationale) {
+      return {
+        primary_action: { action_type, target_service, parameters: {} },
+        buddy_feedback: { feedback_type: "APPROVE", rationale }
+      };
+    }
+
+    function buildActions(obs) {
+      const root = serviceFromObservation(obs);
+      const scenario = scenarioFromObservation(obs);
+      const remediation = remediationByScenario[scenario] || "restart_service";
+      const severity = scenario === "memory_leak" ? "P2" : "P1";
+      const diagnosis = {
+        root_cause: scenario + ":" + root,
+        root_cause_service: root,
+        severity,
+      };
+      return [
+        wrap("query_metrics", "api_gateway", "Start at customer symptom."),
+        wrap("query_metrics", root, "Check suspected root."),
+        wrap("read_logs", root, "Gather evidence."),
+        wrap("check_dependencies", root, "Confirm cascade."),
+        {
+          primary_action: {
+            action_type: remediation,
+            target_service: root,
+            parameters: remediation === "set_rate_limit" ? { limit_per_minute: 1200 } : {}
+          },
+          buddy_feedback: {
+            feedback_type: "FLAG_RISK",
+            rationale: "State-changing, but evidence supports the root.",
+            risk_flags: ["state_changing_remediation"]
+          }
+        },
+        {
+          primary_action: { action_type: "diagnose", target_service: null, parameters: diagnosis },
+          buddy_feedback: { feedback_type: "APPROVE", rationale: "Evidence and remediation support this diagnosis.", diagnosis }
+        }
+      ];
+    }
+
+    /* ============================================================
+       API
+       ============================================================ */
+    async function postJson(path, payload) {
+      const r = await fetch(path, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload || {})
+      });
+      if (!r.ok) {
+        const text = await r.text();
+        throw new Error(`${path} -> HTTP ${r.status}: ${text.slice(0, 200)}`);
+      }
+      return r.json();
+    }
+
+    async function stepApi(action) {
+      try {
+        return await postJson("/step", action);
+      } catch (e) {
+        return await postJson("/step", { action });
+      }
+    }
+
+    /* ============================================================
+       JSON SYNTAX HIGHLIGHTER
+       ============================================================ */
+    function highlightJson(obj) {
+      let json;
+      try { json = JSON.stringify(obj, null, 2); }
+      catch (e) { return escHtml(String(obj)); }
+      json = escHtml(json);
+      // strings (and keys when followed by colon)
+      json = json.replace(
+        /("(?:\\u[a-fA-F0-9]{4}|\\[^u]|[^\\"])*")(\s*:)?/g,
+        function (match, str, _, colon) {
+          if (colon !== undefined) {
+            return '<span class="jk">' + str + '</span><span class="jp">' + colon + '</span>';
+          }
+          return '<span class="js">' + str + '</span>';
+        }
+      );
+      // booleans / null / numbers
+      json = json.replace(/\b(true|false)\b/g, '<span class="jb">$1</span>');
+      json = json.replace(/\bnull\b/g, '<span class="ju">null</span>');
+      json = json.replace(/(?<![\w<])(-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)\b/g, '<span class="jn">$1</span>');
+      // structural punctuation
+      json = json.replace(/([{}\[\],])/g, '<span class="jp">$1</span>');
+      return json;
+    }
+
+    /* ============================================================
+       NUMBER TICK ANIMATION
+       ============================================================ */
+    function tickNumber(node, from, to, fmt, durMs) {
+      durMs = durMs || 400;
+      fmt = fmt || ((v) => v.toFixed(3));
+      const start = performance.now();
+      function step(t) {
+        const p = Math.min(1, (t - start) / durMs);
+        const ease = 1 - Math.pow(1 - p, 4);
+        const v = from + (to - from) * ease;
+        node.textContent = fmt(v);
+        if (p < 1) requestAnimationFrame(step);
+        else node.textContent = fmt(to);
+      }
+      requestAnimationFrame(step);
+    }
+
+    /* ============================================================
+       RENDER
+       ============================================================ */
+    function flashCard(cardId) {
+      const card = el(cardId);
+      if (!card) return;
+      card.classList.add('flash');
+      setTimeout(() => card.classList.remove('flash'), 600);
+    }
+
+    function setStatus(text, kind) {
+      const node = el('status');
+      node.className = 'status' + (kind ? ' ' + kind : '');
+      node.textContent = text;
+    }
+
+    function updateMiniMetrics() {
+      el('mini-reward').textContent = state.reward.toFixed(3);
+      el('mini-step').textContent = String(state.step);
+      const status = state.done ? 'COMPLETE' : (state.observation ? 'ACTIVE' : 'READY');
+      el('mini-status').textContent = status;
+
+      const dotR = el('mini-dot-r');
+      let rCls = 'crit';
+      if (state.reward >= 0.7) rCls = 'active';
+      else if (state.reward >= 0.3) rCls = 'warn';
+      dotR.className = 'dot ' + rCls;
+
+      const dotS = el('mini-dot-s');
+      dotS.className = 'dot ' + (state.step > 0 ? 'active' : '');
+
+      const dotStatus = el('mini-dot-status');
+      let sCls = 'pulse warn';
+      if (state.done) sCls = 'pulse active';
+      else if (state.observation) sCls = 'pulse active';
+      dotStatus.className = 'dot ' + sCls;
+    }
+
+    function renderJson(payload) {
+      const tb = el('terminal-body');
+      el('json-pre').innerHTML = highlightJson(payload);
+      tb.classList.remove('slide-in');
+      void tb.offsetWidth;
+      tb.classList.add('slide-in');
+    }
+
+    function recolorRewardCard() {
+      const card = el('card-reward');
+      card.classList.remove('stat-cyan', 'stat-amber', 'stat-green', 'stat-pink');
+      let cls = 'stat-pink';
+      if (state.reward >= 0.7) cls = 'stat-green';
+      else if (state.reward >= 0.3) cls = 'stat-amber';
+      card.classList.add(cls);
+    }
+
+    function recolorStatusCard() {
+      const card = el('card-status');
+      card.classList.remove('stat-cyan', 'stat-amber', 'stat-green', 'stat-pink');
+      if (state.done) card.classList.add('stat-green');
+      else if (state.observation) card.classList.add('stat-cyan');
+      else card.classList.add('stat-amber');
+    }
+
+    function updateStats(prev) {
+      const obs = state.observation || {};
+      const newReward = Number(obs.reward || 0);
+      const newStep = Number(obs.step_count != null ? obs.step_count : state.actionIndex);
+
+      tickNumber(
+        el('stat-reward'),
+        prev.reward,
+        newReward,
+        v => (v === 0 && newReward === 0) ? '— —' : v.toFixed(3),
+      );
+      tickNumber(el('stat-step'), prev.step, newStep, v => String(Math.round(v)), 300);
+
+      state.reward = newReward;
+      state.step = newStep;
+      state.done = !!obs.done;
+
+      const fill = el('reward-bar-fill');
+      const pct = Math.max(0, Math.min(1, newReward));
+      fill.style.width = (pct * 100) + '%';
+
+      const statusNode = el('stat-status');
+      if (state.done) statusNode.innerHTML = 'COMPLETE <span class="alive-dot"></span>';
+      else if (state.observation) statusNode.innerHTML = 'ACTIVE <span class="alive-dot"></span>';
+      else statusNode.innerHTML = 'READY <span class="alive-dot"></span>';
+
+      if (state.observation) {
+        el('stat-incident').textContent = scenarioFromObservation(state.observation).replaceAll('_', ' ').toUpperCase();
+      }
+
+      recolorRewardCard();
+      recolorStatusCard();
+      flashCard('card-reward');
+      flashCard('card-step');
+      updateMiniMetrics();
+    }
+
+    /* ============================================================
+       LOG STREAM
+       ============================================================ */
+    function clearLog() { el('log').innerHTML = ''; }
+
+    function addLog(title, body, badge) {
+      document.querySelectorAll('.log-item.latest').forEach(n => n.classList.remove('latest'));
+      const item = document.createElement('div');
+      item.className = 'log-item latest';
+
+      const ts = document.createElement('span');
+      ts.className = 'ts';
+      ts.textContent = fmtTs();
+
+      const content = document.createElement('span');
+      content.className = 'content';
+      content.innerHTML = '<strong>' + escHtml(title) + '</strong>' + (body ? '<br>' + escHtml(body) : '');
+
+      item.appendChild(ts);
+      item.appendChild(content);
+      if (badge) {
+        const b = document.createElement('span');
+        b.className = 'badge ' + (badge.cls || 'badge-info');
+        b.textContent = badge.text;
+        item.appendChild(b);
+      }
+      const log = el('log');
+      log.appendChild(item);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    /* ============================================================
+       BUTTON RIPPLE
+       ============================================================ */
+    function attachRipple(btn) {
+      btn.addEventListener('click', function (e) {
+        const rect = btn.getBoundingClientRect();
+        const r = document.createElement('span');
+        r.className = 'ripple';
+        const size = Math.max(rect.width, rect.height);
+        r.style.width = r.style.height = size + 'px';
+        r.style.left = (e.clientX - rect.left - size / 2) + 'px';
+        r.style.top  = (e.clientY - rect.top  - size / 2) + 'px';
+        btn.appendChild(r);
+        setTimeout(() => r.remove(), 600);
+      });
+    }
+
+    /* ============================================================
+       LOADING STATE
+       ============================================================ */
+    function setBusy(on) {
+      const tb = document.querySelector('.terminal-panel');
+      if (tb) tb.classList.toggle('active-load', !!on);
+      ['btn-reset', 'btn-step', 'btn-auto'].forEach(id => el(id).disabled = !!on);
+    }
+
+    function withSpinner(btn, label, fn) {
+      const original = btn.innerHTML;
+      btn.innerHTML =
+        '<span class="hex-spinner"><svg viewBox="0 0 24 24">' +
+          '<polygon points="12,2 21,7 21,17 12,22 3,17 3,7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 2">' +
+            '<animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="2s" repeatCount="indefinite"/>' +
+          '</polygon>' +
+        '</svg></span>' + label;
+      return Promise.resolve(fn()).finally(() => { btn.innerHTML = original; });
+    }
+
+    /* ============================================================
+       HANDLERS
+       ============================================================ */
+    async function resetEnv() {
+      if (state.busy) return;
+      state.busy = true;
+      setBusy(true);
+      const btn = el('btn-reset');
+      setStatus('// RESETTING ENVIRONMENT...', 'processing');
+      await withSpinner(btn, 'PROCESSING...', async () => {
+        try {
+          const difficulty = el('difficulty').value;
+          const scenario = el('scenario').value;
+          const payload = { difficulty };
+          if (scenario) payload.scenario_type = scenario;
+          const data = await postJson('/reset', payload);
+          const prev = { reward: state.reward, step: state.step };
+          state.observation = pickObservation(data);
+          state.actions = buildActions(state.observation);
+          state.actionIndex = 0;
+          state.done = false;
+          clearLog();
+          addLog('// EPISODE_RESET',
+                 `Difficulty=${difficulty}; planned ${state.actions.length} BuddyActions.`,
+                 { text: 'INFO', cls: 'badge-info' });
+          renderJson(data);
+          updateStats(prev);
+          setStatus('// INCIDENT READY // RUN EXPERT BUDDYACTION OR AUTO-SOLVE', 'ok');
+        } catch (e) {
+          setStatus('// ERROR: ' + e.message, 'err');
+          addLog('// RESET_ERROR', e.message, { text: 'ERROR', cls: 'badge-err' });
+        }
+      });
+      setBusy(false);
+      state.busy = false;
+    }
+
+    async function runStep() {
+      if (state.busy) return;
+      if (!state.actions.length) { await resetEnv(); return; }
+      if (state.actionIndex >= state.actions.length || state.done) {
+        setStatus('// EPISODE FINISHED // RESET TO PLAY AGAIN', 'ok');
+        return;
+      }
+      state.busy = true;
+      setBusy(true);
+      const btn = el('btn-step');
+      const action = state.actions[state.actionIndex++];
+      const at = action.primary_action.action_type;
+      const tgt = action.primary_action.target_service || 'diagnosis';
+      const fb = action.buddy_feedback.feedback_type;
+      setStatus(`// EXECUTING ${at}:${tgt}...`, 'processing');
+      await withSpinner(btn, 'PROCESSING...', async () => {
+        try {
+          const data = await stepApi(action);
+          const obs = pickObservation(data);
+          const before = { reward: state.reward, step: state.step };
+          state.observation = obs;
+          renderJson(data);
+          updateStats(before);
+          const badgeMap = {
+            APPROVE: 'badge-approve',
+            FLAG_RISK: 'badge-flag',
+            SUGGEST_ALTERNATIVE: 'badge-suggest'
+          };
+          addLog(at + ':' + tgt,
+                 obs.action_result || '(no result text)',
+                 { text: fb, cls: badgeMap[fb] || 'badge-info' });
+          if (state.done) {
+            setStatus('// EPISODE COMPLETE // LAYERED JUDGES SCORED', 'ok');
+            addLog('// EPISODE_COMPLETE',
+                   'Reward=' + state.reward.toFixed(3),
+                   { text: 'DONE', cls: 'badge-approve' });
+          } else {
+            setStatus(`// ACTION OK // STEP ${state.step}`, 'ok');
+          }
+        } catch (e) {
+          setStatus('// ERROR: ' + e.message, 'err');
+          addLog('// STEP_ERROR', e.message, { text: 'ERROR', cls: 'badge-err' });
+        }
+      });
+      setBusy(false);
+      state.busy = false;
+    }
+
+    async function autoSolve() {
+      if (state.busy) return;
+      if (!state.actions.length) await resetEnv();
+      while (state.actionIndex < state.actions.length && !state.done) {
+        await runStep();
+        await new Promise(r => setTimeout(r, 280));
+      }
+    }
+
+    /* ============================================================
+       BOOT
+       ============================================================ */
+    function boot() {
+      ['btn-reset', 'btn-step', 'btn-auto'].forEach(id => attachRipple(el(id)));
+      el('btn-reset').addEventListener('click', resetEnv);
+      el('btn-step').addEventListener('click', runStep);
+      el('btn-auto').addEventListener('click', autoSolve);
+
+      // Stagger panel entrance animations
+      const panels = document.querySelectorAll('.hud-panel');
+      panels.forEach((p, i) => {
+        p.classList.add('in');
+        p.style.animationDelay = (90 * i) + 'ms';
+      });
+
+      // Random subtle glitch on logo
+      setInterval(() => {
+        const logo = document.querySelector('.logo');
+        if (!logo) return;
+        if (Math.random() < 0.05) {
+          logo.style.animation = 'none';
+          void logo.offsetWidth;
+          logo.style.animation = 'glitch-anim 0.3s steps(2) 1';
+        }
+      }, 5000);
+
+      // Hide boot overlay
+      setTimeout(() => {
+        const o = el('boot-overlay');
+        if (!o) return;
+        o.classList.add('fade');
+        setTimeout(() => o.remove(), 600);
+      }, 800);
+
+      updateMiniMetrics();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', boot);
+    } else {
+      boot();
+    }
+  </script>
+</body>
+</html>
