@@ -2,6 +2,7 @@
 *.txt
 *.md
 !README.md
+!blog.md
 !*/README.md
 
 # Hackathon reference PDFs (not part of submission)
