@@ -46,6 +46,15 @@ param(
     [string]$RepoRef = "main",
     [int]$MaxGrpoSteps = 300,
     [int]$NumTrainEpisodes = 360,
+    [int]$MaxSeqLength = 4096,
+    [int]$LoraRank = 32,
+    [int]$PerDeviceTrainBatchSize = 4,
+    [int]$GradientAccumulationSteps = 2,
+    [int]$NumGenerations = 4,
+    [int]$MaxPromptLength = 2048,
+    [int]$MaxCompletionLength = 1024,
+    [double]$ModelGpuMemoryUtilization = 0.70,
+    [double]$VllmGpuMemoryUtilization = 0.35,
     [string]$WandbKey = "",
     [string]$BaseImage = "pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel"
 )
@@ -62,6 +71,10 @@ Write-Host " Repo:            $RepoUrl @ $RepoRef"
 Write-Host " Output repo:     $OutputRepo"
 Write-Host " GRPO steps:      $MaxGrpoSteps"
 Write-Host " Episodes:        $NumTrainEpisodes"
+Write-Host " Max seq length:  $MaxSeqLength"
+Write-Host " LoRA rank:       $LoraRank"
+Write-Host " Batch/gen:       batch=$PerDeviceTrainBatchSize grad_accum=$GradientAccumulationSteps generations=$NumGenerations"
+Write-Host " vLLM/model mem:  vllm=$VllmGpuMemoryUtilization model=$ModelGpuMemoryUtilization"
 Write-Host " W&B logging:     $([bool]$WandbKey)"
 Write-Host "=================================================================="
 
@@ -95,6 +108,15 @@ $arguments = @(
     "--env", "HF_OUTPUT_REPO=$OutputRepo",
     "--env", "MAX_GRPO_STEPS=$MaxGrpoSteps",
     "--env", "NUM_TRAIN_EPISODES=$NumTrainEpisodes",
+    "--env", "MAX_SEQ_LENGTH=$MaxSeqLength",
+    "--env", "LORA_RANK=$LoraRank",
+    "--env", "PER_DEVICE_TRAIN_BATCH_SIZE=$PerDeviceTrainBatchSize",
+    "--env", "GRADIENT_ACCUMULATION_STEPS=$GradientAccumulationSteps",
+    "--env", "NUM_GENERATIONS=$NumGenerations",
+    "--env", "MAX_PROMPT_LENGTH=$MaxPromptLength",
+    "--env", "MAX_COMPLETION_LENGTH=$MaxCompletionLength",
+    "--env", "MODEL_GPU_MEMORY_UTILIZATION=$ModelGpuMemoryUtilization",
+    "--env", "VLLM_GPU_MEMORY_UTILIZATION=$VllmGpuMemoryUtilization",
     "--env", "MODEL_NAME=unsloth/Qwen3-8B"
 )
 

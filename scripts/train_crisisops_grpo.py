@@ -77,6 +77,13 @@ MAX_GRPO_STEPS = int(_env("MAX_GRPO_STEPS", "300"))
 BASE_SEED = int(_env("BASE_SEED", "20260425"))
 MAX_SEQ_LENGTH = int(_env("MAX_SEQ_LENGTH", "4096"))
 LORA_RANK = int(_env("LORA_RANK", "32"))
+MODEL_GPU_MEMORY_UTILIZATION = float(_env("MODEL_GPU_MEMORY_UTILIZATION", "0.70"))
+VLLM_GPU_MEMORY_UTILIZATION = float(_env("VLLM_GPU_MEMORY_UTILIZATION", "0.35"))
+PER_DEVICE_TRAIN_BATCH_SIZE = int(_env("PER_DEVICE_TRAIN_BATCH_SIZE", "4"))
+GRADIENT_ACCUMULATION_STEPS = int(_env("GRADIENT_ACCUMULATION_STEPS", "2"))
+NUM_GENERATIONS = int(_env("NUM_GENERATIONS", "4"))
+MAX_PROMPT_LENGTH = int(_env("MAX_PROMPT_LENGTH", "2048"))
+MAX_COMPLETION_LENGTH = int(_env("MAX_COMPLETION_LENGTH", "1024"))
 
 
 def _log(msg: str) -> None:
@@ -150,7 +157,7 @@ model, tokenizer = FastLanguageModel.from_pretrained(
     load_in_4bit=True,
     fast_inference=True,
     max_lora_rank=LORA_RANK,
-    gpu_memory_utilization=0.70,
+    gpu_memory_utilization=MODEL_GPU_MEMORY_UTILIZATION,
 )
 
 model = FastLanguageModel.get_peft_model(
@@ -411,11 +418,11 @@ grpo_kwargs = dict(
     lr_scheduler_type="cosine",
     optim="paged_adamw_8bit",
     bf16=True,
-    per_device_train_batch_size=4,
-    gradient_accumulation_steps=2,
-    num_generations=4,
-    max_prompt_length=2048,
-    max_completion_length=1024,
+    per_device_train_batch_size=PER_DEVICE_TRAIN_BATCH_SIZE,
+    gradient_accumulation_steps=GRADIENT_ACCUMULATION_STEPS,
+    num_generations=NUM_GENERATIONS,
+    max_prompt_length=MAX_PROMPT_LENGTH,
+    max_completion_length=MAX_COMPLETION_LENGTH,
     max_steps=MAX_GRPO_STEPS,
     beta=0.02,
     temperature=0.8,
@@ -424,7 +431,7 @@ grpo_kwargs = dict(
     report_to="wandb" if _use_wandb else "none",
     use_vllm=True,
     vllm_mode="colocate",
-    vllm_gpu_memory_utilization=0.35,
+    vllm_gpu_memory_utilization=VLLM_GPU_MEMORY_UTILIZATION,
     log_completions=True,
 )
 
