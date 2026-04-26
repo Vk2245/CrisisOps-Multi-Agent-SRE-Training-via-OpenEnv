@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js" defer></script>
   <style>
     /* ============================================================
        CRISISOPS v2 // CYBERPUNK NEON DARK // HUD TERMINAL
@@ -774,6 +775,593 @@
     }
 
     /* ============================================================
+       DAG VIEW (Feature 1)
+       ============================================================ */
+    .terminal-tabs {
+      display: flex;
+      gap: 4px;
+      margin-left: 10px;
+    }
+    .tab-btn {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      background: transparent;
+      border: 1px solid var(--edge);
+      color: var(--faint);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-transform: uppercase;
+    }
+    .tab-btn:hover { border-color: #00F5FF44; color: var(--dim); }
+    .tab-btn.active {
+      border-color: #00F5FF44;
+      color: var(--cyan);
+      background: #00F5FF0a;
+    }
+
+    .dag-view, .raw-view { width: 100%; }
+    .dag-view[hidden], .raw-view[hidden] { display: none !important; }
+
+    .dag-view {
+      position: relative;
+      padding: 18px 14px 14px;
+      min-height: 480px;
+    }
+    .dag-view::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><polygon points='30,2 56,17 56,43 30,58 4,43 4,17' fill='none' stroke='%2300F5FF' stroke-width='0.6'/></svg>");
+      background-size: 60px 60px;
+      opacity: 0.04;
+      z-index: 0;
+    }
+    .dag-canvas {
+      width: 100%;
+      height: auto;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+
+    .dag-empty {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: var(--whisper);
+      letter-spacing: 2px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .dag-empty .empty-cursor {
+      display: inline-block;
+      width: 6px;
+      height: 11px;
+      background: var(--whisper);
+      animation: blink 0.8s steps(2) infinite;
+    }
+
+    /* SVG element styles */
+    .dag-canvas .hex-node {
+      fill: #FFAA0022;
+      stroke: var(--amber);
+      stroke-width: 1.5;
+      filter: drop-shadow(0 0 8px #FFAA0066);
+    }
+    .dag-canvas .hex-pulse {
+      fill: none;
+      stroke: var(--amber);
+      stroke-width: 2;
+      transform-origin: 330px 60px;
+      transform-box: fill-box;
+      animation: hex-pulse 1.2s ease-out infinite;
+    }
+    @keyframes hex-pulse {
+      0%   { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.4); }
+    }
+    .dag-canvas .hex-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      fill: var(--amber);
+      text-anchor: middle;
+      letter-spacing: 1px;
+      pointer-events: none;
+    }
+    .dag-canvas .hex-subtitle {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 8px;
+      fill: var(--dim);
+      text-anchor: middle;
+      letter-spacing: 1px;
+      pointer-events: none;
+    }
+
+    .dag-canvas .svc-rect {
+      fill: var(--abyss);
+      stroke: var(--edge2);
+      stroke-width: 1;
+      cursor: pointer;
+      transition: filter 0.2s, stroke 0.2s;
+    }
+    .dag-canvas .svc-rect:hover { filter: drop-shadow(0 0 6px #00F5FF44); }
+    .dag-canvas .svc-rect.degraded {
+      fill: #FF2D6F15;
+      stroke: var(--pink);
+      animation: svc-pulse 0.8s ease-in-out infinite alternate;
+    }
+    @keyframes svc-pulse {
+      0%   { stroke-opacity: 0.4; }
+      100% { stroke-opacity: 1; }
+    }
+    .dag-canvas .svc-rect.healthy {
+      fill: #00FF9D08;
+      stroke: #00FF9D55;
+    }
+    .dag-canvas .svc-rect.warning {
+      fill: #FFAA0015;
+      stroke: #FFAA0055;
+    }
+    .dag-canvas .svc-rect.alert-flash {
+      animation: svc-alert 0.6s ease-out 1;
+    }
+    @keyframes svc-alert {
+      0%   { filter: drop-shadow(0 0 0 #FF2D6F00); }
+      50%  { filter: drop-shadow(0 0 14px #FF2D6FAA); }
+      100% { filter: drop-shadow(0 0 0 #FF2D6F00); }
+    }
+
+    .dag-canvas .svc-accent { stroke: none; }
+    .dag-canvas .svc-accent.degraded { fill: var(--pink); }
+    .dag-canvas .svc-accent.healthy  { fill: var(--green); }
+    .dag-canvas .svc-accent.warning  { fill: var(--amber); }
+    .dag-canvas .svc-accent.unknown  { fill: var(--whisper); }
+
+    .dag-canvas .svc-name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      fill: var(--text);
+      pointer-events: none;
+      letter-spacing: 0.5px;
+    }
+    .dag-canvas .svc-line {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      fill: var(--dim);
+      pointer-events: none;
+      letter-spacing: 0.5px;
+    }
+
+    .dag-canvas .action-pill {
+      fill: #00F5FF08;
+      stroke: #00F5FF33;
+      stroke-width: 1;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .dag-canvas .action-pill:hover {
+      fill: #00F5FF18;
+      stroke: var(--cyan);
+      filter: drop-shadow(0 0 6px #00F5FF44);
+    }
+    .dag-canvas .action-pill.flash {
+      animation: pill-flash 0.3s ease-out 1;
+    }
+    @keyframes pill-flash {
+      0%   { stroke: var(--cyan); filter: drop-shadow(0 0 14px #00F5FFAA); }
+      100% { stroke: #00F5FF33; filter: drop-shadow(0 0 0 transparent); }
+    }
+    .dag-canvas .action-text {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      fill: var(--cyan);
+      letter-spacing: 1px;
+      pointer-events: none;
+      text-anchor: middle;
+    }
+
+    .dag-canvas .reward-diamond {
+      fill: #9F00FF15;
+      stroke: var(--purple);
+      stroke-width: 1.5;
+      filter: drop-shadow(0 0 10px #9F00FF44);
+    }
+    .dag-canvas .reward-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      fill: #B366FF;
+      text-anchor: middle;
+      pointer-events: none;
+      letter-spacing: 0.5px;
+    }
+
+    .dag-canvas .edge-incident {
+      fill: none;
+      stroke: var(--edge2);
+      stroke-width: 1;
+      stroke-dasharray: 3 5;
+      opacity: 0.7;
+    }
+    .dag-canvas .edge-incident.degraded {
+      stroke: #FF2D6F88;
+      stroke-dasharray: 5 3;
+      animation: flowDash 1s linear infinite;
+      opacity: 1;
+    }
+    @keyframes flowDash { to { stroke-dashoffset: -16; } }
+
+    .dag-canvas .edge-action {
+      fill: none;
+      stroke: #00F5FF15;
+      stroke-width: 0.5;
+      transition: stroke 0.2s, stroke-width 0.2s;
+    }
+    .dag-canvas .edge-action.highlight {
+      stroke: #00F5FF55;
+      stroke-width: 1;
+    }
+    .dag-canvas .edge-reward {
+      fill: none;
+      stroke: #9F00FF22;
+      stroke-width: 0.5;
+    }
+
+    .dag-tooltip {
+      margin: 12px 14px 6px;
+      padding: 12px 14px;
+      background: var(--abyss);
+      border: 1px solid #00F5FF33;
+      border-left: 3px solid var(--cyan);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: var(--dim);
+      position: relative;
+      z-index: 5;
+      animation: slide-in-bottom 0.2s ease;
+    }
+    .dag-tooltip[hidden] { display: none !important; }
+    .dag-tooltip .tt-title {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--cyan);
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .dag-tooltip .tt-close {
+      font-size: 10px;
+      color: var(--faint);
+      cursor: pointer;
+      letter-spacing: 1px;
+    }
+    .dag-tooltip .tt-close:hover { color: var(--pink); }
+    .dag-tooltip .tt-row { margin: 3px 0; line-height: 1.5; }
+    .dag-tooltip .tt-label { color: var(--faint); }
+    .dag-tooltip .tt-value { color: var(--text); }
+    .dag-tooltip .tt-section {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid var(--edge);
+    }
+    .dag-tooltip .tt-section-h {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      color: var(--cyan);
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .dag-tooltip .tt-chip {
+      display: inline-block;
+      padding: 2px 7px;
+      margin: 2px 4px 2px 0;
+      border: 1px solid #00F5FF33;
+      color: var(--cyan);
+      font-size: 9px;
+      letter-spacing: 1px;
+    }
+    .dag-tooltip .tt-alert {
+      color: var(--amber);
+      font-size: 9px;
+      margin: 3px 0;
+      padding-left: 8px;
+      border-left: 2px solid var(--amber);
+    }
+
+    /* ============================================================
+       TUTORIAL MODAL (Feature 2)
+       ============================================================ */
+    .tut-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(2, 8, 23, 0.92);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      animation: tut-fade-in 0.3s ease;
+    }
+    .tut-overlay[hidden] { display: none !important; }
+    .tut-overlay.fade-out { animation: tut-fade-out 0.2s ease forwards; }
+    @keyframes tut-fade-in  { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes tut-fade-out { from { opacity: 1; } to { opacity: 0; } }
+
+    .tut-modal {
+      position: relative;
+      z-index: 10000;
+      background: var(--abyss);
+      border: 1px solid var(--edge2);
+      max-width: 760px;
+      width: calc(100vw - 48px);
+      max-height: calc(100vh - 48px);
+      overflow-y: auto;
+      padding: 28px 30px 22px;
+      animation: tut-rise 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .tut-modal::-webkit-scrollbar { width: 4px; }
+    .tut-modal::-webkit-scrollbar-track { background: var(--void); }
+    .tut-modal::-webkit-scrollbar-thumb { background: #00F5FF22; }
+    @keyframes tut-rise {
+      from { transform: translateY(20px); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+    .tut-modal::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(to right,  var(--cyan) 16px, transparent 16px) top left  / 16px 2px no-repeat,
+        linear-gradient(to bottom, var(--cyan) 16px, transparent 16px) top left  / 2px 16px no-repeat,
+        linear-gradient(to left,   var(--cyan) 16px, transparent 16px) top right / 16px 2px no-repeat,
+        linear-gradient(to bottom, var(--cyan) 16px, transparent 16px) top right / 2px 16px no-repeat;
+    }
+    .tut-modal::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(to right,  #FF2D6F66 16px, transparent 16px) bottom left  / 16px 2px no-repeat,
+        linear-gradient(to top,    #FF2D6F66 16px, transparent 16px) bottom left  / 2px 16px no-repeat,
+        linear-gradient(to left,   #FF2D6F66 16px, transparent 16px) bottom right / 16px 2px no-repeat,
+        linear-gradient(to top,    #FF2D6F66 16px, transparent 16px) bottom right / 2px 16px no-repeat;
+    }
+    .tut-modal .tut-accent-line {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cyan), var(--purple), transparent);
+    }
+    .tut-modal .tut-sys-id {
+      position: absolute;
+      top: 8px;
+      right: 16px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 8px;
+      color: var(--whisper);
+      letter-spacing: 2px;
+    }
+    .tut-modal .tut-eyebrow {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      color: var(--faint);
+      letter-spacing: 4px;
+      margin-top: 4px;
+    }
+    .tut-modal .tut-title {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      color: var(--cyan);
+      text-shadow: 0 0 30px #00F5FF66, 2px 0 #FF2D6F33;
+      margin: 6px 0 4px;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+    .tut-modal .tut-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      color: var(--dim);
+    }
+    .tut-modal .tut-divider {
+      border: none;
+      border-top: 1px solid var(--edge);
+      margin: 16px 0;
+    }
+    .tut-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .tut-panel {
+      position: relative;
+      background: #060E1E;
+      border: 1px solid var(--edge);
+      border-left-width: 4px;
+      padding: 14px 16px;
+    }
+    .tut-panel.acc-amber  { border-left-color: var(--amber); }
+    .tut-panel.acc-cyan   { border-left-color: var(--cyan); }
+    .tut-panel.acc-green  { border-left-color: var(--green); }
+    .tut-panel.acc-purple { border-left-color: var(--purple); }
+    .tut-panel .p-eyebrow {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      color: var(--faint);
+      letter-spacing: 2px;
+    }
+    .tut-panel .p-title {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--text);
+      letter-spacing: 1px;
+      margin: 4px 0 8px;
+      text-transform: uppercase;
+    }
+    .tut-panel ul { list-style: none; margin: 0; padding: 0; }
+    .tut-panel li {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: var(--dim);
+      margin: 4px 0;
+      line-height: 1.55;
+      padding-left: 14px;
+      position: relative;
+    }
+    .tut-panel li::before {
+      content: '▸';
+      color: var(--cyan);
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 10px;
+    }
+    .tut-panel li b {
+      color: var(--text);
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    .tut-reward-strip {
+      margin-top: 14px;
+      padding: 14px 20px;
+      background: #00F5FF06;
+      border: 1px solid #00F5FF15;
+    }
+    .tut-reward-title {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: var(--cyan);
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .tut-reward-blocks {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .tut-reward-block { display: flex; flex-direction: column; }
+    .tut-reward-block .rb-label {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+    .tut-reward-block .rb-weight {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      color: var(--faint);
+      margin-top: 2px;
+      letter-spacing: 1px;
+    }
+    .tut-reward-block.rb-cyan  .rb-label { color: var(--cyan); }
+    .tut-reward-block.rb-green .rb-label { color: var(--green); }
+    .tut-reward-block.rb-amber .rb-label { color: var(--amber); }
+    .tut-reward-caption {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 11px;
+      color: var(--faint);
+      line-height: 1.55;
+    }
+
+    .tut-keys {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: center;
+    }
+    .tut-key {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      color: var(--faint);
+      letter-spacing: 1px;
+    }
+    .tut-key kbd {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      color: var(--cyan);
+      border: 1px solid var(--edge);
+      background: #060E1E;
+      padding: 4px 8px;
+      border-radius: 2px;
+      letter-spacing: 1px;
+      min-width: 16px;
+      text-align: center;
+    }
+    .tut-footer {
+      margin-top: 18px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .tut-btn-skip {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      color: var(--faint);
+      border: 1px solid var(--edge);
+      background: transparent;
+      padding: 11px 16px;
+      cursor: pointer;
+      letter-spacing: 1px;
+      transition: all 0.2s;
+      text-transform: uppercase;
+    }
+    .tut-btn-skip:hover {
+      color: var(--dim);
+      border-color: var(--whisper);
+    }
+    .tut-btn-launch {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      color: var(--cyan);
+      letter-spacing: 2px;
+      border: 1px solid var(--cyan);
+      background: #00F5FF15;
+      padding: 12px 22px;
+      cursor: pointer;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      transition: all 0.2s;
+      text-transform: uppercase;
+    }
+    .tut-btn-launch:hover {
+      box-shadow: 0 0 20px #00F5FF44;
+      transform: translateY(-1px);
+    }
+    @media (max-width: 700px) {
+      .tut-grid { grid-template-columns: 1fr; }
+      .tut-modal { padding: 22px 18px 18px; }
+      .tut-reward-blocks { gap: 16px; }
+    }
+
+    /* ============================================================
        RESPONSIVE
        ============================================================ */
     @media (max-width: 900px) {
@@ -809,6 +1397,97 @@
       </circle>
     </svg>
     <div class="boot-text">// INITIALIZING CRISISOPS COCKPIT<span class="boot-cursor"></span></div>
+  </div>
+
+  <!-- TUTORIAL MODAL (Feature 2) -->
+  <div class="tut-overlay" id="tut-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="tut-title">
+    <div class="tut-modal" role="document">
+      <span class="tut-accent-line"></span>
+      <span class="tut-sys-id">SYS:TUT</span>
+      <div class="tut-eyebrow">// MISSION_BRIEFING</div>
+      <h2 class="tut-title" id="tut-title">CrisisOps</h2>
+      <div class="tut-subtitle">Multi-agent SRE Training Cockpit</div>
+      <hr class="tut-divider" />
+
+      <div class="tut-grid">
+        <div class="tut-panel acc-amber">
+          <div class="p-eyebrow">// SYS:001</div>
+          <div class="p-title">Live Demo Controls</div>
+          <ul>
+            <li><b>DIFFICULTY</b> &mdash; sets model expertise level (easy/hard)</li>
+            <li><b>INCIDENT TYPE</b> &mdash; injects a scenario (retry storm, config drift...)</li>
+            <li><b>RESET INCIDENT</b> &mdash; wipes state, generates new PagerDuty alert</li>
+            <li><b>RUN BUDDYACTION</b> &mdash; steps the expert one action forward</li>
+            <li><b>AUTO-SOLVE</b> &mdash; runs all steps until episode ends</li>
+          </ul>
+        </div>
+        <div class="tut-panel acc-cyan">
+          <div class="p-eyebrow">// SYS:002</div>
+          <div class="p-title">Observation / DAG View</div>
+          <ul>
+            <li><b>HEX NODE</b> (top) &mdash; active incident type + time remaining</li>
+            <li><b>SERVICE NODES</b> &mdash; each microservice: health, CPU, latency, error rate</li>
+            <li><b>RED PULSE</b> &mdash; degraded service causing the incident</li>
+            <li><b>ACTION PILLS</b> &mdash; available SRE actions you can trigger</li>
+            <li><b>DIAMOND</b> (right) &mdash; live reward signal from the judge system</li>
+            <li>Switch to RAW tab to inspect the full JSON response</li>
+          </ul>
+        </div>
+        <div class="tut-panel acc-green">
+          <div class="p-eyebrow">// SYS:003</div>
+          <div class="p-title">HUD Metrics</div>
+          <ul>
+            <li><b>ENV STEP</b> &mdash; how many actions taken this episode</li>
+            <li><b>TERMINAL REWARD</b> &mdash; cumulative score (max ~1.0)</li>
+            <li><b>EPISODE STATUS</b> &mdash; ACTIVE while running, DONE when complete</li>
+            <li><b>CURRENT INCIDENT</b> &mdash; injected failure type</li>
+          </ul>
+        </div>
+        <div class="tut-panel acc-purple">
+          <div class="p-eyebrow">// SYS:004</div>
+          <div class="p-title">Action Log Stream</div>
+          <ul>
+            <li>Each row = one BuddyAction taken by the expert agent</li>
+            <li>Timestamp shows seconds elapsed since episode start</li>
+            <li><b>APPROVE / FLAG_RISK / SUGGEST_ALT</b> = Buddy reviewer verdict</li>
+            <li>Scroll up to see full episode history</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tut-reward-strip">
+        <div class="tut-reward-title">// HOW_REWARD_IS_SCORED</div>
+        <div class="tut-reward-blocks">
+          <div class="tut-reward-block rb-cyan">
+            <span class="rb-label">ROOT_CAUSE_ACCURACY</span>
+            <span class="rb-weight">WEIGHT &times;0.5</span>
+          </div>
+          <div class="tut-reward-block rb-green">
+            <span class="rb-label">PROCESS_QUALITY</span>
+            <span class="rb-weight">WEIGHT &times;0.3</span>
+          </div>
+          <div class="tut-reward-block rb-amber">
+            <span class="rb-label">DAMAGE_AUDIT</span>
+            <span class="rb-weight">WEIGHT &times;0.2</span>
+          </div>
+        </div>
+        <div class="tut-reward-caption">
+          Reward = weighted sum of three judge scores. Max episode reward &asymp; 1.0. Expert trajectory benchmarks at 0.57.
+        </div>
+      </div>
+
+      <div class="tut-keys">
+        <span class="tut-key"><kbd>R</kbd>Reset</span>
+        <span class="tut-key"><kbd>SPACE</kbd>Run Action</span>
+        <span class="tut-key"><kbd>A</kbd>Auto-Solve</span>
+        <span class="tut-key"><kbd>?</kbd>Toggle Tutorial</span>
+      </div>
+
+      <div class="tut-footer">
+        <button class="tut-btn-skip"   id="tut-skip"   type="button">SKIP &mdash; DON'T SHOW AGAIN</button>
+        <button class="tut-btn-launch" id="tut-launch" type="button">// LAUNCH_COCKPIT &rarr;</button>
+      </div>
+    </div>
   </div>
 
   <!-- TOP NAV -->
@@ -928,7 +1607,7 @@
         </div>
       </div>
 
-      <!-- TERMINAL JSON PANEL -->
+      <!-- TERMINAL OBSERVATION PANEL (DAG default + RAW JSON tab) -->
       <div class="hud-panel terminal-panel" data-sys="SYS:004">
         <span class="accent-line"></span>
         <div class="terminal-header">
@@ -937,10 +1616,34 @@
             <span class="light light-amber" title="warn"></span>
             <span class="light light-green" title="ok"></span>
           </div>
-          <div class="terminal-title">// OBSERVATION_STREAM.json</div>
+          <div class="terminal-title">// OBSERVATION_STREAM</div>
+          <div class="terminal-tabs" role="tablist">
+            <button class="tab-btn active" id="tab-dag" data-tab="dag" type="button" role="tab" aria-selected="true">DAG</button>
+            <button class="tab-btn"        id="tab-raw" data-tab="raw" type="button" role="tab" aria-selected="false">RAW</button>
+          </div>
           <div class="live-badge"><span class="live-dot"></span>LIVE</div>
         </div>
-        <div class="terminal-body" id="terminal-body">
+
+        <!-- DAG VIEW (default) -->
+        <div class="dag-view" id="dag-view">
+          <svg class="dag-canvas" id="dag-svg" viewBox="0 0 660 480" preserveAspectRatio="xMidYMid meet" aria-label="Incident DAG view">
+            <g id="dag-edges-incident"></g>
+            <g id="dag-edges-action"></g>
+            <g id="dag-edges-reward"></g>
+            <g id="dag-tier1"></g>
+            <g id="dag-tier2"></g>
+            <g id="dag-tier3"></g>
+            <g id="dag-reward"></g>
+          </svg>
+          <div class="dag-empty" id="dag-empty">
+            <span>// AWAITING_INCIDENT_DATA</span>
+            <span class="empty-cursor"></span>
+          </div>
+          <div class="dag-tooltip" id="dag-tooltip" hidden></div>
+        </div>
+
+        <!-- RAW VIEW (toggle target) -->
+        <div class="raw-view terminal-body" id="terminal-body" hidden>
 <pre id="json-pre"><span class="jc">// AWAITING /reset RESPONSE...</span>
 <span class="jc">//</span>
 <span class="jc">// Press RESET INCIDENT at left to spawn a procedural PagerDuty alert.</span>
@@ -1176,6 +1879,7 @@
       tb.classList.remove('slide-in');
       void tb.offsetWidth;
       tb.classList.add('slide-in');
+      try { updateDAG(payload); } catch (e) { console.warn('DAG render failed:', e); }
     }
 
     function recolorRewardCard() {
@@ -1395,6 +2099,418 @@
     }
 
     /* ============================================================
+       TAB TOGGLE (DAG / RAW)
+       ============================================================ */
+    function setTab(tab) {
+      const dag = el('dag-view');
+      const raw = el('terminal-body');
+      const tabDag = el('tab-dag');
+      const tabRaw = el('tab-raw');
+      if (tab === 'raw') {
+        dag.hidden = true;
+        raw.hidden = false;
+        tabDag.classList.remove('active'); tabDag.setAttribute('aria-selected', 'false');
+        tabRaw.classList.add('active');    tabRaw.setAttribute('aria-selected', 'true');
+      } else {
+        dag.hidden = false;
+        raw.hidden = true;
+        tabRaw.classList.remove('active'); tabRaw.setAttribute('aria-selected', 'false');
+        tabDag.classList.add('active');    tabDag.setAttribute('aria-selected', 'true');
+      }
+    }
+
+    /* ============================================================
+       DAG RENDER (Feature 1)
+       ============================================================ */
+    const DAG = {
+      services: ["api_gateway", "auth_service", "user_db", "order_service", "payment_service"],
+      actionMap: {
+        query_metrics:      ["api_gateway", "auth_service"],
+        read_logs:          ["api_gateway"],
+        check_dependencies: ["api_gateway", "order_service"],
+        run_healthcheck:    ["api_gateway", "auth_service", "user_db", "order_service", "payment_service"],
+        restart_service:    ["api_gateway"],
+        scale_service:      ["api_gateway", "order_service"],
+        rollback_config:    ["api_gateway"],
+        drain_connections:  ["api_gateway", "user_db"],
+        set_rate_limit:     ["api_gateway"],
+        diagnose:           ["api_gateway"],
+      },
+      // Layout constants (viewBox 660 x 480)
+      W: 660,
+      H: 480,
+      hex: { cx: 330, cy: 60, r: 35 },
+      svc: { y: 170, w: 110, h: 54, xs: [25, 155, 285, 415, 545] },
+      act: { ys: [290, 330], w: 100, h: 26, xs: [12, 124, 236, 348, 460] },
+      reward: { x: 615, y: 270, size: 36 },
+      lastObs: null,
+      lastDegraded: new Set(),
+    };
+
+    const SVG_NS = 'http://www.w3.org/2000/svg';
+    const svgEl = (name, attrs) => {
+      const n = document.createElementNS(SVG_NS, name);
+      if (attrs) for (const k in attrs) n.setAttribute(k, attrs[k]);
+      return n;
+    };
+
+    function safe(obj, path, fallback) {
+      try {
+        let cur = obj;
+        for (const p of path) { if (cur == null) return fallback; cur = cur[p]; }
+        return cur == null ? fallback : cur;
+      } catch (_) { return fallback; }
+    }
+
+    function classifyService(name, info, alerts) {
+      let status = '';
+      let cpu = null, mem = null, err = null, lat = null;
+
+      if (typeof info === 'string') {
+        status = info.toLowerCase();
+      } else if (info && typeof info === 'object') {
+        status = String(info.status || info.health || '').toLowerCase();
+        cpu = info.cpu_percent ?? info.cpu ?? null;
+        mem = info.memory_percent ?? info.mem_percent ?? info.memory ?? info.mem ?? null;
+        err = info.error_rate ?? info.errors ?? null;
+        lat = info.latency_ms ?? info.p99_latency ?? info.latency ?? null;
+      }
+
+      const errNum = Number(err);
+      const mentioned = (alerts || []).some(a => String(a).toLowerCase().includes(name));
+      let cls = 'unknown';
+      if (status === 'degraded' || (Number.isFinite(errNum) && errNum > 0.05)) cls = 'degraded';
+      else if (status === 'warning' || (Number.isFinite(errNum) && errNum > 0.02) || (mentioned && status !== 'healthy')) cls = 'warning';
+      else if (status === 'healthy') cls = 'healthy';
+      else if (status) cls = 'unknown';
+      return { cls, status, cpu, mem, err, lat, mentioned };
+    }
+
+    function fmtMetric(v, suffix) {
+      if (v === null || v === undefined || v === '') return '—';
+      if (typeof v === 'number') {
+        if (suffix === 'pct') return v.toFixed(0) + '%';
+        if (suffix === 'ms')  return v.toFixed(0) + 'ms';
+        return v.toFixed(3);
+      }
+      return String(v);
+    }
+
+    function bezier(x1, y1, x2, y2) {
+      const midY = (y1 + y2) / 2;
+      return `M ${x1},${y1} C ${x1},${midY} ${x2},${midY} ${x2},${y2}`;
+    }
+
+    function clearChildren(node) { while (node.firstChild) node.removeChild(node.firstChild); }
+
+    function getDagGroups() {
+      return {
+        edgeIncident: el('dag-edges-incident'),
+        edgeAction:   el('dag-edges-action'),
+        edgeReward:   el('dag-edges-reward'),
+        tier1: el('dag-tier1'),
+        tier2: el('dag-tier2'),
+        tier3: el('dag-tier3'),
+        rewardG: el('dag-reward'),
+      };
+    }
+
+    function showDagTooltip(html) {
+      const tt = el('dag-tooltip');
+      tt.innerHTML = html;
+      tt.hidden = false;
+    }
+    function hideDagTooltip() {
+      const tt = el('dag-tooltip');
+      tt.hidden = true;
+    }
+
+    function buildServiceTooltip(name, info, alerts) {
+      const c = classifyService(name, info, alerts);
+      const related = alerts.filter(a => String(a).toLowerCase().includes(name));
+      const recommended = Object.keys(DAG.actionMap).filter(act => DAG.actionMap[act].includes(name));
+      const rows = [
+        `<div class="tt-row"><span class="tt-label">STATUS:</span> <span class="tt-value">${escHtml((c.status || 'unknown').toUpperCase())}</span></div>`,
+        `<div class="tt-row"><span class="tt-label">CPU:</span> <span class="tt-value">${escHtml(fmtMetric(c.cpu, 'pct'))}</span> &nbsp; <span class="tt-label">MEM:</span> <span class="tt-value">${escHtml(fmtMetric(c.mem, 'pct'))}</span></div>`,
+        `<div class="tt-row"><span class="tt-label">ERR:</span> <span class="tt-value">${escHtml(fmtMetric(c.err))}</span> &nbsp; <span class="tt-label">LAT:</span> <span class="tt-value">${escHtml(fmtMetric(c.lat, 'ms'))}</span></div>`,
+      ].join('');
+      const alertsHtml = related.length
+        ? related.map(a => `<div class="tt-alert">${escHtml(String(a))}</div>`).join('')
+        : '<div class="tt-row" style="color:var(--faint)">no recent alerts mention this service</div>';
+      const recHtml = recommended.length
+        ? recommended.map(a => `<span class="tt-chip">// ${escHtml(a)}</span>`).join('')
+        : '<span class="tt-row" style="color:var(--faint)">no mapped actions</span>';
+      return `
+        <div class="tt-title"><span>// ${escHtml(name.toUpperCase())}</span><span class="tt-close" id="tt-close-btn">[ X ]</span></div>
+        ${rows}
+        <div class="tt-section">
+          <div class="tt-section-h">// RELATED ALERTS</div>
+          ${alertsHtml}
+        </div>
+        <div class="tt-section">
+          <div class="tt-section-h">// RECOMMENDED ACTIONS</div>
+          <div>${recHtml}</div>
+        </div>
+      `;
+    }
+
+    function buildActionTooltip(actName) {
+      const targets = DAG.actionMap[actName] || ['api_gateway'];
+      return `
+        <div class="tt-title"><span>// ${escHtml(actName.toUpperCase())}</span><span class="tt-close" id="tt-close-btn">[ X ]</span></div>
+        <div class="tt-row"><span class="tt-label">STATUS:</span> <span class="tt-value" style="color:var(--green)">AVAILABLE</span> &mdash; click <b>RUN NEXT EXPERT BUDDYACTION</b> to execute this through the agent.</div>
+        <div class="tt-section">
+          <div class="tt-section-h">// TARGETS</div>
+          <div>${targets.map(t => `<span class="tt-chip">// ${escHtml(t)}</span>`).join('')}</div>
+        </div>
+      `;
+    }
+
+    function updateDAG(payload) {
+      const obs = pickObservation(payload) || {};
+      const sys = safe(obs, ['system_overview'], {}) || {};
+      const alerts = Array.isArray(obs.recent_alerts) ? obs.recent_alerts : [];
+      const actions = Array.isArray(obs.available_actions) ? obs.available_actions : Object.keys(DAG.actionMap);
+      const reward = Number(obs.reward || 0);
+      const stepCount = obs.step_count != null ? obs.step_count : (state.step || 0);
+      const timeRemaining = obs.time_remaining != null ? obs.time_remaining : '—';
+      const incidentLabel = scenarioFromObservation(obs).replaceAll('_', ' ').toUpperCase();
+
+      // Hide empty-state when we have data
+      const empty = el('dag-empty');
+      if (empty) empty.style.display = (Object.keys(sys).length === 0 && alerts.length === 0 && !payload) ? 'flex' : 'none';
+
+      DAG.lastObs = obs;
+      const G = getDagGroups();
+      [G.edgeIncident, G.edgeAction, G.edgeReward, G.tier1, G.tier2, G.tier3, G.rewardG].forEach(clearChildren);
+
+      // ---------- TIER 1: hex incident node ----------
+      const h = DAG.hex;
+      const hexPts = [
+        [h.cx,        h.cy - h.r],
+        [h.cx + h.r * 0.866, h.cy - h.r * 0.5],
+        [h.cx + h.r * 0.866, h.cy + h.r * 0.5],
+        [h.cx,        h.cy + h.r],
+        [h.cx - h.r * 0.866, h.cy + h.r * 0.5],
+        [h.cx - h.r * 0.866, h.cy - h.r * 0.5],
+      ].map(p => p.join(',')).join(' ');
+
+      const pulsePts = [
+        [h.cx,        h.cy - h.r * 1.05],
+        [h.cx + h.r * 0.91, h.cy - h.r * 0.525],
+        [h.cx + h.r * 0.91, h.cy + h.r * 0.525],
+        [h.cx,        h.cy + h.r * 1.05],
+        [h.cx - h.r * 0.91, h.cy + h.r * 0.525],
+        [h.cx - h.r * 0.91, h.cy - h.r * 0.525],
+      ].map(p => p.join(',')).join(' ');
+
+      G.tier1.appendChild(svgEl('polygon', { class: 'hex-pulse', points: pulsePts }));
+      G.tier1.appendChild(svgEl('polygon', { class: 'hex-node', points: hexPts }));
+
+      const t = svgEl('text', { class: 'hex-text', x: h.cx, y: h.cy + 4 });
+      t.textContent = (incidentLabel || 'INCIDENT').slice(0, 16);
+      G.tier1.appendChild(t);
+
+      const sub = svgEl('text', { class: 'hex-subtitle', x: h.cx, y: h.cy + h.r + 14 });
+      sub.textContent = `${stepCount} STEPS  |  ${timeRemaining}s LEFT`;
+      G.tier1.appendChild(sub);
+
+      // ---------- TIER 2: service nodes ----------
+      const svcMeta = {};  // name -> { cls, info, x, y }
+      const newDegraded = new Set();
+      DAG.services.forEach((name, idx) => {
+        const info = sys[name];
+        const c = classifyService(name, info, alerts);
+        if (c.cls === 'degraded') newDegraded.add(name);
+
+        const x = DAG.svc.xs[idx];
+        const y = DAG.svc.y;
+        svcMeta[name] = { cls: c.cls, info, x, y };
+
+        // Edge tier1 -> tier2
+        const e = svgEl('path', {
+          class: 'edge-incident' + (c.cls === 'degraded' ? ' degraded' : ''),
+          d: bezier(h.cx, h.cy + h.r + 2, x + DAG.svc.w / 2, y),
+        });
+        G.edgeIncident.appendChild(e);
+
+        // Service rect
+        const rect = svgEl('rect', {
+          class: 'svc-rect ' + c.cls,
+          x: x, y: y, width: DAG.svc.w, height: DAG.svc.h, rx: 6, ry: 6,
+          'data-svc': name,
+        });
+        rect.addEventListener('click', (ev) => {
+          ev.stopPropagation();
+          showDagTooltip(buildServiceTooltip(name, info, alerts));
+        });
+        G.tier2.appendChild(rect);
+
+        // Left accent bar
+        G.tier2.appendChild(svgEl('rect', {
+          class: 'svc-accent ' + c.cls,
+          x: x, y: y, width: 4, height: DAG.svc.h, rx: 2, ry: 2,
+        }));
+
+        // Alert flash on transitions to degraded
+        if (c.cls === 'degraded' && !DAG.lastDegraded.has(name)) {
+          rect.classList.add('alert-flash');
+          setTimeout(() => rect.classList.remove('alert-flash'), 700);
+        }
+
+        // Text lines
+        const nameText = svgEl('text', { class: 'svc-name', x: x + 12, y: y + 16 });
+        nameText.textContent = name.replace(/_/g, ' ').toUpperCase();
+        G.tier2.appendChild(nameText);
+
+        const m1 = svgEl('text', { class: 'svc-line', x: x + 12, y: y + 32 });
+        m1.textContent = `CPU:${fmtMetric(c.cpu, 'pct')}  MEM:${fmtMetric(c.mem, 'pct')}`;
+        G.tier2.appendChild(m1);
+
+        const m2 = svgEl('text', { class: 'svc-line', x: x + 12, y: y + 46 });
+        m2.textContent = `ERR:${fmtMetric(c.err)}  LAT:${fmtMetric(c.lat, 'ms')}`;
+        G.tier2.appendChild(m2);
+      });
+      DAG.lastDegraded = newDegraded;
+
+      // ---------- TIER 3: action pills ----------
+      const usedActions = actions.slice(0, 10);  // max 2 rows of 5
+      const pillRefs = {};  // actName -> rect element
+
+      usedActions.forEach((act, idx) => {
+        const row = Math.floor(idx / 5);
+        const col = idx % 5;
+        const x = DAG.act.xs[col];
+        const y = DAG.act.ys[Math.min(row, 1)];
+
+        const pill = svgEl('rect', {
+          class: 'action-pill',
+          x: x, y: y, width: DAG.act.w, height: DAG.act.h, rx: 4, ry: 4,
+          'data-act': act,
+        });
+        G.tier3.appendChild(pill);
+        pillRefs[act] = { rect: pill, x, y };
+
+        const txt = svgEl('text', { class: 'action-text', x: x + DAG.act.w / 2, y: y + 17 });
+        txt.textContent = '// ' + act;
+        G.tier3.appendChild(txt);
+
+        // Edges tier2 -> tier3
+        const targets = DAG.actionMap[act] || ['api_gateway'];
+        targets.forEach(svcName => {
+          const m = svcMeta[svcName];
+          if (!m) return;
+          const ed = svgEl('path', {
+            class: 'edge-action',
+            d: bezier(m.x + DAG.svc.w / 2, m.y + DAG.svc.h, x + DAG.act.w / 2, y),
+            'data-act-edge': act,
+          });
+          G.edgeAction.appendChild(ed);
+        });
+
+        // Hover -> highlight matching edges
+        pill.addEventListener('mouseenter', () => {
+          G.edgeAction.querySelectorAll(`[data-act-edge="${act}"]`).forEach(p => p.classList.add('highlight'));
+        });
+        pill.addEventListener('mouseleave', () => {
+          G.edgeAction.querySelectorAll(`[data-act-edge="${act}"]`).forEach(p => p.classList.remove('highlight'));
+        });
+        pill.addEventListener('click', (ev) => {
+          ev.stopPropagation();
+          pill.classList.add('flash');
+          setTimeout(() => pill.classList.remove('flash'), 320);
+          showDagTooltip(buildActionTooltip(act));
+        });
+      });
+
+      // ---------- REWARD diamond ----------
+      const r = DAG.reward;
+      const halfD = r.size / 2;
+      const diamondPts = [
+        [r.x, r.y - halfD],
+        [r.x + halfD, r.y],
+        [r.x, r.y + halfD],
+        [r.x - halfD, r.y],
+      ].map(p => p.join(',')).join(' ');
+      G.rewardG.appendChild(svgEl('polygon', { class: 'reward-diamond', points: diamondPts }));
+      const rt = svgEl('text', { class: 'reward-text', x: r.x, y: r.y + 3 });
+      rt.textContent = 'R:' + reward.toFixed(3);
+      G.rewardG.appendChild(rt);
+
+      // Edges from each service to reward node
+      DAG.services.forEach((name) => {
+        const m = svcMeta[name];
+        if (!m) return;
+        const ed = svgEl('path', {
+          class: 'edge-reward',
+          d: bezier(m.x + DAG.svc.w, m.y + DAG.svc.h / 2, r.x - halfD, r.y),
+        });
+        G.edgeReward.appendChild(ed);
+      });
+    }
+
+    // Click anywhere outside an SVG node to dismiss tooltip
+    document.addEventListener('click', (ev) => {
+      const tt = el('dag-tooltip');
+      if (tt && !tt.hidden) {
+        const close = ev.target.closest('#tt-close-btn');
+        const insideTt = ev.target.closest('#dag-tooltip');
+        const onSvc = ev.target.closest('.svc-rect, .action-pill');
+        if (close || (!insideTt && !onSvc)) hideDagTooltip();
+      }
+    });
+
+    /* ============================================================
+       TUTORIAL MODAL (Feature 2)
+       ============================================================ */
+    const TUT_KEY = 'crisisops_tutorial_seen';
+
+    function openTutorial() {
+      const o = el('tut-overlay');
+      if (!o) return;
+      o.hidden = false;
+      o.classList.remove('fade-out');
+    }
+    function closeTutorial(setFlag) {
+      const o = el('tut-overlay');
+      if (!o) return;
+      if (setFlag) {
+        try { localStorage.setItem(TUT_KEY, '1'); } catch (_) {}
+      }
+      o.classList.add('fade-out');
+      setTimeout(() => { o.hidden = true; o.classList.remove('fade-out'); }, 220);
+    }
+    function maybeShowTutorial() {
+      let seen = false;
+      try { seen = !!localStorage.getItem(TUT_KEY); } catch (_) { seen = false; }
+      if (!seen) openTutorial();
+    }
+
+    /* ============================================================
+       KEYBOARD SHORTCUTS
+       ============================================================ */
+    function attachKeyboardShortcuts() {
+      document.addEventListener('keydown', (e) => {
+        const tag = (document.activeElement && document.activeElement.tagName || '').toLowerCase();
+        if (tag === 'input' || tag === 'select' || tag === 'textarea') return;
+        if (e.key === '?' || e.key === 'F1') {
+          e.preventDefault();
+          openTutorial();
+          return;
+        }
+        // Shortcuts disabled while tutorial is open (except '?')
+        const tutOpen = !el('tut-overlay').hidden;
+        if (tutOpen) {
+          if (e.key === 'Escape') closeTutorial(false);
+          return;
+        }
+        if (e.key === 'r' || e.key === 'R') { el('btn-reset').click(); }
+        else if (e.key === ' ') { e.preventDefault(); el('btn-step').click(); }
+        else if (e.key === 'a' || e.key === 'A') { el('btn-auto').click(); }
+      });
+    }
+
+    /* ============================================================
        BOOT
        ============================================================ */
     function boot() {
@@ -1402,6 +2518,20 @@
       el('btn-reset').addEventListener('click', resetEnv);
       el('btn-step').addEventListener('click', runStep);
       el('btn-auto').addEventListener('click', autoSolve);
+
+      // Tab toggle (DAG / RAW)
+      el('tab-dag').addEventListener('click', () => setTab('dag'));
+      el('tab-raw').addEventListener('click', () => setTab('raw'));
+
+      // Tutorial modal buttons
+      el('tut-skip').addEventListener('click', () => closeTutorial(true));
+      el('tut-launch').addEventListener('click', () => closeTutorial(true));
+      el('tut-overlay').addEventListener('click', (e) => {
+        if (e.target === el('tut-overlay')) closeTutorial(false);
+      });
+
+      // Keyboard shortcuts (R / Space / A / ? / F1 / Esc)
+      attachKeyboardShortcuts();
 
       // Stagger panel entrance animations
       const panels = document.querySelectorAll('.hud-panel');
@@ -1421,12 +2551,15 @@
         }
       }, 5000);
 
-      // Hide boot overlay
+      // Hide boot overlay, then maybe-show tutorial
       setTimeout(() => {
         const o = el('boot-overlay');
-        if (!o) return;
-        o.classList.add('fade');
-        setTimeout(() => o.remove(), 600);
+        if (o) {
+          o.classList.add('fade');
+          setTimeout(() => o.remove(), 600);
+        }
+        // Show tutorial after the boot overlay starts fading (only if first load)
+        setTimeout(maybeShowTutorial, 250);
       }, 800);
 
       updateMiniMetrics();
