@@ -1,0 +1,31 @@
+{
+  "rollouts": 1000,
+  "mean_reward_first_50": 0.403572,
+  "mean_reward_last_50": 0.44476200000000005,
+  "success_rate_first_50": 0.0,
+  "success_rate_last_50": 0.0,
+  "success_rate_delta": 0.0,
+  "best": 0.6258,
+  "worst": 0.0,
+  "parse_rate": 0.951,
+  "per_difficulty_stats": {
+    "easy": {
+      "count": 446,
+      "mean_reward": 0.3100488789237668,
+      "success_rate": 0.0,
+      "parse_rate": 0.9596412556053812
+    },
+    "hard": {
+      "count": 208,
+      "mean_reward": 0.5354480769230772,
+      "success_rate": 0.0,
+      "parse_rate": 0.9375
+    },
+    "medium": {
+      "count": 346,
+      "mean_reward": 0.5055398843930636,
+      "success_rate": 0.0,
+      "parse_rate": 0.9479768786127167
+    }
+  }
+}

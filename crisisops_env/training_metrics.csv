@@ -1,641 +1,1106 @@
-total_reward,root_cause_accuracy,process_quality,damage_audit,boss_score,primary_reward,buddy_reward,parse_error,scenario_type,difficulty,episode,trainer_step,reward_ma20
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,0,0,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,1,0,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,2,0,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,3,0,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,4,0,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,5,0,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,6,0,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,7,0,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,8,1,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,9,1,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,10,1,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,11,1,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,12,1,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,13,1,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,14,1,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,15,1,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,16,2,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,17,2,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,18,2,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,19,2,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,20,2,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,21,2,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,22,2,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,23,2,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,24,3,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,25,3,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,26,3,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,27,3,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,28,3,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,29,3,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,30,3,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,31,3,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,32,4,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,33,4,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,34,4,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,35,4,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,36,4,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,37,4,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,38,4,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,39,4,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,40,5,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,41,5,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,42,5,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,43,5,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,44,5,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,45,5,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,46,5,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,47,5,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,48,6,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,49,6,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,50,6,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,51,6,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,52,6,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,53,6,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,54,6,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,55,6,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,56,7,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,57,7,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,58,7,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,59,7,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,60,7,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,61,7,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,62,7,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,63,7,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,64,8,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,65,8,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,66,8,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,67,8,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,68,8,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,69,8,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,70,8,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,71,8,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,72,9,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,73,9,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,74,9,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,75,9,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,76,9,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,77,9,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,78,9,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,79,9,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,80,10,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,81,10,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,82,10,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,83,10,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,84,10,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,85,10,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,86,10,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,87,10,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,88,11,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,89,11,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,90,11,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,91,11,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,92,11,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,93,11,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,94,11,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,95,11,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,96,12,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,97,12,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,98,12,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,99,12,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,100,12,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,101,12,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,102,12,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,103,12,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,104,13,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,105,13,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,106,13,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,107,13,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,108,13,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,109,13,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,110,13,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,111,13,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,112,14,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,113,14,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,114,14,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,115,14,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,116,14,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,117,14,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,118,14,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,119,14,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,120,15,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,121,15,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,122,15,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,123,15,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,124,15,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,125,15,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,126,15,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,127,15,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,128,16,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,129,16,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,130,16,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,131,16,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,132,16,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,133,16,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,134,16,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,135,16,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,136,17,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,137,17,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,138,17,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,139,17,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,140,17,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,141,17,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,142,17,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,143,17,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,144,18,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,145,18,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,146,18,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,147,18,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,148,18,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,149,18,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,150,18,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,151,18,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,152,19,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,153,19,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,154,19,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,155,19,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,156,19,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,157,19,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,158,19,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,159,19,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,160,20,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,161,20,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,162,20,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,163,20,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,164,20,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,165,20,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,166,20,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,167,20,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,168,21,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,169,21,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,170,21,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,171,21,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,172,21,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,173,21,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,174,21,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,175,21,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,176,22,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,177,22,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,178,22,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,179,22,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,180,22,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,181,22,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,182,22,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,183,22,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,184,23,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,185,23,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,186,23,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,187,23,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,188,23,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,189,23,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,190,23,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,191,23,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,192,24,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,193,24,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,194,24,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,195,24,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,196,24,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,197,24,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,198,24,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,199,24,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,200,25,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,201,25,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,202,25,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,203,25,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,204,25,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,205,25,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,206,25,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,207,25,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,208,26,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,209,26,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,210,26,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,211,26,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,212,26,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,213,26,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,214,26,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,215,26,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,216,27,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,217,27,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,218,27,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,219,27,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,220,27,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,221,27,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,222,27,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,223,27,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,224,28,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,225,28,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,226,28,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,227,28,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,228,28,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,229,28,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,230,28,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,231,28,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,232,29,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,233,29,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,234,29,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,235,29,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,236,29,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,237,29,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,238,29,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,239,29,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,240,30,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,241,30,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,242,30,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,243,30,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,244,30,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,245,30,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,246,30,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,247,30,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,248,31,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,249,31,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,250,31,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,251,31,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,252,31,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,253,31,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,254,31,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,255,31,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,256,32,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,257,32,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,258,32,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,259,32,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,260,32,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,261,32,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,262,32,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,263,32,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,264,33,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,265,33,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,266,33,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,267,33,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,268,33,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,269,33,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,270,33,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,271,33,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,272,34,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,273,34,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,274,34,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,275,34,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,276,34,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,277,34,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,278,34,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,279,34,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,280,35,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,281,35,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,282,35,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,283,35,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,284,35,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,285,35,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,286,35,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,287,35,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,288,36,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,289,36,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,290,36,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,291,36,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,292,36,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,293,36,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,294,36,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,295,36,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,296,37,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,297,37,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,298,37,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,299,37,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,300,37,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,301,37,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,302,37,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,303,37,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,304,38,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,305,38,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,306,38,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,307,38,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,308,38,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,309,38,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,310,38,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,311,38,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,312,39,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,313,39,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,314,39,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,315,39,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,316,39,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,317,39,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,318,39,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,319,39,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,320,40,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,321,40,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,322,40,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,323,40,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,324,40,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,325,40,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,326,40,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,327,40,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,328,41,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,329,41,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,330,41,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,331,41,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,332,41,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,333,41,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,334,41,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,335,41,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,336,42,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,337,42,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,338,42,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,339,42,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,340,42,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,341,42,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,342,42,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,343,42,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,344,43,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,345,43,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,346,43,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,347,43,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,348,43,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,349,43,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,350,43,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,351,43,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,352,44,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,353,44,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,354,44,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,355,44,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,356,44,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,357,44,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,358,44,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,359,44,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,360,45,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,361,45,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,362,45,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,363,45,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,364,45,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,365,45,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,366,45,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,367,45,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,368,46,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,369,46,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,370,46,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,371,46,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,372,46,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,373,46,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,374,46,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,375,46,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,376,47,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,377,47,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,378,47,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,379,47,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,380,47,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,381,47,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,382,47,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,383,47,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,384,48,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,385,48,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,386,48,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,387,48,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,388,48,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,389,48,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,390,48,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,391,48,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,392,49,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,393,49,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,394,49,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,395,49,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,396,49,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,397,49,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,398,49,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,399,49,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,400,50,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,401,50,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,402,50,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,403,50,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,404,50,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,405,50,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,406,50,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,407,50,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,408,51,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,409,51,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,410,51,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,411,51,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,412,51,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,413,51,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,414,51,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,415,51,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,416,52,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,417,52,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,418,52,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,419,52,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,420,52,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,421,52,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,422,52,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,423,52,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,424,53,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,425,53,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,426,53,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,427,53,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,428,53,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,429,53,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,430,53,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,431,53,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,432,54,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,433,54,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,434,54,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,435,54,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,436,54,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,437,54,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,438,54,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,439,54,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,440,55,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,441,55,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,442,55,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,443,55,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,444,55,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,445,55,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,446,55,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,447,55,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,448,56,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,449,56,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,450,56,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,451,56,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,452,56,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,453,56,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,454,56,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,455,56,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,456,57,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,457,57,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,458,57,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,459,57,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,460,57,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,461,57,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,462,57,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,463,57,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,464,58,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,465,58,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,466,58,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,467,58,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,468,58,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,469,58,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,470,58,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,471,58,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,472,59,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,473,59,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,474,59,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,475,59,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,476,59,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,477,59,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,478,59,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,479,59,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,480,60,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,481,60,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,482,60,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,483,60,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,484,60,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,485,60,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,486,60,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,487,60,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,488,61,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,489,61,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,490,61,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,491,61,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,492,61,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,493,61,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,494,61,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,495,61,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,496,62,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,497,62,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,498,62,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,499,62,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,500,62,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,501,62,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,502,62,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,503,62,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,504,63,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,505,63,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,506,63,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,507,63,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,508,63,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,509,63,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,510,63,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,511,63,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,512,64,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,513,64,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,514,64,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,515,64,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,516,64,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,517,64,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,518,64,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,519,64,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,520,65,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,521,65,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,522,65,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,523,65,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,524,65,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,525,65,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,526,65,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,527,65,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,528,66,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,529,66,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,530,66,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,531,66,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,532,66,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,533,66,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,534,66,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,535,66,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,536,67,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,537,67,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,538,67,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,539,67,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,540,67,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,541,67,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,542,67,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,543,67,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,544,68,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,545,68,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,546,68,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,547,68,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,548,68,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,549,68,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,550,68,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,551,68,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,552,69,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,553,69,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,554,69,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,555,69,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,556,69,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,557,69,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,558,69,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,559,69,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,560,70,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,561,70,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,562,70,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,563,70,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,564,70,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,565,70,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,566,70,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,567,70,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,568,71,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,569,71,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,570,71,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,571,71,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,572,71,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,573,71,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,574,71,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,575,71,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,576,72,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,577,72,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,578,72,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,579,72,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,580,72,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,581,72,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,582,72,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,583,72,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,584,73,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,585,73,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,586,73,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,587,73,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,588,73,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,589,73,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,590,73,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,591,73,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,592,74,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,593,74,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,594,74,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,595,74,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,596,74,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,597,74,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,598,74,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,599,74,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,600,75,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,601,75,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,602,75,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,603,75,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,604,75,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,605,75,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,606,75,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,607,75,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,608,76,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,609,76,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,610,76,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,611,76,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,612,76,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,613,76,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,614,76,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,615,76,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,616,77,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,617,77,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,618,77,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,619,77,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,620,77,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,621,77,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,622,77,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,623,77,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,624,78,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,625,78,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,626,78,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,627,78,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,628,78,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,629,78,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,630,78,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,631,78,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,632,79,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),cascading_retry_storm,medium,633,79,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,634,79,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,635,79,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,636,79,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),memory_leak,easy,637,79,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,638,79,0.0
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,json_parse_error: Expecting value: line 1 column 1 (char 0),connection_pool_exhaustion,medium,639,79,0.0
+total_reward,root_cause_accuracy,process_quality,damage_audit,boss_score,primary_reward,buddy_reward,scenario_type,difficulty,parse_error,raw_completion_head,episode,trainer_step,reward_ma20,parseable
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,0,0,0.3195,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,1,0,0.3195,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,2,0,0.3195,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,3,0,0.32825000000000004,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,4,1,0.3265,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,5,1,0.3253333333333333,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,6,1,0.3245,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,7,1,0.32825000000000004,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,8,2,0.3272777777777778,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,9,2,0.3265,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,10,2,0.3258636363636364,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,11,2,0.3253333333333333,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,12,3,0.32488461538461544,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,13,3,0.3245,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,14,3,0.3388333333333334,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,15,3,0.351375,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,16,4,0.36244117647058827,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,17,4,0.3722777777777778,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,18,4,0.3826842105263158,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,19,4,0.39205,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,20,5,0.39205,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,21,5,0.39205,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,22,5,0.40305,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,23,5,0.4123,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,24,6,0.42482499999999995,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,25,6,0.43735,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,26,6,0.44835,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,27,6,0.45760000000000006,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,28,7,0.45759999999999995,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,memory_leak,easy,"json_parse_error: Expecting ',' delimiter: line 1 column 224 (char 223)"," <think>Start by investigating the symptoms reported in the recent alerts, especially the elevated latency and 5xx errors on the api_gateway.</think>\n<actions>[{""primary_action"":{""action_type"":""query_",29,7,0.441625,False
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,30,7,0.441625,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,31,7,0.441625,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,32,8,0.44162500000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,33,8,0.44162500000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,34,8,0.43062500000000004,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,35,8,0.419625,True
+0.4895,0.0,0.725,1.0,0.4695,0.4945,0.4445,connection_pool_exhaustion,medium,,,36,9,0.41712499999999997,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,37,9,0.413375,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,38,9,0.40085000000000004,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,39,9,0.388325,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,40,10,0.39932500000000004,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,41,10,0.410325,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,42,10,0.41185,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,43,10,0.413375,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,44,11,0.40085,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,45,11,0.388325,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,46,11,0.377325,True
+0.36460000000000004,0.0,0.825,1.0,0.3446,0.3696,0.3196,memory_leak,easy,,,47,11,0.36858,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,48,12,0.37958000000000003,True
+0.4895,0.0,0.725,1.0,0.4695,0.4945,0.4445,cascading_retry_storm,medium,,,49,12,0.40405500000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,50,12,0.40405500000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,51,12,0.40405499999999994,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,52,13,0.415055,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,53,13,0.422305,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,54,13,0.422305,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,55,13,0.42230500000000004,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,56,14,0.42633,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,57,14,0.43160500000000007,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,58,14,0.44413,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,59,14,0.45665500000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,60,15,0.4456550000000001,True
+0.302,0.0,0.625,1.0,0.282,0.307,0.257,memory_leak,easy,,,61,15,0.43378000000000005,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,62,15,0.43225500000000006,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,63,15,0.43073000000000006,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,64,16,0.44173,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,65,16,0.45273,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,66,16,0.45272999999999997,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,67,16,0.45047500000000007,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,68,17,0.439475,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,69,17,0.430975,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,70,17,0.430975,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,71,17,0.430975,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,72,18,0.430975,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,73,18,0.434725,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,74,18,0.44572500000000004,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,cascading_retry_storm,medium,"json_parse_error: Expecting ',' delimiter: line 1 column 246 (char 245)"," <think>Given the degraded state of the order_service and recent alerts about CPU saturation, let's start by querying metrics to confirm if the service is under heavy load.</think>\n<actions>[{""primary",75,18,0.42975,False
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,76,19,0.42975,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,77,19,0.42974999999999997,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,78,19,0.417225,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,79,19,0.40469999999999995,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,80,20,0.40470000000000006,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,81,20,0.40557499999999996,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,82,20,0.394575,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,83,20,0.383575,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,84,21,0.383575,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,85,21,0.383575,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,86,21,0.383575,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,87,21,0.383575,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,88,22,0.38357500000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,89,22,0.383575,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,90,22,0.3961,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,91,22,0.40862499999999996,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,92,23,0.41015000000000007,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,93,23,0.41167499999999996,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,94,23,0.41319999999999996,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,95,23,0.4417,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,96,24,0.440175,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,97,24,0.4349,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,memory_leak,easy,"buddy_action_validation_error: 1 validation error for BuddyAction
+primary_action
+  Value error, query_metrics requires target_service [type=value_error, input_value={'action_type': 'query_me...'api_gateway_latency']}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/value_error"," <think>Given the high memory usage on the user_db and the degradation of the api_gateway, start with a metrics query to see if there are any correlations or direct indications of the issue.</think>\n<",98,24,0.41892499999999994,False
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,99,24,0.420675,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,100,25,0.431675,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,101,25,0.43892500000000007,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,102,25,0.4514500000000001,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,103,25,0.463975,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,connection_pool_exhaustion,medium,"json_parse_error: Expecting ',' delimiter: line 1 column 198 (char 197)"," <think>Since the payment_service is the source of alerts and other services are degraded, it's most likely to be the root cause. We should start by querying metrics to confirm this.</think>\n<actions>",104,26,0.4370000000000001,False
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,105,26,0.43325,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,106,26,0.43325,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,107,26,0.43324999999999997,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,108,27,0.44425,True
+0.5527,0.0,0.825,1.0,0.5327,0.5577,0.5077,cascading_retry_storm,medium,,,109,27,0.45591,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,110,27,0.450635,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,111,27,0.44911,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,112,28,0.44758499999999996,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,113,28,0.44231,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,114,28,0.42978500000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,115,28,0.41726,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,116,29,0.40625999999999995,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,117,29,0.39901,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,118,29,0.425985,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,119,29,0.43523500000000004,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,120,30,0.42423500000000003,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,121,30,0.418735,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,122,30,0.418735,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,config_drift,hard,"json_parse_error: Expecting ',' delimiter: line 1 column 211 (char 210)"," <think>Given the payment_service is the critical service with a P1 alert, we should start by querying its metrics to understand the issue. The degraded status of the order_service and payment_service",123,30,0.390235,False
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,config_drift,hard,"json_parse_error: Expecting ',' delimiter: line 1 column 227 (char 226)"," <think>Since the payment_service is the focus with a P1 alert, start with querying its metrics to understand the issue.</think>\n<actions>[{""primary_action"":{""action_type"":""query_metrics"",""target_serv",124,31,0.390235,False
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,125,31,0.39551000000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,126,31,0.39551,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,127,31,0.39551,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,128,32,0.38451,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,129,32,0.37285,True
+0.4895,0.0,0.725,1.0,0.4695,0.4945,0.4445,cascading_retry_storm,medium,,,130,32,0.3741,True
+0.4895,0.0,0.725,1.0,0.4695,0.4945,0.4445,cascading_retry_storm,medium,,,131,32,0.37160000000000004,True
+0.4895,0.0,0.725,1.0,0.4695,0.4945,0.4445,cascading_retry_storm,medium,,,132,33,0.3691,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,133,33,0.37285,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,134,33,0.37285,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,135,33,0.37285,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,136,34,0.37285,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,137,34,0.37285,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,138,34,0.36185,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,memory_leak,easy,"buddy_action_validation_error: 1 validation error for BuddyAction
+buddy_feedback
+  Value error, SUGGEST_ALTERNATIVE requires suggested_action [type=value_error, input_value={'feedback_type': 'SUGGES...cting the API Gateway.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/value_error"," <think>Given the elevated latency and 5xx errors with the API Gateway and high memory usage in the user database, we should first check if the symptoms in the API Gateway might be related to the user",139,34,0.334875,False
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,140,35,0.342125,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,connection_pool_exhaustion,medium,"buddy_action_validation_error: 1 validation error for BuddyAction
+primary_action.timeout
+  Extra inputs are not permitted [type=extra_forbidden, input_value=60000, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"," <think>Given the recent alert about max open connections and the degraded state of the auth_service, we should first ensure the auth_service is restored. Then, we can proceed to diagnose the issue.</",141,35,0.3244,False
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,142,35,0.32287499999999997,True
+0.4895,0.0,0.725,1.0,0.4695,0.4945,0.4445,cascading_retry_storm,medium,,,143,35,0.34735,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,144,36,0.363325,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,145,36,0.3508,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,146,36,0.3508,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,147,36,0.3508,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,148,37,0.3508,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,149,37,0.3508,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,150,37,0.354825,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,151,37,0.35885,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,152,38,0.35035000000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,153,38,0.33935,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,154,38,0.35035000000000005,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,155,38,0.36135,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,156,39,0.37235,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,157,39,0.38334999999999997,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,158,39,0.3906,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,159,39,0.417575,True
+0.6258,0.0,0.625,1.0,0.6058,0.6308,0.5808,config_drift,hard,,,160,40,0.42564,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,161,40,0.45414000000000004,True
+0.6258,0.0,0.625,1.0,0.6058,0.6308,0.5808,config_drift,hard,,,162,40,0.458455,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,163,40,0.46248000000000006,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,164,41,0.47348,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,connection_pool_exhaustion,medium,"json_parse_error: Expecting ',' delimiter: line 1 column 444 (char 443)"," <think>Given the degradation of the API gateway and the auth service alerts, we should prioritize actions on the auth service first. Checking dependencies and querying metrics will help identify if t",165,41,0.457505,False
+0.5295,0.3,0.625,0.8,0.5095,0.5345,0.4845,cascading_retry_storm,medium,,,166,41,0.46800500000000006,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,167,41,0.479005,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,168,42,0.490005,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,169,42,0.5010049999999999,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,config_drift,hard,"buddy_action_validation_error: 1 validation error for BuddyAction
+primary_action.action_id
+  Extra inputs are not permitted [type=extra_forbidden, input_value='244-1', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"," <think>Given the degraded state of the order_service and the recent spike in error rates, it is crucial to first check for recent changes and dependencies. This will help us identify if the config ro",170,42,0.47250499999999995,False
+0.5700000000000001,0.0,0.825,1.0,0.7185,0.7435,0.6935,config_drift,hard,,,171,42,0.47250499999999995,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,172,43,0.47250499999999995,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,173,43,0.47250500000000006,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,174,43,0.461505,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,175,43,0.450505,True
+0.5700000000000001,0.0,0.825,1.0,0.8485,0.8985,0.8485,config_drift,hard,,,176,44,0.45203,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,177,44,0.45355500000000004,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,178,44,0.45883,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,179,44,0.460355,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,180,45,0.45603999999999995,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,181,45,0.45451499999999995,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,182,45,0.4391999999999999,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,183,45,0.426675,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,184,46,0.426675,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,185,46,0.45365,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,186,46,0.44315000000000004,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,187,46,0.43215000000000003,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,188,47,0.43215000000000003,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,189,47,0.43215000000000003,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,190,47,0.46065000000000006,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,191,47,0.46064999999999995,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,192,48,0.473175,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,193,48,0.4857,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,194,48,0.49670000000000003,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,195,48,0.5077,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,196,49,0.49517500000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,197,49,0.48265,True
+0.5700000000000001,0.0,0.825,1.0,0.7835,0.8335,0.7835,config_drift,hard,,,198,49,0.48265,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,config_drift,hard,"json_parse_error: Expecting ',' delimiter: line 1 column 249 (char 248)"," <think>Given the recent alert about a config rollout, starting with the payment service seems logical. Querying metrics on the payment service might reveal the specific issue.</think>\n<actions>[{""pri",199,49,0.45415,False
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,200,50,0.44315,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,201,50,0.4321499999999999,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,202,50,0.43215000000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,203,50,0.43215000000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,204,51,0.42115,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,205,51,0.41015000000000007,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,206,51,0.41014999999999996,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,207,51,0.41015000000000007,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,208,52,0.39915,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,209,52,0.38815000000000005,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,210,52,0.38815000000000005,True
+0.5700000000000001,0.0,0.825,1.0,0.8485,0.8985,0.8485,config_drift,hard,,,211,52,0.38815,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,212,53,0.375625,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,213,53,0.36310000000000003,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,214,53,0.35385,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,215,53,0.34285,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,216,54,0.35385,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,connection_pool_exhaustion,medium,json_parse_error: Expecting property name enclosed in double quotes: line 1 column 96 (char 95)," <think>Start with the auth_service as it shows direct issues and is customer-facing.</think>\n<actions>[{""primary_action"":{""action_type"":""read_logs"",""target_service"":""auth_service"",""parameters"":{}},{""",217,54,0.33787500000000004,False
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,218,54,0.33787500000000004,True
+0.5700000000000001,0.0,0.725,1.0,0.7683,0.8183,0.7683,config_drift,hard,,,219,54,0.366375,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,220,55,0.37737500000000007,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,cascading_retry_storm,medium,"buddy_action_validation_error: 3 validation errors for BuddyAction
+primary_action.root_cause
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+primary_action.root_cause_service
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+primary_action.severity
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"," <think>Given the symptoms (CPU saturation and retry multipliers) and the service statuses, the order_service is likely the root cause. We should first check its dependencies and metrics to confirm.</",221,55,0.3614,False
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,222,55,0.3724,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,223,55,0.3834,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,224,56,0.3834,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,225,56,0.3834000000000001,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,226,56,0.39592499999999997,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,227,56,0.40845000000000004,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,228,57,0.40845000000000004,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,229,57,0.40845000000000004,True
+0.5700000000000001,0.0,0.725,1.0,0.6383,0.6633,0.6133,config_drift,hard,,,230,57,0.40845000000000004,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,231,57,0.40845000000000004,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,232,58,0.41945,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,233,58,0.43045,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,234,58,0.43970000000000004,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,cascading_retry_storm,medium,"json_parse_error: Expecting ',' delimiter: line 1 column 238 (char 237)"," <think>Given the degraded state of the order_service and recent alerts indicating CPU saturation due to retry volume, the first step should be to gather more information about the current metrics to ",235,58,0.423725,False
+0.5700000000000001,0.0,0.725,1.0,0.6383,0.6633,0.6133,config_drift,hard,,,236,59,0.42525,True
+0.5700000000000001,0.0,0.725,1.0,0.6383,0.6633,0.6133,config_drift,hard,,,237,59,0.45375000000000004,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,connection_pool_exhaustion,medium,"json_parse_error: Expecting ',' delimiter: line 1 column 238 (char 237)"," <think>First, we should check the dependencies of the user_db to see if the issue is related to other services or if it's a standalone problem.</think>\n<actions>[{""primary_action"":{""action_type"":""che",238,59,0.42525,False
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,239,59,0.423725,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,240,60,0.42372499999999996,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,241,60,0.4507,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,242,60,0.4507,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,243,60,0.45070000000000005,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,connection_pool_exhaustion,medium,"json_parse_error: Expecting ',' delimiter: line 1 column 202 (char 201)"," <think>Given the degraded state of the user_db and recent alerts about max open connections, it's likely the root cause is directly related to the user_db. We should start by querying metrics to conf",244,61,0.434725,False
+0.4777,0.0,0.625,1.0,0.4327,0.4827,0.4327,connection_pool_exhaustion,medium,,,245,61,0.442635,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,246,61,0.43011,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,247,61,0.417585,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,248,62,0.43011,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,249,62,0.442635,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,250,62,0.442635,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,251,62,0.44263499999999995,True
+0.5700000000000001,0.0,0.825,1.0,0.7185,0.7435,0.6935,config_drift,hard,,,252,63,0.44416,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,253,63,0.445685,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,254,63,0.434685,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,255,63,0.45066000000000006,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,256,64,0.44913499999999995,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,cascading_retry_storm,medium,"buddy_action_validation_error: 3 validation errors for BuddyAction
+primary_action.root_cause
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+primary_action.root_cause_service
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+primary_action.severity
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"," <think>Given the degraded state of the API Gateway and the auth_service, we should start by gathering metrics and logs to understand the root cause. The retries and CPU saturation suggest a potential",257,64,0.420635,False
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,258,64,0.44913499999999995,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,259,64,0.45065999999999995,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,260,65,0.45066000000000006,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,261,65,0.45066000000000006,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,262,65,0.45066000000000006,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,263,65,0.44691000000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,264,66,0.462885,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,265,66,0.45497499999999996,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,266,66,0.465975,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,267,66,0.47697500000000004,True
+0.6258,0.0,0.625,1.0,0.6058,0.6308,0.5808,config_drift,hard,,,268,67,0.479765,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,269,67,0.479765,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,270,67,0.47448999999999997,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,271,67,0.47296499999999997,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,memory_leak,easy,"json_parse_error: Expecting ',' delimiter: line 1 column 228 (char 227)"," <think>Given the initial reports, the API gateway is the most likely service to address first due to elevated latency and 5xx errors. Querying metrics will provide more details on the performance and",272,68,0.444465,False
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,273,68,0.43194,True
+0.33440000000000003,0.0,0.625,1.0,0.2894,0.3144,0.3144,memory_leak,easy,,,274,68,0.43268500000000004,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,275,68,0.43443499999999996,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,276,69,0.43596,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,277,69,0.46446000000000004,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,278,69,0.46446000000000004,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,279,69,0.46446000000000004,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,280,70,0.45346000000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,281,70,0.44245999999999996,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,282,70,0.44398499999999996,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,283,70,0.44926000000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,284,71,0.44926000000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,285,71,0.44926000000000005,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,286,71,0.44926000000000005,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,287,71,0.44926000000000005,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,288,72,0.44647000000000003,True
+0.5700000000000001,0.0,0.825,1.0,0.7185,0.7435,0.6935,config_drift,hard,,,289,72,0.44647000000000003,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,290,72,0.4517450000000001,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,291,72,0.45327,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,292,73,0.48024500000000003,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,293,73,0.49124500000000004,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,294,73,0.49050000000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,295,73,0.48875,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,296,74,0.47622500000000006,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,297,74,0.46370000000000006,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,298,74,0.451175,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,299,74,0.43865,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,300,75,0.44965,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,301,75,0.46065000000000006,True
+0.5700000000000001,1.0,0.725,1.0,1.0,1.0,1.0,config_drift,hard,,,302,75,0.46065000000000006,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,303,75,0.46065000000000006,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,304,76,0.473175,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,305,76,0.4857,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,306,76,0.4747,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,memory_leak,easy,"buddy_action_validation_error: 1 validation error for BuddyAction
+primary_action.diagnosis
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"," <think>Given the evidence of elevated latency and 5xx errors in the api_gateway, and the auth_service experiencing high memory usage, we should start with checking the dependencies and focusing on th",307,76,0.447725,False
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,308,77,0.43520000000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,309,77,0.422675,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,310,77,0.41015000000000007,True
+0.36460000000000004,0.0,0.825,1.0,0.3446,0.3696,0.3196,memory_leak,easy,,,311,77,0.39988,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,312,78,0.38888,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,313,78,0.37788000000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,314,78,0.37788000000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,315,78,0.37788,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,316,79,0.38888,True
+0.4895,0.0,0.725,1.0,0.4695,0.4945,0.4445,cascading_retry_storm,medium,,,317,79,0.39737999999999996,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,318,79,0.39738,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,319,79,0.39738,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,320,80,0.39738,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,321,80,0.39737999999999996,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,322,80,0.395855,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,323,80,0.39058000000000004,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,324,81,0.378055,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,325,81,0.36553,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,326,81,0.378055,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,327,81,0.406555,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,328,82,0.406555,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,329,82,0.406555,True
+0.5700000000000001,0.0,0.725,1.0,0.7683,0.8183,0.7683,config_drift,hard,,,330,82,0.41908,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,331,82,0.42935000000000006,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,332,83,0.441875,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,333,83,0.45439999999999997,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,334,83,0.4544,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,335,83,0.4544,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,336,84,0.4434,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,337,84,0.4349,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,338,84,0.4459000000000001,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,339,84,0.45314999999999994,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,340,85,0.4421500000000001,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,341,85,0.43290000000000006,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,342,85,0.43442500000000006,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,343,85,0.43970000000000004,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,344,86,0.44145,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,345,86,0.44320000000000004,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,346,86,0.44320000000000004,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,347,86,0.44320000000000004,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,348,87,0.44320000000000004,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,349,87,0.44320000000000004,True
+0.4895,0.0,0.725,1.0,0.4695,0.4945,0.4445,cascading_retry_storm,medium,,,350,87,0.439175,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,351,87,0.43765,True
+0.5700000000000001,0.3,0.625,1.0,0.5613,0.5863,0.5363,cascading_retry_storm,medium,,,352,88,0.43765,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,353,88,0.4376500000000001,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,354,88,0.45017499999999994,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,355,88,0.4627,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,356,89,0.4737,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,357,89,0.4847,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,358,89,0.4737,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,359,89,0.46645000000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,360,90,0.46645000000000003,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,361,90,0.46645000000000003,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,362,90,0.46492500000000003,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,363,90,0.4633999999999999,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,364,91,0.46165,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,365,91,0.45990000000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,366,91,0.44737499999999997,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,367,91,0.43485000000000007,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,368,92,0.44737499999999997,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,369,92,0.45990000000000003,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,370,92,0.46392500000000003,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,371,92,0.46545000000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,372,93,0.452925,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,373,93,0.4404,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,374,93,0.4404,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,375,93,0.44040000000000007,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,376,94,0.44192500000000007,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,377,94,0.44345,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,378,94,0.44345000000000007,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,379,94,0.44345000000000007,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,380,95,0.455975,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,config_drift,hard,json_parse_error: Expecting property name enclosed in double quotes: line 1 column 106 (char 105)," <think>Given the high severity alert on the order_service and the version discrepancy, we should first check the dependencies and logs to see if they provide any clues about the degraded state and po",381,95,0.43825000000000003,False
+0.36460000000000004,0.0,0.825,1.0,0.3446,0.3696,0.3196,memory_leak,easy,,,382,95,0.42950499999999997,True
+0.36460000000000004,0.0,0.825,1.0,0.3446,0.3696,0.3196,memory_leak,easy,,,383,95,0.42076,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,384,96,0.42076000000000013,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,385,96,0.42076,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,386,96,0.43176000000000003,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,387,96,0.43901,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,388,97,0.426485,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,389,97,0.41396,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,390,97,0.408685,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,391,97,0.40716,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,392,98,0.40716,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,393,98,0.40716,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,394,98,0.39463499999999996,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,395,98,0.38211000000000006,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,396,99,0.38058500000000006,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,397,99,0.37906,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,398,99,0.39006,True
+0.5527,0.0,0.725,1.0,0.5077,0.5577,0.5077,connection_pool_exhaustion,medium,,,399,99,0.40171999999999997,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,400,100,0.40171999999999997,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,401,100,0.43022,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,memory_leak,easy,"buddy_action_validation_error: 3 validation errors for BuddyAction
+primary_action.root_cause
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+primary_action.root_cause_service
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+primary_action.severity
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"," <think>Start with the API gateway, given it's showing degraded performance and recent alerts.</think>\n<actions>[{""primary_action"":{""action_type"":""query_metrics"",""target_service"":""api_gateway"",""parame",402,100,0.41198999999999997,False
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,403,100,0.40973499999999996,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,404,101,0.42225999999999997,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,405,101,0.43478500000000003,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,406,101,0.43631000000000003,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,config_drift,hard,json_parse_error: Expecting property name enclosed in double quotes: line 1 column 108 (char 107)," <think>Start by checking dependencies to see if the degraded state of 'payment_service' is due to issues with its dependencies.</think>\n<actions>[{""primary_action"":{""action_type"":""check_dependencies""",407,101,0.413085,False
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,408,102,0.420335,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,409,102,0.43133499999999997,True
+0.5700000000000001,0.0,0.825,1.0,0.7835,0.8335,0.7835,config_drift,hard,,,410,102,0.43661000000000005,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,411,102,0.43813500000000005,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,cascading_retry_storm,medium,"json_parse_error: Expecting ',' delimiter: line 1 column 232 (char 231)"," <think>Given the degraded state of the api_gateway and the alerts, we should start by querying its metrics to understand the current situation better. This will help in identifying if it's a traffic ",412,103,0.42216000000000004,False
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,413,103,0.434685,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,414,103,0.434685,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,415,103,0.434685,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,416,104,0.42368500000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,417,104,0.412685,True
+0.5700000000000001,0.0,0.825,1.0,0.7835,0.8335,0.7835,config_drift,hard,,,418,104,0.41421,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,419,104,0.415075,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,420,105,0.40255,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,421,105,0.390025,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,memory_leak,easy,"json_parse_error: Expecting ',' delimiter: line 1 column 195 (char 194)"," <think>First, we should query metrics for the API gateway to confirm the elevated latency and 5xx errors. This will help us understand the extent of the issue.</think>\n<actions>[{""primary_action"":{""a",422,105,0.39002500000000007,False
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,423,105,0.390025,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,424,106,0.390025,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,425,106,0.39002500000000007,True
+0.4895,0.0,0.725,1.0,0.4695,0.4945,0.4445,cascading_retry_storm,medium,,,426,106,0.386,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,427,106,0.41297500000000004,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,428,107,0.407475,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,429,107,0.396475,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,cascading_retry_storm,medium,,,430,107,0.39120000000000005,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,431,107,0.38967500000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,432,108,0.40564999999999996,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,memory_leak,easy,"json_parse_error: Expecting ',' delimiter: line 1 column 215 (char 214)"," <think>Given the recent alerts and the system overview, the API gateway is clearly the focus. The elevated latency and 5xx errors suggest a performance issue, likely due to memory overflow given the ",433,108,0.37715,False
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,434,108,0.37715,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,435,108,0.37715,True
+0.5700000000000001,0.0,0.825,1.0,0.8485,0.8985,0.8485,config_drift,hard,,,436,109,0.389675,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,437,109,0.4022,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,438,109,0.38967500000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,439,109,0.37715,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,connection_pool_exhaustion,medium,"buddy_action_validation_error: 3 validation errors for BuddyAction
+primary_action.root_cause
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+primary_action.root_cause_service
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+primary_action.severity
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"," <think>Given the degraded states of multiple services and alerts on the payment_service, it's likely that the issue stems from the payment_service. We should first check its dependencies and logs to ",440,110,0.361175,False
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,441,110,0.368425,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,442,110,0.38439999999999996,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,443,110,0.3844,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,444,111,0.38439999999999996,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,445,111,0.3844,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,446,111,0.3869,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,447,111,0.3869,True
+0.5700000000000001,0.0,0.725,1.0,0.7683,0.8183,0.7683,config_drift,hard,,,448,112,0.397675,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,449,112,0.4102,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,450,112,0.415475,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,451,112,0.417,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,config_drift,hard,json_parse_error: Expecting property name enclosed in double quotes: line 1 column 96 (char 95)," <think>Given the auth_service error rate spike and the differing config versions, start with checking dependencies and logs to pinpoint the issue.</think>\n<actions>[{""primary_action"":{""action_type"":""",452,113,0.401025,False
+0.5700000000000001,0.0,0.725,1.0,0.7683,0.8183,0.7683,config_drift,hard,,,453,113,0.42952500000000005,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,454,113,0.44052500000000006,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,455,113,0.44777500000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,456,114,0.4352500000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,457,114,0.4227250000000001,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,458,114,0.42997500000000005,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,459,114,0.44097500000000006,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,460,115,0.4679500000000001,True
+0.4895,0.0,0.625,1.0,0.4445,0.4695,0.4695,connection_pool_exhaustion,medium,,,461,115,0.4692,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,462,115,0.48020000000000007,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,463,115,0.4912000000000001,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,464,116,0.48967499999999997,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,465,116,0.48815,True
+0.36460000000000004,0.0,0.825,1.0,0.3446,0.3696,0.3196,memory_leak,easy,,,466,116,0.479405,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,467,116,0.468405,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,468,117,0.468405,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,config_drift,hard,"buddy_action_validation_error: 3 validation errors for BuddyAction
+primary_action.root_cause
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+primary_action.root_cause_service
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+primary_action.severity
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"," <think>Given the system overview and recent alerts, the order_service degradation is likely due to a misconfiguration. Verify this by querying metrics and checking dependencies.</think>\n<actions>[{""p",469,117,0.4399050000000001,False
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,470,117,0.43838,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,471,117,0.436855,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,472,118,0.46383,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,473,118,0.462305,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,474,118,0.462305,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,475,118,0.46605500000000005,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,476,119,0.4785799999999999,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,config_drift,hard,json_parse_error: Expecting property name enclosed in double quotes: line 1 column 108 (char 107)," <think>Given the system overview and recent alerts, the payment_service is the most critical and shows issues after a config rollout. We should first check its dependencies and logs to understand the",477,119,0.46260499999999993,False
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,478,119,0.457105,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,memory_leak,easy,"buddy_action_validation_error: 1 validation error for BuddyAction
+primary_action.additional_notes
+  Extra inputs are not permitted [type=extra_forbidden, input_value='Check for any error patt...ndicate the root cause.', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"," <think>Given the symptoms of elevated latency and 5xx errors, we should start by investigating the api_gateway, as it's the most affected service. Checking its memory usage is also a good step since ",479,119,0.43012999999999996,False
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,480,120,0.41913,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,481,120,0.41063,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,482,120,0.412155,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,483,120,0.41368,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,484,121,0.415205,True
+0.5700000000000001,0.0,0.725,1.0,0.6383,0.6633,0.6133,config_drift,hard,,,485,121,0.41673,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,486,121,0.42700000000000005,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,487,121,0.43952500000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,488,122,0.42700000000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,489,122,0.442975,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,490,122,0.4445,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,491,122,0.446025,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,492,123,0.435025,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,493,123,0.42402500000000004,True
+0.5700000000000001,0.0,0.725,1.0,0.6383,0.6633,0.6133,config_drift,hard,,,494,123,0.42555000000000004,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,495,123,0.42707500000000004,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,496,124,0.41455000000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,497,124,0.430525,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,498,124,0.428775,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,499,124,0.4447500000000001,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,500,125,0.4572750000000001,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,501,125,0.46980000000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,502,125,0.4572750000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,503,125,0.4447500000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,504,126,0.432225,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,505,126,0.4197,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,506,126,0.418175,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,507,126,0.41665,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,508,127,0.42917500000000003,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,509,127,0.4417,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,config_drift,hard,"buddy_action_validation_error: 3 validation errors for BuddyAction
+primary_action.root_cause
+  Extra inputs are not permitted [type=extra_forbidden, input_value='config_rollout_error', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+primary_action.root_cause_service
+  Extra inputs are not permitted [type=extra_forbidden, input_value='order_service', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+primary_action.severity
+  Extra inputs are not permitted [type=extra_forbidden, input_value='P2', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"," <think>Given the degraded order_service and the recent config rollout, checking the dependencies and config version difference might be critical. We should start by gathering more information.</think",510,127,0.41320000000000007,False
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,511,127,0.41320000000000007,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,512,128,0.4242,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,513,128,0.43520000000000003,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,514,128,0.43520000000000003,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,515,128,0.43520000000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,516,129,0.43520000000000003,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,memory_leak,easy,"json_parse_error: Expecting ',' delimiter: line 1 column 216 (char 215)"," <think>Given the symptoms of elevated latency and 5xx errors, the API gateway is likely the first to experience issues. We should start by querying metrics to confirm the service's health.</think>\n<a",517,129,0.41922500000000007,False
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,518,129,0.41922500000000007,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,519,129,0.41922499999999996,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,520,130,0.41770000000000007,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,521,130,0.41617499999999996,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,522,130,0.4161750000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,523,130,0.4161750000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,524,131,0.4161750000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,525,131,0.41617499999999996,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,526,131,0.405175,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,memory_leak,easy,"json_parse_error: Expecting ',' delimiter: line 1 column 209 (char 208)"," <think>Start with querying metrics to understand the current state of the API gateway, which exhibits elevated latency and 5xx errors.</think>\n<actions>[{""primary_action"":{""action_type"":""query_metric",527,131,0.3782,False
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,528,132,0.376675,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,529,132,0.37515,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,530,132,0.40365,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,531,132,0.40365,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,cascading_retry_storm,medium,"json_parse_error: Expecting ',' delimiter: line 1 column 210 (char 209)"," <think>Given the api_gateway is the only degraded service and the alerts point to CPU saturation from retry volumes, we should start by querying metrics to verify the root cause.</think>\n<actions>[{""",532,133,0.376675,False
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,533,133,0.3782,True
+0.5700000000000001,0.3,0.625,1.0,0.5613,0.5863,0.5363,cascading_retry_storm,medium,,,534,133,0.3782,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,535,133,0.3782,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,536,134,0.3782,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,537,134,0.394175,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,538,134,0.39417500000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,539,134,0.394175,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,540,135,0.3849250000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,541,135,0.373925,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,542,135,0.38645000000000007,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,543,135,0.39897499999999997,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,544,136,0.41150000000000003,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,545,136,0.42402500000000004,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,546,136,0.4350250000000001,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,547,136,0.45825000000000005,True
+0.36460000000000004,0.0,0.825,1.0,0.3446,0.3696,0.3196,memory_leak,easy,,,548,137,0.4495050000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,549,137,0.43850500000000003,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,550,137,0.43698000000000004,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,551,137,0.435455,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,552,138,0.45143000000000005,True
+0.36460000000000004,0.0,0.825,1.0,0.3446,0.3696,0.3196,memory_leak,easy,,,553,138,0.44116,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,554,138,0.44116,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,555,138,0.4411600000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,556,139,0.44116,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,557,139,0.44116,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,558,139,0.44116,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,559,139,0.44116,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,560,140,0.4394100000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,561,140,0.4394100000000001,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,562,140,0.4394100000000001,True
+0.5700000000000001,0.0,0.725,1.0,0.6383,0.6633,0.6133,config_drift,hard,,,563,140,0.4394100000000001,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,564,141,0.43940999999999997,True
+0.6258,0.0,0.625,1.0,0.6058,0.6308,0.5808,config_drift,hard,,,565,141,0.44220000000000004,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,566,141,0.4422,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,567,141,0.44595,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,568,142,0.44369499999999995,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,569,142,0.44369499999999995,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,570,142,0.44521999999999995,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,571,142,0.44674500000000006,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,572,143,0.448495,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,573,143,0.4462400000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,574,143,0.433715,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,575,143,0.42119,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,576,144,0.42119,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,577,144,0.42119,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,578,144,0.43219,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,579,144,0.4431900000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,580,145,0.44319,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,581,145,0.44319,True
+0.5700000000000001,0.3,0.825,1.0,0.7377,0.7877,0.7377,cascading_retry_storm,medium,,,582,145,0.44319,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,583,145,0.44319,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,584,146,0.4431900000000001,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,585,146,0.4404,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,586,146,0.44192500000000007,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,587,146,0.44345000000000007,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,588,147,0.44345000000000007,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,589,147,0.44345000000000007,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,590,147,0.44192500000000007,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,591,147,0.44040000000000007,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,592,148,0.4386500000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,593,148,0.43865,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,594,148,0.43865,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,595,148,0.43865,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,596,149,0.44965,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,connection_pool_exhaustion,medium,json_parse_error: Expecting property name enclosed in double quotes: line 1 column 147 (char 146)," <think>Since the auth_service is reporting an issue with max open connections, we should start by checking the metrics to confirm if the service is under heavy load or if there's a specific spike cau",597,149,0.43367500000000003,False
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,598,149,0.424425,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,599,149,0.413425,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,600,150,0.41342500000000004,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,601,150,0.413425,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,memory_leak,easy,"json_parse_error: Expecting ',' delimiter: line 1 column 201 (char 200)"," <think>Given the recent alerts, it's clear the API Gateway is the primary concern. We should start by querying its metrics to confirm the latency and 5xx errors, then proceed to diagnose.</think>\n<ac",602,150,0.3849250000000001,False
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,603,150,0.37415000000000004,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,604,151,0.37262500000000004,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,605,151,0.3711,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,606,151,0.36957500000000004,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,607,151,0.36805,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,608,152,0.37905,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,609,152,0.39005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,610,152,0.37905,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,611,152,0.36805,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,612,153,0.36805,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,613,153,0.36805,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,614,153,0.36805000000000004,True
+0.36460000000000004,0.0,0.825,1.0,0.3446,0.3696,0.3196,memory_leak,easy,,,615,153,0.370305,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,616,154,0.37183,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,617,154,0.40033,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,618,154,0.41110500000000005,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,619,154,0.42363,True
+0.36460000000000004,0.0,0.825,1.0,0.3446,0.3696,0.3196,memory_leak,easy,,,620,155,0.42588500000000007,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,621,155,0.42588500000000007,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,622,155,0.4528600000000001,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,623,155,0.46211,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,624,156,0.45836000000000005,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,625,156,0.45461,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,626,156,0.456135,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,627,156,0.45766,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,628,157,0.44666000000000006,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,629,157,0.43566000000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,630,157,0.43566000000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,631,157,0.43566000000000005,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,632,158,0.44665999999999995,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,633,158,0.45766,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,634,158,0.46866,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,635,158,0.47740499999999997,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,636,159,0.46488000000000007,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,637,159,0.452355,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,638,159,0.43983000000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,639,159,0.42730500000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,640,160,0.42505,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,641,160,0.42505,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,642,160,0.41405000000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,643,160,0.40305,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,644,161,0.40832500000000005,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,645,161,0.4136,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,646,161,0.4136,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,647,161,0.4136,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,648,162,0.4136,True
+0.3296,0.0,0.825,1.0,0.3096,0.3346,0.2846,memory_leak,easy,,,649,162,0.414105,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,650,162,0.425105,True
+0.4895,0.0,0.725,1.0,0.4695,0.4945,0.4445,cascading_retry_storm,medium,,,651,162,0.433605,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,652,163,0.43513,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,653,163,0.436655,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,654,163,0.436655,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,655,163,0.436655,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,656,164,0.436655,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,657,164,0.436655,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,658,164,0.436655,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,659,164,0.436655,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,660,165,0.436655,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,661,165,0.436655,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,662,165,0.44765499999999997,True
+0.4895,0.0,0.725,1.0,0.4695,0.4945,0.4445,cascading_retry_storm,medium,,,663,165,0.45615500000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,664,166,0.44363,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,665,166,0.43110499999999996,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,666,166,0.43110499999999996,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,667,166,0.43110500000000007,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,connection_pool_exhaustion,medium,"buddy_action_validation_error: 1 validation error for BuddyAction
+primary_action
+  Value error, run_healthcheck requires target_service [type=value_error, input_value={'action_type': 'run_heal... None, 'parameters': {}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/value_error"," <think>Given the observed degradation in the user_db and the recent alerts, it seems the issue is directly related to the database. The first step should be to drain connections to prevent further is",668,167,0.41513,False
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,669,167,0.421875,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,670,167,0.410875,True
+0.274,0.0,0.625,0.8,0.254,0.279,0.229,memory_leak,easy,,,671,167,0.4001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,672,168,0.387575,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,673,168,0.37505,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,674,168,0.376575,True
+0.5700000000000001,0.0,0.625,1.0,0.6058,0.6308,0.5808,config_drift,hard,,,675,168,0.3781,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,676,169,0.38910000000000006,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,677,169,0.4001,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,678,169,0.4126250000000001,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,679,169,0.42515000000000003,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,680,170,0.43615000000000004,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,681,170,0.44715,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,682,170,0.44715000000000005,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,683,170,0.44589999999999996,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,684,171,0.44589999999999996,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,685,171,0.4459000000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,686,171,0.433375,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,687,171,0.42085,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,688,172,0.43682499999999996,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,689,172,0.431325,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,690,172,0.44385,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,691,172,0.45865,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,692,173,0.45865,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,693,173,0.45865,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,694,173,0.44612500000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,695,173,0.43360000000000004,True
+0.4895,0.0,0.725,1.0,0.4695,0.4945,0.4445,connection_pool_exhaustion,medium,,,696,174,0.4311,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,697,174,0.4311,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,698,174,0.429575,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,699,174,0.42805,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,memory_leak,easy,"buddy_action_validation_error: 1 validation error for BuddyAction
+primary_action.diagnosis
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'root_cause': 'unknown',... None, 'severity': 'P3'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"," <think>Given the degraded status of the API gateway and the elevated latency and 5xx errors, it's likely the source of the issue. The payment service's memory usage is also concerning, but it seems l",700,175,0.40107499999999996,False
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,701,175,0.390075,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,702,175,0.379075,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,703,175,0.371825,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,704,176,0.371825,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,705,176,0.371825,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,config_drift,hard,"buddy_action_validation_error: 1 validation error for BuddyAction
+primary_action.action_id
+  Extra inputs are not permitted [type=extra_forbidden, input_value='1', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"," <think>Start with the order_service as it has a direct alert and a misconfig.</think>\n<actions>[{""primary_action"":{""action_type"":""run_healthcheck"",""target_service"":""order_service"",""parameters"":{},""ac",706,176,0.35585,False
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,707,176,0.368375,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,708,177,0.368375,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,709,177,0.366625,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,710,177,0.36510000000000004,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,711,177,0.36357500000000004,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,712,178,0.363575,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,713,178,0.363575,True
+0.5700000000000001,0.0,0.725,1.0,0.6383,0.6633,0.6133,config_drift,hard,,,714,178,0.3761,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,715,178,0.388625,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,716,179,0.380125,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,memory_leak,easy,"buddy_action_validation_error: 1 validation error for BuddyAction
+primary_action.timing
+  Extra inputs are not permitted [type=extra_forbidden, input_value='now', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"," <think>Given the observed degraded state of the api_gateway and the high memory usage in the user_db, we should start by checking dependencies to see if the memory issue is affecting the api_gateway.",717,179,0.35314999999999996,False
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,718,179,0.34215000000000007,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,719,179,0.33115,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,720,180,0.347125,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,721,180,0.347125,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,722,180,0.347125,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,723,180,0.347125,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,724,181,0.358125,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,725,181,0.365375,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,726,181,0.39235000000000003,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,727,181,0.390825,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,memory_leak,easy,"json_parse_error: Expecting ',' delimiter: line 1 column 210 (char 209)"," <think>Initial indications suggest the API Gateway is the primary degraded service, with elevated latency and 5xx errors. The user database is also nearing its memory limit. We should first focus on ",728,182,0.37485,False
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,729,182,0.3766,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,730,182,0.378125,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,731,182,0.37965,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,732,183,0.37965,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,733,183,0.37965000000000004,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,734,183,0.36712500000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,735,183,0.3546,True
+0.5700000000000001,0.3,0.525,1.0,0.5363,0.5613,0.5613,connection_pool_exhaustion,medium,,,736,184,0.36712500000000003,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,737,184,0.3941,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,738,184,0.3941,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,739,184,0.3941,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,740,185,0.3941,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,741,185,0.3941,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,742,185,0.406625,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,743,185,0.41915,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,744,186,0.40815,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,745,186,0.40090000000000003,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,746,186,0.40242500000000003,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,747,186,0.40395000000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,748,187,0.419925,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,749,187,0.418175,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,750,187,0.41665,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,751,187,0.415125,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,cascading_retry_storm,medium,"buddy_action_validation_error: 1 validation error for BuddyAction
+primary_action.log_stream
+  Extra inputs are not permitted [type=extra_forbidden, input_value='error', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"," <think>Given the degraded state of the api_gateway and the high retry volume causing CPU saturation, it's critical to first restore the service's performance before diving into diagnosis.</think>\n<ac",752,188,0.39915,False
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,753,188,0.41167499999999996,True
+0.4895,0.0,0.725,1.0,0.4695,0.4945,0.4445,cascading_retry_storm,medium,,,754,188,0.4201750000000001,True
+0.5700000000000001,0.0,0.825,1.0,0.6327,0.6827,0.6327,cascading_retry_storm,medium,,,755,188,0.4327,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,756,189,0.4201750000000001,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,757,189,0.41092500000000004,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,758,189,0.42345000000000005,True
+0.5700000000000001,0.0,0.725,1.0,0.7683,0.8183,0.7683,config_drift,hard,,,759,189,0.4359750000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,760,190,0.4359750000000001,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,761,190,0.43772500000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,762,190,0.42519999999999997,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,763,190,0.412675,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,764,191,0.4252000000000001,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,765,191,0.43772500000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,766,191,0.4252000000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,767,191,0.412675,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,768,192,0.4252000000000001,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,769,192,0.4377250000000001,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,770,192,0.43925000000000003,True
+0.5700000000000001,0.0,0.725,1.0,0.6383,0.6633,0.6133,config_drift,hard,,,771,192,0.44077500000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,772,193,0.4567500000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,773,193,0.44422500000000004,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,774,193,0.43747500000000006,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,775,193,0.42495000000000005,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,776,194,0.43595000000000006,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,777,194,0.4452000000000001,True
+0.4527,0.0,0.625,1.0,0.4327,0.4577,0.4077,connection_pool_exhaustion,medium,,,778,194,0.4393350000000001,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,779,194,0.43406,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,780,195,0.44506000000000007,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,781,195,0.4543100000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,782,195,0.45431,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,783,195,0.45431,True
+0.4895,0.0,0.725,1.0,0.4695,0.4945,0.4445,cascading_retry_storm,medium,,,784,196,0.45028499999999994,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,785,196,0.44876000000000005,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,config_drift,hard,"buddy_action_validation_error: 1 validation error for BuddyAction
+primary_action.action_id
+  Extra inputs are not permitted [type=extra_forbidden, input_value='check_dependencies_1234567890', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"," <think>Given the recent alert about payment_service error rate spiking after a config rollout, let's first check the dependencies and the logs to understand if the issue is from the configuration or ",786,196,0.432785,False
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,787,196,0.44531,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,788,197,0.44531,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,789,197,0.44531,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,790,197,0.44003500000000006,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,791,197,0.43851000000000007,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,792,198,0.45103499999999996,True
+0.5700000000000001,0.0,0.725,1.0,0.7683,0.8183,0.7683,config_drift,hard,,,793,198,0.46356,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,794,198,0.47433500000000006,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,795,198,0.48686000000000007,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,config_drift,hard,"buddy_action_validation_error: 1 validation error for BuddyAction
+primary_action.additional_notes
+  Extra inputs are not permitted [type=extra_forbidden, input_value='Check if the config chan...ected any dependencies.', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"," <think>Since the payment_service is degraded and the error rate spiked after a config rollout, it's critical to first check the recent config changes and dependencies.</think>\n<actions>[{""primary_act",796,199,0.45988500000000004,False
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,797,199,0.46141,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,798,199,0.467275,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,799,199,0.47255,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,800,200,0.47255,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,801,200,0.47255,True
+0.5700000000000001,0.0,0.725,1.0,0.6383,0.6633,0.6133,config_drift,hard,,,802,200,0.48507500000000003,True
+0.5700000000000001,0.0,0.725,1.0,0.7683,0.8183,0.7683,config_drift,hard,,,803,200,0.4976000000000001,True
+0.36460000000000004,0.0,0.825,1.0,0.3446,0.3696,0.3196,memory_leak,easy,,,804,201,0.4913550000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,805,201,0.48035500000000003,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,806,201,0.5088550000000001,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,807,201,0.5088550000000001,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,808,202,0.5073300000000001,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,809,202,0.505805,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,810,202,0.51108,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,811,202,0.512605,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,812,203,0.51108,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,813,203,0.509555,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,814,203,0.49702999999999997,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,815,203,0.48450499999999996,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,816,204,0.51148,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,817,204,0.506205,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,818,204,0.49368000000000006,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,819,204,0.48115500000000005,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,820,205,0.48115500000000005,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,821,205,0.48115499999999994,True
+0.5660000000000001,0.0,0.925,1.0,0.546,0.571,0.521,connection_pool_exhaustion,medium,,,822,205,0.48095499999999997,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,823,205,0.47942999999999997,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,824,206,0.477175,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,825,206,0.477175,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,826,206,0.477175,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,827,206,0.477175,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,828,207,0.46617499999999995,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,memory_leak,easy,"buddy_action_validation_error: 1 validation error for BuddyAction
+primary_action.diagnostic_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=True, input_type=bool]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"," <think>Given the elevated latency and 5xx errors on the api_gateway, it's likely the root issue. We should first gather more information about the current state of the api_gateway.</think>\n<actions>[",829,207,0.43920000000000003,False
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,830,207,0.43767500000000004,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,831,207,0.43615000000000004,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,832,208,0.43767500000000004,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,833,208,0.43920000000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,834,208,0.43920000000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,835,208,0.43920000000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,836,209,0.4282,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,837,209,0.4227,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,838,209,0.4337,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,839,209,0.4447,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,840,210,0.446225,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,841,210,0.4477500000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,842,210,0.43542500000000006,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,843,210,0.424425,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,844,211,0.43542500000000006,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,845,211,0.44642500000000007,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,846,211,0.44642499999999996,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,847,211,0.44642499999999996,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,848,212,0.457425,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,849,212,0.48440000000000005,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,850,212,0.48440000000000005,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,851,212,0.48440000000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,852,213,0.471875,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,853,213,0.45935,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,854,213,0.471875,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,855,213,0.48440000000000005,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,856,214,0.49692500000000006,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,857,214,0.5077,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,858,214,0.49670000000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,859,214,0.4857,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,860,215,0.473175,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,861,215,0.46064999999999995,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,862,215,0.46064999999999995,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,863,215,0.46065000000000006,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,864,216,0.46217500000000006,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,865,216,0.46369999999999995,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,866,216,0.4511750000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,867,216,0.4386500000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,868,217,0.42765000000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,869,217,0.41665,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,870,217,0.40564999999999996,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,871,217,0.39465000000000006,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,872,218,0.40564999999999996,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,873,218,0.41665,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,874,218,0.415125,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,connection_pool_exhaustion,medium,"buddy_action_validation_error: 1 validation error for BuddyAction
+primary_action.params_rationale
+  Extra inputs are not permitted [type=extra_forbidden, input_value='Reduce load on the payme...and ensure consistency.', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"," <think>Given the current state, the payment_service is likely the root cause due to the alerts. We should first drain connections and then scale the service to prevent further issues.</think>\n<action",875,218,0.386625,False
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,876,219,0.3741,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,877,219,0.36157500000000004,True
+0.34450000000000003,0.0,0.725,1.0,0.2995,0.3245,0.3245,memory_leak,easy,,,878,219,0.36282500000000006,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,879,219,0.362825,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,880,220,0.362825,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,881,220,0.362825,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,882,220,0.37382499999999996,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,883,220,0.38482500000000003,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,884,221,0.38330000000000003,True
+0.4895,0.0,0.725,1.0,0.4695,0.4945,0.4445,cascading_retry_storm,medium,,,885,221,0.379275,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,886,221,0.39027500000000004,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,887,221,0.40127500000000005,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,888,222,0.40127499999999994,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,889,222,0.40127500000000005,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,890,222,0.412275,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,891,222,0.423275,True
+0.36460000000000004,0.0,0.825,1.0,0.3446,0.3696,0.3196,memory_leak,easy,,,892,223,0.41452999999999995,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,893,223,0.40353000000000006,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,894,223,0.39253,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,895,223,0.410255,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,896,224,0.42125500000000005,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,897,224,0.43225500000000006,True
+0.302,0.0,0.625,1.0,0.282,0.307,0.257,memory_leak,easy,,,898,224,0.43013,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,899,224,0.43188000000000004,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,900,225,0.43362999999999996,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,901,225,0.43362999999999996,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,902,225,0.43362999999999996,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,903,225,0.43362999999999996,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,904,226,0.42263,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,905,226,0.41413,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,906,226,0.40313,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,907,226,0.39213,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,908,227,0.39213,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,909,227,0.39213,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,910,227,0.39213,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,911,227,0.39213,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,912,228,0.389875,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,913,228,0.38987499999999997,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,914,228,0.400875,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,915,228,0.410125,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,916,229,0.406375,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,917,229,0.402625,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,918,229,0.416025,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,919,229,0.42679999999999996,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,920,230,0.43605,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,921,230,0.44705000000000006,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,922,230,0.4378,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,923,230,0.42679999999999996,True
+0.5700000000000001,1.0,0.925,1.0,1.0,1.0,0.975,config_drift,hard,,,924,231,0.439325,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,925,231,0.45185000000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,926,231,0.45185000000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,927,231,0.45185,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,928,232,0.46285,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,929,232,0.47385,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,memory_leak,easy,"buddy_action_validation_error: 1 validation error for BuddyAction
+primary_action.query
+  Extra inputs are not permitted [type=extra_forbidden, input_value='latency, errors', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"," <think>Start with the most critical issue, which is the elevated latency and 5xx errors on the api_gateway.</think>\n<actions>[{""primary_action"":{""action_type"":""query_metrics"",""target_service"":""api_ga",930,232,0.446875,False
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,931,232,0.43587499999999996,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,932,233,0.437625,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,933,233,0.43762500000000004,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,934,233,0.42662500000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,935,233,0.415625,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,936,234,0.40837500000000004,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,937,234,0.40112500000000006,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,938,234,0.3886,True
+0.36460000000000004,0.0,0.825,1.0,0.3446,0.3696,0.3196,memory_leak,easy,,,939,234,0.37833,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,940,235,0.37833,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,941,235,0.37833,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,942,235,0.37658,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,943,235,0.37658,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,944,236,0.37658,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,945,236,0.37658,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,946,236,0.37658,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,947,236,0.37658,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,948,237,0.36558,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,949,237,0.35458,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,950,237,0.370555,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,951,237,0.370555,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,952,238,0.368805,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,953,238,0.368805,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,954,238,0.38133000000000006,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,955,238,0.393855,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,956,239,0.4063800000000001,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,957,239,0.4189050000000001,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,958,239,0.42990500000000004,True
+0.4895,0.0,0.725,1.0,0.4695,0.4945,0.4445,cascading_retry_storm,medium,,,959,239,0.43615000000000004,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,960,240,0.4361499999999999,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,961,240,0.43240000000000006,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,962,240,0.43965,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,963,240,0.4469,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,964,241,0.441625,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,965,241,0.4401,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,966,241,0.452625,True
+0.5700000000000001,0.3,0.725,1.0,0.6245,0.6495,0.5995,cascading_retry_storm,medium,,,967,241,0.46515000000000006,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,968,242,0.46515000000000006,True
+0.35450000000000004,0.0,0.725,1.0,0.3345,0.3595,0.3095,memory_leak,easy,,,969,242,0.46690000000000004,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,970,242,0.479425,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,971,242,0.49195,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,972,243,0.50295,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,cascading_retry_storm,medium,json_parse_error: Expecting property name enclosed in double quotes: line 1 column 101 (char 100)," <think>Start with actions that can quickly restore service, then diagnose the issue based on evidence.</think>\n<actions>[{""primary_action"":{""action_type"":""scale_service"",""target_service"":""order_servi",973,243,0.48697500000000005,False
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,974,243,0.47445000000000004,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,975,243,0.46192500000000003,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,976,244,0.46192500000000003,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,977,244,0.46192500000000003,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,978,244,0.4509250000000001,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,979,244,0.44242499999999996,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,980,245,0.44395000000000007,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,981,245,0.44922500000000004,True
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,memory_leak,easy,"buddy_action_validation_error: 1 validation error for BuddyAction
+primary_action
+  Value error, run_healthcheck requires target_service [type=value_error, input_value={'action_type': 'run_heal... None, 'parameters': {}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/value_error"," <think>Since the api_gateway is showing degraded performance with elevated latency and 5xx errors, it's likely the primary issue. The payment_service also shows high memory usage, but it's not curren",982,245,0.42600000000000005,False
+0.36460000000000004,0.0,0.825,1.0,0.3446,0.3696,0.3196,memory_leak,easy,,,983,245,0.42100499999999996,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,984,246,0.413755,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,985,246,0.4027550000000001,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,986,246,0.40123,True
+0.4645,0.0,0.625,1.0,0.4445,0.4695,0.4195,connection_pool_exhaustion,medium,,,987,246,0.39595500000000006,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,988,247,0.395955,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,989,247,0.394205,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,990,247,0.394205,True
+0.5700000000000001,0.0,0.725,1.0,0.7033,0.7283,0.6783,config_drift,hard,,,991,247,0.394205,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,992,248,0.383205,True
+0.3195,0.0,0.725,1.0,0.2995,0.3245,0.2745,memory_leak,easy,,,993,248,0.39918000000000003,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,994,248,0.4101800000000001,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,995,248,0.42118,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,996,249,0.419655,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,connection_pool_exhaustion,medium,,,997,249,0.41813,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,998,249,0.42913000000000007,True
+0.5395,0.0,0.725,1.0,0.5195,0.5445,0.4945,cascading_retry_storm,medium,,,999,249,0.44013,True

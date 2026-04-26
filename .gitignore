@@ -54,6 +54,7 @@ wandb/
 runs/
 outputs/
 artifacts/
+.training_artifacts/
 
 # Model checkpoints (too large for git)
 checkpoints/
