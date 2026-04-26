@@ -68,6 +68,13 @@ def _env(name: str, default: Optional[str] = None) -> Optional[str]:
     return value
 
 
+def _env_bool(name: str, default: bool) -> bool:
+    value = _env(name)
+    if value is None:
+        return default
+    return value.strip().lower() in {"1", "true", "yes", "on"}
+
+
 HF_OUTPUT_REPO = _env("HF_OUTPUT_REPO", "Vk224/crisisops-qwen3-8b-grpo")
 HF_TOKEN = _env("HF_TOKEN")
 WANDB_API_KEY = _env("WANDB_API_KEY")
@@ -79,6 +86,8 @@ MAX_SEQ_LENGTH = int(_env("MAX_SEQ_LENGTH", "4096"))
 LORA_RANK = int(_env("LORA_RANK", "32"))
 MODEL_GPU_MEMORY_UTILIZATION = float(_env("MODEL_GPU_MEMORY_UTILIZATION", "0.70"))
 VLLM_GPU_MEMORY_UTILIZATION = float(_env("VLLM_GPU_MEMORY_UTILIZATION", "0.35"))
+FAST_INFERENCE = _env_bool("FAST_INFERENCE", True)
+USE_VLLM = _env_bool("USE_VLLM", True)
 PER_DEVICE_TRAIN_BATCH_SIZE = int(_env("PER_DEVICE_TRAIN_BATCH_SIZE", "4"))
 GRADIENT_ACCUMULATION_STEPS = int(_env("GRADIENT_ACCUMULATION_STEPS", "2"))
 NUM_GENERATIONS = int(_env("NUM_GENERATIONS", "4"))
@@ -155,7 +164,7 @@ model, tokenizer = FastLanguageModel.from_pretrained(
     model_name=MODEL_NAME,
     max_seq_length=MAX_SEQ_LENGTH,
     load_in_4bit=True,
-    fast_inference=True,
+    fast_inference=FAST_INFERENCE,
     max_lora_rank=LORA_RANK,
     gpu_memory_utilization=MODEL_GPU_MEMORY_UTILIZATION,
 )
@@ -429,7 +438,7 @@ grpo_kwargs = dict(
     logging_steps=5,
     save_steps=50,
     report_to="wandb" if _use_wandb else "none",
-    use_vllm=True,
+    use_vllm=USE_VLLM,
     vllm_mode="colocate",
     vllm_gpu_memory_utilization=VLLM_GPU_MEMORY_UTILIZATION,
     log_completions=True,

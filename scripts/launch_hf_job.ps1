@@ -55,6 +55,8 @@ param(
     [int]$MaxCompletionLength = 1024,
     [double]$ModelGpuMemoryUtilization = 0.70,
     [double]$VllmGpuMemoryUtilization = 0.35,
+    [bool]$FastInference = $true,
+    [bool]$UseVllm = $true,
     [string]$WandbKey = "",
     [string]$BaseImage = "pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel"
 )
@@ -75,6 +77,7 @@ Write-Host " Max seq length:  $MaxSeqLength"
 Write-Host " LoRA rank:       $LoraRank"
 Write-Host " Batch/gen:       batch=$PerDeviceTrainBatchSize grad_accum=$GradientAccumulationSteps generations=$NumGenerations"
 Write-Host " vLLM/model mem:  vllm=$VllmGpuMemoryUtilization model=$ModelGpuMemoryUtilization"
+Write-Host " Fast/vLLM:       fast_inference=$FastInference use_vllm=$UseVllm"
 Write-Host " W&B logging:     $([bool]$WandbKey)"
 Write-Host "=================================================================="
 
@@ -117,6 +120,8 @@ $arguments = @(
     "--env", "MAX_COMPLETION_LENGTH=$MaxCompletionLength",
     "--env", "MODEL_GPU_MEMORY_UTILIZATION=$ModelGpuMemoryUtilization",
     "--env", "VLLM_GPU_MEMORY_UTILIZATION=$VllmGpuMemoryUtilization",
+    "--env", "FAST_INFERENCE=$FastInference",
+    "--env", "USE_VLLM=$UseVllm",
     "--env", "MODEL_NAME=unsloth/Qwen3-8B"
 )
 
