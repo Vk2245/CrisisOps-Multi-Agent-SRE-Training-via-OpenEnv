@@ -55,8 +55,8 @@ param(
     [int]$MaxCompletionLength = 1024,
     [double]$ModelGpuMemoryUtilization = 0.70,
     [double]$VllmGpuMemoryUtilization = 0.35,
-    [bool]$FastInference = $true,
-    [bool]$UseVllm = $true,
+    [string]$FastInference = "true",
+    [string]$UseVllm = "true",
     [string]$WandbKey = "",
     [string]$BaseImage = "pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel"
 )
