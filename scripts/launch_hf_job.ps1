@@ -44,6 +44,7 @@ param(
     [string]$OutputRepo = "Vk224/crisisops-qwen3-8b-grpo",
     [string]$RepoUrl = "https://github.com/Vk2245/CrisisOps-Multi-Agent-SRE-Training-via-OpenEnv.git",
     [string]$RepoRef = "main",
+    [string]$ModelName = "unsloth/Qwen3-8B",
     [int]$MaxGrpoSteps = 300,
     [int]$NumTrainEpisodes = 360,
     [int]$MaxSeqLength = 4096,
@@ -71,6 +72,7 @@ Write-Host " Timeout:         $Timeout"
 Write-Host " Base image:      $BaseImage"
 Write-Host " Repo:            $RepoUrl @ $RepoRef"
 Write-Host " Output repo:     $OutputRepo"
+Write-Host " Model:           $ModelName"
 Write-Host " GRPO steps:      $MaxGrpoSteps"
 Write-Host " Episodes:        $NumTrainEpisodes"
 Write-Host " Max seq length:  $MaxSeqLength"
@@ -122,7 +124,7 @@ $arguments = @(
     "--env", "VLLM_GPU_MEMORY_UTILIZATION=$VllmGpuMemoryUtilization",
     "--env", "FAST_INFERENCE=$FastInference",
     "--env", "USE_VLLM=$UseVllm",
-    "--env", "MODEL_NAME=unsloth/Qwen3-8B"
+    "--env", "MODEL_NAME=$ModelName"
 )
 
 if ($WandbKey) {

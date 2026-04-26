@@ -93,10 +93,21 @@ GRADIENT_ACCUMULATION_STEPS = int(_env("GRADIENT_ACCUMULATION_STEPS", "2"))
 NUM_GENERATIONS = int(_env("NUM_GENERATIONS", "4"))
 MAX_PROMPT_LENGTH = int(_env("MAX_PROMPT_LENGTH", "2048"))
 MAX_COMPLETION_LENGTH = int(_env("MAX_COMPLETION_LENGTH", "1024"))
+PREFLIGHT_SAMPLES = int(_env("PREFLIGHT_SAMPLES", "5"))
 
 
 def _log(msg: str) -> None:
     print(f"[crisisops-train] {msg}", flush=True)
+
+
+if not FAST_INFERENCE or not USE_VLLM:
+    raise RuntimeError(
+        "FAST_INFERENCE and USE_VLLM must stay enabled. "
+        "The previous no-vLLM L40S run produced 640/640 unparseable rollouts."
+    )
+
+if MAX_COMPLETION_LENGTH < 1024:
+    raise RuntimeError("MAX_COMPLETION_LENGTH must be >=1024 for complete <actions> trajectories.")
 
 
 # --- 1. Heavy imports (deferred so help-text works on CPU machines) --------
@@ -210,6 +221,9 @@ Restore the system before diagnosis. End with diagnose and independent buddy dia
 Return only this format:
 <think>brief private reasoning</think>
 <actions>[JSON list of BuddyAction objects]</actions>
+Example valid response:
+<think>Inspect the likely root service before remediation.</think>
+<actions>[{"primary_action":{"action_type":"query_metrics","target_service":"api_gateway","parameters":{}},"buddy_feedback":{"feedback_type":"APPROVE","rationale":"Start at customer-facing symptoms."}},{"primary_action":{"action_type":"diagnose","target_service":null,"parameters":{"root_cause":"memory_leak:api_gateway","root_cause_service":"api_gateway","severity":"P2"}},"buddy_feedback":{"feedback_type":"APPROVE","rationale":"Evidence supports the diagnosis.","diagnosis":{"root_cause":"memory_leak:api_gateway","root_cause_service":"api_gateway","severity":"P2"}}}]</actions>
 """
 
 
@@ -336,6 +350,7 @@ def run_completion_in_env(completion_text: str, seed: int, difficulty: str) -> D
             "primary_reward": 0.0,
             "buddy_reward": 0.0,
             "parse_error": parse_error,
+            "raw_completion_head": completion_text[:200].replace("\n", "\\n"),
             "scenario_type": scenario_type,
             "difficulty": difficulty,
         }
@@ -358,15 +373,17 @@ def run_completion_in_env(completion_text: str, seed: int, difficulty: str) -> D
         "scenario_type": scenario_type,
         "difficulty": difficulty,
         "parse_error": None,
+        "raw_completion_head": "",
     }
 
 
 def crisisops_reward_func(prompts, completions, seed, difficulty, scenario_type=None, trainer_state=None, **kwargs):
     rewards: List[float] = []
     for prompt, completion, seed_i, difficulty_i in zip(prompts, completions, seed, difficulty):
+        completion_text = completion_to_text(completion)
         try:
             metrics = run_completion_in_env(
-                completion_to_text(completion), int(seed_i), str(difficulty_i)
+                completion_text, int(seed_i), str(difficulty_i)
             )
         except Exception as exc:  # never let a bad rollout kill GRPO
             _log(f"reward_func error on seed={seed_i}: {exc!r}")
@@ -379,6 +396,7 @@ def crisisops_reward_func(prompts, completions, seed, difficulty, scenario_type=
                 "primary_reward": 0.0,
                 "buddy_reward": 0.0,
                 "parse_error": f"reward_func_exception: {exc}",
+                "raw_completion_head": completion_text[:200].replace("\n", "\\n"),
                 "scenario_type": str(scenario_type) if scenario_type else "unknown",
                 "difficulty": str(difficulty_i),
             }
@@ -388,6 +406,13 @@ def crisisops_reward_func(prompts, completions, seed, difficulty, scenario_type=
         )
         TRAINING_METRICS.append(metrics)
         rewards.append(metrics["total_reward"])
+        if metrics.get("parse_error"):
+            _log(
+                "Unparseable completion: "
+                f"seed={seed_i} difficulty={difficulty_i} "
+                f"error={metrics['parse_error']} "
+                f"raw_head={metrics.get('raw_completion_head', '')!r}"
+            )
         if _use_wandb:
             try:
                 wandb.log(
@@ -461,8 +486,64 @@ trainer = GRPOTrainer(
 )
 
 
+# --- 7b. Pre-training completion validation --------------------------------
+
+def validate_pretraining_completions() -> None:
+    """Abort before GRPO if the base model cannot emit parseable actions."""
+
+    _log(
+        "Preflight validation: generating "
+        f"{PREFLIGHT_SAMPLES} completions with vLLM/fast inference enabled"
+    )
+    try:
+        FastLanguageModel.for_inference(model)
+    except Exception as exc:
+        _log(f"FastLanguageModel.for_inference warning: {exc}")
+
+    failures: List[str] = []
+    sample_rows = _rows[:PREFLIGHT_SAMPLES]
+    for idx, row in enumerate(sample_rows, start=1):
+        prompt = str(row["prompt"])
+        inputs = tokenizer(prompt, return_tensors="pt", truncation=True, max_length=MAX_PROMPT_LENGTH)
+        inputs = {k: v.to(model.device) for k, v in inputs.items()}
+        with torch.inference_mode():
+            output_ids = model.generate(
+                **inputs,
+                max_new_tokens=MAX_COMPLETION_LENGTH,
+                temperature=0.7,
+                top_p=0.9,
+                do_sample=True,
+                pad_token_id=tokenizer.pad_token_id,
+                eos_token_id=tokenizer.eos_token_id,
+            )
+        completion_ids = output_ids[0][inputs["input_ids"].shape[-1]:]
+        text = tokenizer.decode(completion_ids, skip_special_tokens=True)
+        actions, parse_error = extract_json_actions(text)
+        has_tags = bool(re.search(r"<actions>.*?</actions>", text, flags=re.DOTALL | re.IGNORECASE))
+        raw_head = text[:200].replace("\n", "\\n")
+        if parse_error or not has_tags or not actions:
+            failures.append(
+                f"sample={idx} seed={row['seed']} difficulty={row['difficulty']} "
+                f"has_tags={has_tags} error={parse_error} raw_head={raw_head!r}"
+            )
+            _log(f"Preflight FAIL sample {idx}: {failures[-1]}")
+        else:
+            _log(
+                f"Preflight PASS sample {idx}: "
+                f"{len(actions)} BuddyActions parseable; raw_head={raw_head!r}"
+            )
+
+    if failures:
+        raise RuntimeError(
+            "Preflight completion validation failed; stopping before expensive GRPO loop.\n"
+            + "\n".join(failures)
+        )
+    _log("Preflight validation passed: all sampled completions contain parseable <actions> tags")
+
+
 # --- 8. Train --------------------------------------------------------------
 
+validate_pretraining_completions()
 _log(f"Starting GRPO training: max_steps={MAX_GRPO_STEPS}, episodes={NUM_TRAIN_EPISODES}")
 train_result = trainer.train()
 _log(f"Training finished: {train_result}")
@@ -475,53 +556,18 @@ _log(f"Saved final adapter + tokenizer to {final_dir}")
 
 # --- 9. Save metrics + plots (matches notebook cells 20, 22, 24) -----------
 
-_log("Saving training metrics CSV and plots")
+_log("Saving training metrics CSV, summary JSON, and publication-grade plots")
 metrics_df = pd.DataFrame(TRAINING_METRICS)
 if metrics_df.empty:
     raise RuntimeError("No training metrics collected. Did GRPO actually run rollouts?")
 
 metrics_df["episode"] = range(len(metrics_df))
 metrics_df["reward_ma20"] = metrics_df["total_reward"].rolling(20, min_periods=1).mean()
+metrics_df["parseable"] = metrics_df["parse_error"].isna()
 metrics_csv_path = ARTIFACT_DIR / "training_metrics.csv"
 metrics_df.to_csv(metrics_csv_path, index=False)
 _log(f"Wrote {metrics_csv_path} with {len(metrics_df)} rollouts")
 
-# Plot 1: reward curve
-plt.figure(figsize=(12, 7))
-sns.lineplot(data=metrics_df, x="episode", y="total_reward", alpha=0.30, label="Episode reward")
-sns.lineplot(data=metrics_df, x="episode", y="reward_ma20", linewidth=3, label="20-rollout moving average")
-plt.xlabel("Generated Environment Rollout")
-plt.ylabel("Terminal Total Reward")
-plt.title("CrisisOps GRPO Training: Total Reward Over Rollouts")
-plt.ylim(-0.02, 1.05)
-plt.legend()
-plt.tight_layout()
-reward_curve_path = ARTIFACT_DIR / "reward_curve.png"
-plt.savefig(reward_curve_path, dpi=300, bbox_inches="tight")
-plt.close()
-_log(f"Wrote {reward_curve_path}")
-
-# Plot 2: judge component breakdown
-component_cols = ["root_cause_accuracy", "process_quality", "damage_audit"]
-component_df = metrics_df[["episode"] + component_cols].copy()
-for col in component_cols:
-    component_df[col] = component_df[col].rolling(20, min_periods=1).mean()
-long_components = component_df.melt(id_vars="episode", var_name="Judge Component", value_name="Score")
-
-plt.figure(figsize=(12, 7))
-sns.lineplot(data=long_components, x="episode", y="Score", hue="Judge Component", linewidth=3)
-plt.xlabel("Generated Environment Rollout")
-plt.ylabel("20-Rollout Moving Average Score")
-plt.title("CrisisOps GRPO Training: Layered Judge Breakdown")
-plt.ylim(-0.02, 1.05)
-plt.legend(title="Judge Component")
-plt.tight_layout()
-judge_breakdown_path = ARTIFACT_DIR / "judge_breakdown.png"
-plt.savefig(judge_breakdown_path, dpi=300, bbox_inches="tight")
-plt.close()
-_log(f"Wrote {judge_breakdown_path}")
-
-# Plot 3: early vs late success rate
 def summarize_success(df: pd.DataFrame, label: str) -> Dict[str, Any]:
     return {
         "policy": label,
@@ -531,6 +577,8 @@ def summarize_success(df: pd.DataFrame, label: str) -> Dict[str, Any]:
     }
 
 window = max(10, len(metrics_df) // 5)
+first50 = metrics_df.head(min(50, len(metrics_df)))
+last50 = metrics_df.tail(min(50, len(metrics_df)))
 comparison = pd.DataFrame(
     [
         summarize_success(metrics_df.head(window), "Early training"),
@@ -540,17 +588,144 @@ comparison = pd.DataFrame(
 comparison_csv_path = ARTIFACT_DIR / "success_rate_comparison.csv"
 comparison.to_csv(comparison_csv_path, index=False)
 
+summary = {
+    "rollouts": int(len(metrics_df)),
+    "mean_reward_first_50": float(first50["total_reward"].mean()),
+    "mean_reward_last_50": float(last50["total_reward"].mean()),
+    "success_rate_first_50": float((first50["total_reward"] >= 0.70).mean()),
+    "success_rate_last_50": float((last50["total_reward"] >= 0.70).mean()),
+    "success_rate_delta": float(
+        (last50["total_reward"] >= 0.70).mean() - (first50["total_reward"] >= 0.70).mean()
+    ),
+    "best": float(metrics_df["total_reward"].max()),
+    "worst": float(metrics_df["total_reward"].min()),
+    "parse_rate": float(metrics_df["parseable"].mean()),
+    "per_difficulty_stats": {},
+}
+for difficulty_name, sub in metrics_df.groupby("difficulty"):
+    summary["per_difficulty_stats"][str(difficulty_name)] = {
+        "count": int(len(sub)),
+        "mean_reward": float(sub["total_reward"].mean()),
+        "success_rate": float((sub["total_reward"] >= 0.70).mean()),
+        "parse_rate": float(sub["parseable"].mean()),
+    }
+summary_json_path = ARTIFACT_DIR / "training_summary.json"
+summary_json_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+_log(f"Wrote {summary_json_path}: {summary}")
+
+def savefig(path: Path) -> None:
+    plt.tight_layout()
+    plt.savefig(path, dpi=300, bbox_inches="tight")
+    plt.close()
+    _log(f"Wrote {path}")
+
+# Plot 1: reward curve, raw scatter + smoothed moving average.
+plt.figure(figsize=(13, 7))
+sns.scatterplot(data=metrics_df, x="episode", y="total_reward", alpha=0.35, s=30, color="#355C7D", label="Raw rollout reward")
+sns.lineplot(data=metrics_df, x="episode", y="reward_ma20", linewidth=3.5, color="#00A6D6", label="20-rollout moving average")
+plt.xlabel("Generated Environment Rollout")
+plt.ylabel("Terminal Total Reward")
+plt.title("CrisisOps GRPO Training: Reward Curve")
+plt.ylim(-0.02, 1.05)
+plt.legend()
+reward_curve_path = ARTIFACT_DIR / "reward_curve.png"
+savefig(reward_curve_path)
+
+# Plot 2: layered judge component breakdown.
+component_cols = ["root_cause_accuracy", "process_quality", "damage_audit"]
+component_df = metrics_df[["episode"] + component_cols].copy()
+for col in component_cols:
+    component_df[col] = component_df[col].rolling(20, min_periods=1).mean()
+long_components = component_df.melt(id_vars="episode", var_name="Judge Component", value_name="Score")
+plt.figure(figsize=(13, 7))
+sns.lineplot(data=long_components, x="episode", y="Score", hue="Judge Component", linewidth=3)
+plt.xlabel("Generated Environment Rollout")
+plt.ylabel("20-Rollout Moving Average Score")
+plt.title("Layered Judge Breakdown During GRPO")
+plt.ylim(-0.02, 1.05)
+plt.legend(title="Judge Component")
+judge_breakdown_path = ARTIFACT_DIR / "judge_breakdown.png"
+savefig(judge_breakdown_path)
+
+# Plot 3: early vs late success rate.
 plt.figure(figsize=(9, 6))
-sns.barplot(data=comparison, x="policy", y="success_rate")
+sns.barplot(data=comparison, x="policy", y="success_rate", palette=["#78909C", "#00A676"])
 plt.xlabel("Policy Snapshot")
 plt.ylabel("Success Rate (Reward >= 0.70)")
-plt.title("CrisisOps: Early vs Late Training Success Rate")
+plt.title("Early vs Late GRPO Success Rate")
 plt.ylim(0, 1)
-plt.tight_layout()
 success_path = ARTIFACT_DIR / "success_rate_comparison.png"
-plt.savefig(success_path, dpi=300, bbox_inches="tight")
-plt.close()
-_log(f"Wrote {success_path}; comparison: {comparison.to_dict(orient='records')}")
+savefig(success_path)
+_log(f"Success comparison: {comparison.to_dict(orient='records')}")
+
+# Plot 4: curriculum analysis by difficulty.
+plt.figure(figsize=(11, 7))
+order = [d for d in ["easy", "medium", "hard"] if d in set(metrics_df["difficulty"])]
+sns.violinplot(data=metrics_df, x="difficulty", y="total_reward", order=order, inner=None, color="#BDE0FE")
+sns.boxplot(data=metrics_df, x="difficulty", y="total_reward", order=order, width=0.22, color="white", fliersize=2)
+plt.xlabel("Curriculum Difficulty")
+plt.ylabel("Terminal Reward")
+plt.title("Curriculum Analysis: Reward Distribution by Difficulty")
+plt.ylim(-0.02, 1.05)
+curriculum_path = ARTIFACT_DIR / "curriculum_analysis.png"
+savefig(curriculum_path)
+
+# Plot 5: parse success rate over training.
+parse_df = metrics_df[["episode", "parseable"]].copy()
+parse_df["parse_success_rate"] = parse_df["parseable"].rolling(20, min_periods=1).mean()
+plt.figure(figsize=(12, 6))
+sns.lineplot(data=parse_df, x="episode", y="parse_success_rate", linewidth=3, color="#6A4C93")
+plt.xlabel("Generated Environment Rollout")
+plt.ylabel("Parseable Completion Rate (20-rollout MA)")
+plt.title("Output Format Compliance Learned During GRPO")
+plt.ylim(-0.02, 1.02)
+parse_path = ARTIFACT_DIR / "parse_success_rate.png"
+savefig(parse_path)
+
+# Plot 6: buddy effectiveness over time.
+buddy_df = metrics_df[["episode", "primary_reward", "buddy_reward"]].copy()
+for col in ["primary_reward", "buddy_reward"]:
+    buddy_df[col] = buddy_df[col].rolling(20, min_periods=1).mean()
+buddy_long = buddy_df.melt(id_vars="episode", var_name="Reward Channel", value_name="Reward")
+plt.figure(figsize=(12, 6))
+sns.lineplot(data=buddy_long, x="episode", y="Reward", hue="Reward Channel", linewidth=3)
+plt.xlabel("Generated Environment Rollout")
+plt.ylabel("20-Rollout Moving Average Reward")
+plt.title("Buddy Effectiveness: Primary vs Reviewer Reward")
+plt.ylim(-0.02, 1.05)
+buddy_path = ARTIFACT_DIR / "buddy_effectiveness.png"
+savefig(buddy_path)
+
+# Nice-to-have 9: reward heatmap by difficulty and scenario type.
+try:
+    heat = metrics_df.pivot_table(
+        values="total_reward", index="difficulty", columns="scenario_type", aggfunc="mean"
+    )
+    plt.figure(figsize=(12, 6))
+    sns.heatmap(heat, annot=True, fmt=".2f", cmap="viridis", vmin=0, vmax=1, linewidths=0.5)
+    plt.xlabel("Scenario Type")
+    plt.ylabel("Difficulty")
+    plt.title("Reward Heatmap by Curriculum Difficulty and Incident Type")
+    reward_heatmap_path = ARTIFACT_DIR / "reward_heatmap.png"
+    savefig(reward_heatmap_path)
+except Exception as exc:
+    _log(f"Skipping reward_heatmap.png: {exc}")
+
+# Nice-to-have 10: annotated learning phases.
+plt.figure(figsize=(13, 7))
+sns.scatterplot(data=metrics_df, x="episode", y="total_reward", alpha=0.25, s=26, color="#90A4AE")
+sns.lineplot(data=metrics_df, x="episode", y="reward_ma20", linewidth=3.5, color="#D81B60")
+max_episode = max(1, int(metrics_df["episode"].max()))
+for frac, label in [(0.20, "Format acquisition"), (0.55, "Evidence gathering"), (0.80, "Remediation + diagnosis")]:
+    x = max_episode * frac
+    plt.axvline(x=x, color="#616161", linestyle="--", linewidth=1.2, alpha=0.75)
+    plt.text(x + max_episode * 0.01, 0.95, label, rotation=90, va="top", fontsize=10)
+plt.xlabel("Generated Environment Rollout")
+plt.ylabel("Terminal Reward")
+plt.title("Annotated GRPO Learning Phases")
+plt.ylim(-0.02, 1.05)
+learning_phases_path = ARTIFACT_DIR / "learning_phases.png"
+savefig(learning_phases_path)
 
 
 # --- 10. Push artifacts to HuggingFace Hub ---------------------------------
@@ -571,7 +746,13 @@ if HF_TOKEN and HF_OUTPUT_REPO:
             "- `reward_curve.png` - per-rollout terminal reward + 20-step moving average\n"
             "- `judge_breakdown.png` - layered judge component breakdown over training\n"
             "- `success_rate_comparison.png` - early-training vs late-training success rate\n"
+            "- `curriculum_analysis.png` - reward distribution by curriculum difficulty\n"
+            "- `parse_success_rate.png` - parseable completion rate over training\n"
+            "- `buddy_effectiveness.png` - primary reward vs buddy reviewer reward over time\n"
+            "- `reward_heatmap.png` - reward by difficulty and scenario type\n"
+            "- `learning_phases.png` - annotated reward curve by training phase\n"
             "- `training_metrics.csv` - full per-rollout metrics\n"
+            "- `training_summary.json` - aggregate reward, parse, success, and difficulty stats\n"
             "- `success_rate_comparison.csv` - summary table\n"
             "- `final/` - LoRA adapter + tokenizer\n\n"
             "## Training\n"
@@ -614,6 +795,9 @@ if _use_wandb:
                 "artifacts/reward_curve": wandb.Image(str(reward_curve_path)),
                 "artifacts/judge_breakdown": wandb.Image(str(judge_breakdown_path)),
                 "artifacts/success_rate_comparison": wandb.Image(str(success_path)),
+                "artifacts/curriculum_analysis": wandb.Image(str(curriculum_path)),
+                "artifacts/parse_success_rate": wandb.Image(str(parse_path)),
+                "artifacts/buddy_effectiveness": wandb.Image(str(buddy_path)),
             }
         )
         wandb.finish()

@@ -43,7 +43,13 @@ ARTIFACT_FILES: List[str] = [
     "reward_curve.png",
     "judge_breakdown.png",
     "success_rate_comparison.png",
+    "curriculum_analysis.png",
+    "parse_success_rate.png",
+    "buddy_effectiveness.png",
+    "reward_heatmap.png",
+    "learning_phases.png",
     "training_metrics.csv",
+    "training_summary.json",
     "success_rate_comparison.csv",
 ]
 
