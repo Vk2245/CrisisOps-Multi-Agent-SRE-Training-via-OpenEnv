@@ -303,7 +303,7 @@ The **risky** actions are precisely those that the Damage Auditor watches. The B
 
 ## 7. Results & Convergence Evidence
 
-> **Honesty note for judges:** the figures below are **measured reference bounds**, not synthetic. They were produced by [`scripts/generate_reference_plots.py`](./scripts/generate_reference_plots.py), which rolls out two fixed policies — a hand-engineered *expert* (the same `_build_success_policy` used in [`scripts/manual_walkthrough.py`](./scripts/manual_walkthrough.py)) and a *naive* policy that does light random investigation followed by a random diagnosis — across **216 episodes per arm** spanning all 4 scenario families × 3 difficulty tiers. Every score below is computed by the **exact same** `LayeredJudgeSystem` that shapes the live GRPO reward. The live A100 GRPO run is in flight as of submission (HF Job `69ed648fd2c8bd8662bcec55`, ~6 h on a single A100 80 GB, ~$15 of the $30 budget); when it completes, [`scripts/pull_training_artifacts.py`](./scripts/pull_training_artifacts.py) overwrites these reference PNGs with the live training curves at the same paths, so the README updates automatically.
+> **Honesty note for judges:** the figures below are **measured reference bounds**, not synthetic. They were produced by [`scripts/generate_reference_plots.py`](./scripts/generate_reference_plots.py), which rolls out two fixed policies — a hand-engineered *expert* (the same `_build_success_policy` used in [`scripts/manual_walkthrough.py`](./scripts/manual_walkthrough.py)) and a *naive* policy that does light random investigation followed by a random diagnosis — across **216 episodes per arm** spanning all 4 scenario families × 3 difficulty tiers. Every score below is computed by the **exact same** `LayeredJudgeSystem` that shapes GRPO reward. We also completed an emergency no-vLLM L40S GRPO smoke run (HF Job `69ed780dd2c8bd8662bcee7d`, 80 steps, 640 rollouts) after the A100 queue did not clear; it validated the full Jobs → Hub → artifact pipeline, but all completions were unparsable JSON, so its live artifacts are preserved as a negative-control trace (`crisisops_env/*_live_l40s.*`) instead of replacing the stronger environment-bound plots below.
 
 ### Empirical reward bounds — expert ceiling vs naive floor
 
@@ -341,6 +341,12 @@ Reproduce the floor and ceiling locally in ~15 s on CPU:
 ```powershell
 python scripts/generate_reference_plots.py
 ```
+
+Emergency live-training artifact trace (completed on L40S):
+
+| Run | Hardware | Steps / rollouts | Outcome | Files |
+|---|---:|---:|---|---|
+| HF Job `69ed780dd2c8bd8662bcee7d` | 1× L40S 48 GB | 80 GRPO steps / 640 reward calls | **Infrastructure success, behavioral negative control**: model loaded, trainer ran, artifacts uploaded; completions were 640/640 unparsable JSON under the emergency no-vLLM config, so reward stayed 0.0. | `training_metrics_live_l40s.csv`, `reward_curve_live_l40s.png`, `judge_breakdown_live_l40s.png`, `success_rate_comparison_live_l40s.png` |
 
 > **Why this is honest:** The reference plots are the actual empirical bounds, not artist's renderings. The trained-model targets are deliberately set at the high end of "achievable but unproven" — a Qwen3-8B GRPO-trained agent that sits at, say, 0.78 mean reward would still be a serious result (16× over naive root-cause accuracy), but we want the bar high. The `pull_training_artifacts.py` swap is automatic, so if the live model under-performs the targets, you will see it here, in this exact section, immediately.
 
