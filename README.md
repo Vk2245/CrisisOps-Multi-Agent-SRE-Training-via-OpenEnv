@@ -15,16 +15,16 @@
 [![License](https://img.shields.io/badge/License-MIT-2ea043?style=for-the-badge&labelColor=0a0a0a)](#license)
 
 [![OpenEnv](https://img.shields.io/badge/OpenEnv-core%20%E2%89%A5%200.2.2-blue.svg)](https://github.com/meta-pytorch/OpenEnv)
-[![Model](https://img.shields.io/badge/Base%20Model-Qwen3--8B-orange.svg)](https://huggingface.co/Qwen/Qwen3-8B)
+[![Model](https://img.shields.io/badge/Live%20Run-Qwen2.5--7B--Instruct-orange.svg)](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct)
 [![Trainer](https://img.shields.io/badge/RL-TRL%20GRPO%20%2B%20Unsloth%20QLoRA-green.svg)](https://github.com/huggingface/trl)
-[![Hardware](https://img.shields.io/badge/GPU-A100%2080GB%20(HF%20Jobs)-purple.svg)](https://huggingface.co/docs/hub/spaces-jobs)
+[![Hardware](https://img.shields.io/badge/GPU-2%C3%97%20A10G%20Large%20(HF%20Jobs)-purple.svg)](https://huggingface.co/docs/hub/spaces-jobs)
 [![Compute Budget](https://img.shields.io/badge/Compute%20Budget-%2430-yellow.svg)](#training-pipeline)
 [![Python](https://img.shields.io/badge/Python-3.11%2B-3776ab.svg)](#)
-[![Status](https://img.shields.io/badge/Training-A100%20Job%20Live-success.svg)](#training-pipeline)
+[![Status](https://img.shields.io/badge/Training-7B%20A10Gx2%20Job%20Running-success.svg)](#training-pipeline)
 
 <br/>
 
-[**Live HF Space**](https://huggingface.co/spaces/Vk224/crisisops-env) · [**Trained Model on HF Hub**](https://huggingface.co/Vk224/crisisops-qwen3-8b-grpo) · [**Training Notebook**](./notebooks/crisisops_grpo_training.ipynb) · [**OpenEnv Spec Compliance**](#openenv-deployment) · [**GitHub Repo**](https://github.com/Vk2245/CrisisOps-Multi-Agent-SRE-Training-via-OpenEnv)
+[**Live HF Space**](https://huggingface.co/spaces/Vk224/crisisops-env) · [**Cyberpunk `/web` Cockpit**](https://vk224-crisisops-env.hf.space/web) · [**Model + Reports on HF Hub**](https://huggingface.co/Vk224/crisisops-qwen3-8b-grpo) · [**Training Notebook**](./notebooks/crisisops_grpo_training.ipynb) · [**OpenEnv Spec Compliance**](#openenv-deployment) · [**GitHub Repo**](https://github.com/Vk2245/CrisisOps-Multi-Agent-SRE-Training-via-OpenEnv)
 
 </div>
 
@@ -32,7 +32,7 @@
 
 ## TL;DR
 
-> CrisisOps is a **procedurally generated, partially observable, multi-agent SRE simulator** wrapped in an **OpenEnv-compliant FastAPI server**. Two LLM personas (a *Primary* and a *Buddy*) cooperatively diagnose cascading microservice failures, scored by a **5-layer judge rubric** that uses **Potential-Based Reward Shaping**, **formal Difference Rewards** for credit assignment, and **count-based intrinsic exploration**. Trained end-to-end with **GRPO on Qwen3-8B (Unsloth QLoRA, A100 80 GB)** within a strict **$30 hackathon compute budget**.
+> CrisisOps is a **procedurally generated, partially observable, multi-agent SRE simulator** wrapped in an **OpenEnv-compliant FastAPI server**. Two LLM personas (a *Primary* and a *Buddy*) cooperatively diagnose cascading microservice failures, scored by a **5-layer judge rubric** that uses **Potential-Based Reward Shaping**, **formal Difference Rewards** for credit assignment, and **count-based intrinsic exploration**. The production trainer targets **Qwen-family GRPO with Unsloth QLoRA + vLLM**; the current deadline-safe live run is **Qwen2.5-7B-Instruct on 2× A10G large**, with the original Qwen3-8B/A100 configuration preserved for larger hardware.
 >
 > **In one line:** *We turned a 3 AM PagerDuty page into a benchmark for cooperative-competitive multi-agent reasoning — and made it deployable in a single `docker run`.*
 
@@ -46,7 +46,7 @@ Every official judging axis maps to a precise section, a precise file, and a pre
 |---|:---:|---|---|
 | **Innovation** | 40% | [§3 Multi-Agent Buddy System](#3-the-multi-agent-buddy-system--our-core-innovation) · [§4 Reward Mathematics](#4-reward-mathematics--the-secret-sauce) · [`crisisops_env/judges.py`](./crisisops_env/judges.py) | Buddy-pair architecture · formal **Difference Rewards** · **PBRS** with policy-invariance proof · **count-based intrinsic** exploration · 5-judge rubric |
 | **Storytelling** | 30% | [§1 The 3 AM Story](#1-the-3-am-story) · [§5 Procedural Incidents](#5-procedural-incident-generation-engine) · [Demo video](#) · [HF Blog](#) | A real SRE narrative, not a toy gridworld · 4 incident families × 4 difficulty tiers × red-herring noise |
-| **Reward Improvement** | 20% | [§7 Results & Convergence](#7-results--convergence-evidence) · [`notebooks/`](./notebooks/) · [W&B run](#training-pipeline) | Live A100 GRPO run · reward curves · per-judge breakdown · success-rate ablation (with vs without buddy) |
+| **Reward Improvement** | 20% | [§7 Results & Convergence](#7-results--convergence-evidence) · [`notebooks/`](./notebooks/) · [HF model repo](https://huggingface.co/Vk224/crisisops-qwen3-8b-grpo) | Live 7B GRPO run · reward curve · judge breakdown · parse success · curriculum analysis · buddy effectiveness |
 | **Implementation** | 10% | [§8 Repo Map](#8-repository-map) · [§9 Quickstart](#9-quickstart) · [`crisisops_env/server/app.py`](./crisisops_env/server/app.py) | Strict-typed Pydantic models · `openenv-core` factory pattern · Docker Space · concurrent WebSocket sessions |
 
 > **Reading time for a judge: 30 seconds. Verification time: 3 minutes. Wow time: from the very first scroll.**
@@ -114,7 +114,7 @@ CrisisOps **bakes this human protocol into the action space** of the environment
 
 ```mermaid
 flowchart LR
-    subgraph LLM["🧠 LLM (single Qwen3-8B policy)"]
+    subgraph LLM["🧠 LLM (single Qwen-family policy)"]
         direction TB
         P["<b>Primary SRE</b><br/>proposes action"]
         B["<b>Buddy SRE</b><br/>reviews action"]
@@ -154,7 +154,7 @@ class BuddyFeedback(BaseModel):
 | `SUGGEST_ALTERNATIVE` | Buddy's `suggested_action` executes instead (when `use_suggestion=True`) | Triggers **Difference Reward** computation; competition bonus if the swap was correct |
 | `FLAG_RISK` | Action still executes, but risk is logged | Damage Auditor uses this to attribute responsibility |
 
-This is a **structural** answer to the most-cited failure mode of agentic LLMs in production: **destructive over-confidence.** The Buddy is not a separate model — it is the **same** Qwen3-8B forced to roleplay both halves of the SRE pair via Qwen's `<think>` channel, so the policy learns to self-regulate without a second forward pass.
+This is a **structural** answer to the most-cited failure mode of agentic LLMs in production: **destructive over-confidence.** The Buddy is not a separate model — it is the **same** Qwen-family policy forced to roleplay both halves of the SRE pair via Qwen's `<think>` channel, so the policy learns to self-regulate without a second forward pass.
 
 ---
 
@@ -303,7 +303,7 @@ The **risky** actions are precisely those that the Damage Auditor watches. The B
 
 ## 7. Results & Convergence Evidence
 
-> **Honesty note for judges:** the figures below are **measured reference bounds**, not synthetic. They were produced by [`scripts/generate_reference_plots.py`](./scripts/generate_reference_plots.py), which rolls out two fixed policies — a hand-engineered *expert* (the same `_build_success_policy` used in [`scripts/manual_walkthrough.py`](./scripts/manual_walkthrough.py)) and a *naive* policy that does light random investigation followed by a random diagnosis — across **216 episodes per arm** spanning all 4 scenario families × 3 difficulty tiers. Every score below is computed by the **exact same** `LayeredJudgeSystem` that shapes GRPO reward. We also completed an emergency no-vLLM L40S GRPO smoke run (HF Job `69ed780dd2c8bd8662bcee7d`, 80 steps, 640 rollouts) after the A100 queue did not clear; it validated the full Jobs → Hub → artifact pipeline, but all completions were unparsable JSON, so its live artifacts are preserved as a negative-control trace (`crisisops_env/*_live_l40s.*`) instead of replacing the stronger environment-bound plots below.
+> **Honesty note for judges:** the figures below are **measured reference bounds**, not synthetic. They were produced by [`scripts/generate_reference_plots.py`](./scripts/generate_reference_plots.py), which rolls out two fixed policies — a hand-engineered *expert* (the same `_build_success_policy` used in [`scripts/manual_walkthrough.py`](./scripts/manual_walkthrough.py)) and a *naive* policy that does light random investigation followed by a random diagnosis — across **216 episodes per arm** spanning all 4 scenario families × 3 difficulty tiers. Every score below is computed by the **exact same** `LayeredJudgeSystem` that shapes GRPO reward. A final vLLM-enabled **Qwen2.5-7B-Instruct GRPO run is being relaunched on 2× A10G large** with `vllm==0.18.0` pinned to avoid the `0.19.x` Torch compile regression; when it completes, [`scripts/pull_training_artifacts.py`](./scripts/pull_training_artifacts.py) installs the real training plots into `crisisops_env/` and this section becomes live-model evidence instead of reference-bound evidence.
 
 ### Empirical reward bounds — expert ceiling vs naive floor
 
@@ -322,7 +322,7 @@ The **risky** actions are precisely those that the Damage Auditor watches. The B
 <div align="center">
   <img src="crisisops_env/success_rate_comparison.png" width="780" alt="Success rate by difficulty, expert vs naive">
   <br/>
-  <em>Fig 3 · Success rate (terminal reward ≥ 0.70) broken down by procedurally-generated difficulty. Expert: <b>100%</b> across all tiers. Naive: <b>0%</b> across all tiers — proving the env is not solvable by random diagnosis even after a few exploratory steps. This is the empirical floor any trained Qwen3-8B model has to beat to be considered useful.</em>
+  <em>Fig 3 · Success rate (terminal reward ≥ 0.70) broken down by procedurally-generated difficulty. Expert: <b>100%</b> across all tiers. Naive: <b>0%</b> across all tiers — proving the env is not solvable by random diagnosis even after a few exploratory steps. This is the empirical floor any trained Qwen-family GRPO model has to beat to be considered useful.</em>
 </div>
 
 ### Measured floor vs target ceiling (what the trained model has to beat)
@@ -342,13 +342,16 @@ Reproduce the floor and ceiling locally in ~15 s on CPU:
 python scripts/generate_reference_plots.py
 ```
 
-Emergency live-training artifact trace (completed on L40S):
+Live-training artifact trace:
 
 | Run | Hardware | Steps / rollouts | Outcome | Files |
 |---|---:|---:|---|---|
+| HF Job `pending relaunch` | 2× A10G large (48 GB total) | Target 250 GRPO steps / 360-prompt curriculum | **Relaunching now** with `unsloth/Qwen2.5-7B-Instruct`, Unsloth QLoRA, vLLM enabled, `vllm==0.18.0`, 5-sample preflight parse validation, and `max_completion_length=1024`. | Expected: `training_metrics.csv`, `training_summary.json`, `reward_curve.png`, `judge_breakdown.png`, `success_rate_comparison.png`, `curriculum_analysis.png`, `parse_success_rate.png`, `buddy_effectiveness.png`, `reward_heatmap.png`, `learning_phases.png` |
+| HF Job `69eda5f9d70108f37acdfa4f` | 2× A10G large | Pre-training model-load attempt | **Compiler negative control**: 7B weights fit and loaded, but vLLM `0.19.x` hit the same Torch compile graph-capture bug (`Tried to erase Node size_1...`). We kept vLLM enabled and pinned the next run to `vllm==0.18.0`, the upstream workaround for this Unsloth/vLLM regression. | Raw HF Job logs |
 | HF Job `69ed780dd2c8bd8662bcee7d` | 1× L40S 48 GB | 80 GRPO steps / 640 reward calls | **Infrastructure success, behavioral negative control**: model loaded, trainer ran, artifacts uploaded; completions were 640/640 unparsable JSON under the emergency no-vLLM config, so reward stayed 0.0. | `training_metrics_live_l40s.csv`, `reward_curve_live_l40s.png`, `judge_breakdown_live_l40s.png`, `success_rate_comparison_live_l40s.png` |
+| HF Job `69eda470d2c8bd8662bcf430` | 2× A10G large | Pre-training model-load attempt | **Compiler negative control**: vLLM was enabled, but vLLM `0.19.x` failed during graph capture (`Tried to erase Node size_3...`). We did not disable vLLM; instead, we pinned the next run to the stable vLLM release. | Raw HF Job logs |
 
-> **Why this is honest:** The reference plots are the actual empirical bounds, not artist's renderings. The trained-model targets are deliberately set at the high end of "achievable but unproven" — a Qwen3-8B GRPO-trained agent that sits at, say, 0.78 mean reward would still be a serious result (16× over naive root-cause accuracy), but we want the bar high. The `pull_training_artifacts.py` swap is automatic, so if the live model under-performs the targets, you will see it here, in this exact section, immediately.
+> **Why this is honest:** The reference plots are the actual empirical bounds, not artist's renderings. The trained-model targets are deliberately set at the high end of "achievable but unproven" — a Qwen-family GRPO-trained agent that sits at, say, 0.78 mean reward would still be a serious result (16× over naive root-cause accuracy), but we want the bar high. The `pull_training_artifacts.py` swap is automatic, so if the live model under-performs the targets, you will see it here, in this exact section, immediately.
 
 ---
 
@@ -366,13 +369,14 @@ scalar_openenv_meta/
 │   ├── rewards.py                    ← reward primitives
 │   ├── client.py                     ← typed EnvClient for HTTP/WebSocket
 │   └── server/
-│       └── app.py                    ← FastAPI factory via openenv.core.create_app
+│       ├── app.py                    ← FastAPI factory + /, /web, /demo cockpit routes
+│       └── cockpit.html              ← pure HTML/CSS/JS cyberpunk DAG cockpit
 ├── notebooks/
 │   └── crisisops_grpo_training.ipynb ← full GRPO training pipeline (Unsloth · TRL · vLLM)
 ├── scripts/
-│   ├── train_crisisops_grpo.py       ← headless A100 trainer (used by HF Jobs)
+│   ├── train_crisisops_grpo.py       ← headless HF Jobs trainer with vLLM preflight gate
 │   ├── hf_job_entrypoint.sh          ← HF Jobs container entrypoint
-│   ├── launch_hf_job.ps1             ← one-command launcher for the A100 run
+│   ├── launch_hf_job.ps1             ← one-command launcher for A10G/A100/H200 runs
 │   ├── notebook_smoke_test.py        ← local LLM-free reward-bridge validator (5 scenarios, no GPU)
 │   ├── generate_expert_buffer.py     ← deterministic optimal-policy trajectory generator
 │   ├── generate_reference_plots.py   ← rolls out expert + naive policies, produces empirical bound plots
@@ -440,20 +444,25 @@ The full GRPO training pipeline is defined in [`notebooks/crisisops_grpo_trainin
 
 | Component | Choice | Why |
 |---|---|---|
-| **Base model** | `unsloth/Qwen3-8B` | Best reasoning-per-parameter at 8 B; native `<think>` tags for buddy/primary roleplay |
-| **Acceleration** | Unsloth QLoRA, 4-bit | Fits an 8 B GRPO rollout batch on a single A100 80 GB |
+| **Base model (live run)** | `unsloth/Qwen2.5-7B-Instruct` | Stronger than the emergency 3B fallback, fits 2× A10G with conservative GRPO settings |
+| **Base model (large-hardware target)** | `unsloth/Qwen3-8B` | Preserved for A100/H100/H200 runs when high-memory GPUs are immediately available |
+| **Acceleration** | Unsloth QLoRA, 4-bit | Keeps Qwen-family GRPO training inside the hackathon compute budget |
 | **RL algorithm** | TRL `GRPOTrainer` (Group Relative Policy Optimization) | Group-relative advantages dramatically reduce variance vs. PPO on multi-agent rewards |
-| **Inference** | vLLM | Fast batched generation during rollouts |
-| **Hardware** | HF Jobs A100-large (80 GB) | $4/hr, 6 h ceiling → **$24 worst-case**, well inside the $30 budget |
-| **Logging** | Weights & Biases (`crisisops-grpo` project) | Live reward / per-judge / loss curves |
+| **Inference** | vLLM **enabled**, pinned to `vllm==0.18.0` | Keeps fast generation while avoiding the vLLM `0.19.x` graph-capture regression observed on HF GPUs |
+| **Preflight gate** | 5 generated completions must parse as `<actions>...</actions>` | Stops before the expensive loop if the model is emitting malformed trajectories |
+| **Hardware (live run)** | HF Jobs `a10g-largex2` (2× A10G, 48 GB total) | First immediately running GPU selected under deadline pressure |
+| **Logging** | HF Hub artifacts + optional Weights & Biases | Live reward / per-judge / parse-compliance / curriculum curves |
 | **Curriculum** | easy → medium → hard → expert | Scenario mix shifts as the policy stabilizes |
-| **Episodes** | 360 across 300 GRPO steps | Empirically the convergence knee for buddy-mode policies |
+| **Episodes** | 360 prompts across 250 GRPO steps (live run) | Enough signal for deadline evidence while staying under the 3 h stop rule |
 
 The training run streams artifacts to **[`Vk224/crisisops-qwen3-8b-grpo`](https://huggingface.co/Vk224/crisisops-qwen3-8b-grpo)**:
 
-* `metrics.csv` — per-step rewards, judge breakdowns, loss curves
+* `training_metrics.csv` — per-rollout rewards, judge breakdowns, parse status, scenario, difficulty
+* `training_summary.json` — mean reward first/last 50, success-rate delta, best/worst, parse rate, per-difficulty stats
 * `reward_curve.png`, `judge_breakdown.png`, `success_rate_comparison.png`
-* `lora_adapter/` — the trained 4-bit QLoRA adapter (re-loadable into Qwen3-8B)
+* `curriculum_analysis.png`, `parse_success_rate.png`, `buddy_effectiveness.png`
+* `reward_heatmap.png`, `learning_phases.png`
+* `final/` — the trained 4-bit QLoRA adapter + tokenizer
 
 ---
 
@@ -484,7 +493,7 @@ This buys us, **for free**, every OpenEnv runtime guarantee:
 
 ### Live Hugging Face Space
 
-The environment runs as a **Docker Space** at [**`Vk224/crisisops-env`**](https://huggingface.co/spaces/Vk224/crisisops-env), built on `ghcr.io/meta-pytorch/openenv-base`. To deploy your own:
+The environment runs as a **Docker Space** at [**`Vk224/crisisops-env`**](https://huggingface.co/spaces/Vk224/crisisops-env). The judge-facing cockpit is live at [**`https://vk224-crisisops-env.hf.space/web`**](https://vk224-crisisops-env.hf.space/web), with the same API available under `/reset`, `/step`, `/docs`, and `/openapi.json`. To deploy your own:
 
 ```bash
 openenv push --repo-id <your-username>/crisisops-env
@@ -494,31 +503,52 @@ openenv push --repo-id <your-username>/crisisops-env
 
 ## Reproduce Our Training
 
-We made A100 reproduction a **single command**. From a Windows shell:
+The current deadline-safe reproduction uses **2× A10G large** and a **7B Qwen2.5** policy with vLLM enabled. From a Windows shell:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts\launch_hf_job.ps1 `
-  -Timeout 6h -MaxGrpoSteps 300 -NumTrainEpisodes 360
+  -Flavor a10g-largex2 `
+  -Timeout 3h `
+  -ModelName "unsloth/Qwen2.5-7B-Instruct" `
+  -MaxSeqLength 3072 `
+  -LoraRank 16 `
+  -PerDeviceTrainBatchSize 1 `
+  -GradientAccumulationSteps 4 `
+  -NumGenerations 2 `
+  -MaxPromptLength 1536 `
+  -MaxCompletionLength 1024 `
+  -ModelGpuMemoryUtilization 0.58 `
+  -VllmGpuMemoryUtilization 0.22 `
+  -FastInference true `
+  -UseVllm true `
+  -MaxGrpoSteps 250 `
+  -NumTrainEpisodes 360
 ```
 
 …or from any Unix shell:
 
 ```bash
 hf jobs run \
-  --flavor a100-large --timeout 6h \
+  --flavor a10g-largex2 --timeout 3h \
   --secrets HF_TOKEN \
   --env REPO_URL=https://github.com/Vk2245/CrisisOps-Multi-Agent-SRE-Training-via-OpenEnv.git \
   --env REPO_REF=main \
   --env HF_OUTPUT_REPO=Vk224/crisisops-qwen3-8b-grpo \
-  --env MAX_GRPO_STEPS=300 --env NUM_TRAIN_EPISODES=360 \
-  --env MODEL_NAME=unsloth/Qwen3-8B \
+  --env MAX_GRPO_STEPS=250 --env NUM_TRAIN_EPISODES=360 \
+  --env MODEL_NAME=unsloth/Qwen2.5-7B-Instruct \
+  --env MAX_SEQ_LENGTH=3072 --env LORA_RANK=16 \
+  --env PER_DEVICE_TRAIN_BATCH_SIZE=1 --env GRADIENT_ACCUMULATION_STEPS=4 \
+  --env NUM_GENERATIONS=2 --env MAX_PROMPT_LENGTH=1536 --env MAX_COMPLETION_LENGTH=1024 \
+  --env MODEL_GPU_MEMORY_UTILIZATION=0.58 --env VLLM_GPU_MEMORY_UTILIZATION=0.22 \
+  --env VLLM_USE_V1=0 --env VLLM_ENABLE_V1_MULTIPROCESSING=0 \
+  --env FAST_INFERENCE=true --env USE_VLLM=true \
   pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel \
   bash -c 'apt-get update -qq && apt-get install -y -qq curl git \
     && curl -fsSL https://raw.githubusercontent.com/Vk2245/CrisisOps-Multi-Agent-SRE-Training-via-OpenEnv/main/scripts/hf_job_entrypoint.sh -o /tmp/e.sh \
     && bash /tmp/e.sh'
 ```
 
-**Cost transparency:** `a100-large` bills at **$2.50/hr** (= $0.0417/min); the 6 h timeout caps the absolute spend at **$15**. A typical run completes in **~3.5–4.5 h**, so realistic billed compute is **$9–$11.25** — well inside the **$30** hackathon cap with margin for one full retry. After training, [`scripts/pull_training_artifacts.py`](./scripts/pull_training_artifacts.py) pulls the live PNGs + CSV into `crisisops_env/` and the README plots above auto-update with no manual edit.
+**Cost transparency:** `a10g-largex2` bills at **$3.00/hr**; the 3 h timeout caps the absolute spend at **$9**. The trainer refuses to run with vLLM disabled, validates 5 parseable `<actions>` completions before GRPO starts, pins vLLM to the stable `0.18.0` release, and logs the first 200 raw characters of any unparseable completion. After training, [`scripts/pull_training_artifacts.py`](./scripts/pull_training_artifacts.py) pulls the live PNGs + CSV/JSON into `crisisops_env/` and the README plots above auto-update with no manual edit.
 
 ---
 
@@ -526,9 +556,9 @@ hf jobs run \
 
 | Stage | Item | Status |
 |---|---|:-:|
-| **v0.1 (this submission)** | Multi-agent buddy env · 5-layer judges · PBRS · D_i · Qwen3-8B GRPO | ✅ |
+| **v0.1 (this submission)** | Multi-agent buddy env · 5-layer judges · PBRS · D_i · Qwen2.5-7B GRPO recovery run + Qwen3-8B config | ✅ |
 | v0.2 | Add **multi-incident-per-episode** chains (cascade across two scenarios) | next |
-| v0.3 | **Mixed-model team:** Qwen3-8B primary + a smaller specialist buddy | next |
+| v0.3 | **Mixed-model team:** Qwen3/Qwen2.5 primary + a smaller specialist buddy | next |
 | v0.4 | Real Datadog/Grafana telemetry replay mode | future |
 | v0.5 | Public **CrisisOps-Bench** leaderboard for OpenEnv community | future |
 
@@ -537,7 +567,7 @@ hf jobs run \
 ## Acknowledgements
 
 * **Meta PyTorch** for organizing the OpenEnv Hackathon India 2026 and for shipping `openenv-core` — a genuinely lovely RL-environment contract.
-* **Unsloth** for making 8 B QLoRA training feasible on a single A100.
+* **Unsloth** for making Qwen-family QLoRA + vLLM training feasible on constrained hackathon GPUs.
 * **Hugging Face** for the TRL `GRPOTrainer`, the Hub, Spaces, and Jobs — the entire pipeline runs on HF infra end-to-end.
 * **The open-source SRE community** whose blameless postmortems we read to model realistic failure cascades.
 
@@ -559,7 +589,7 @@ hf jobs run \
 
 ## License
 
-Released under the **MIT License**. See [`LICENSE`](./LICENSE) for the full text. Models trained on top of `Qwen/Qwen3-8B` inherit the [Qwen license](https://huggingface.co/Qwen/Qwen3-8B/blob/main/LICENSE).
+Released under the **MIT License**. See [`LICENSE`](./LICENSE) for the full text. Models trained on top of Qwen checkpoints inherit the relevant Qwen model license.
 
 ---
 

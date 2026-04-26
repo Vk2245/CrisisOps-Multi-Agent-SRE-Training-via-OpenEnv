@@ -41,7 +41,7 @@ echo "[entrypoint] Installing GRPO training stack (this can take 5-10 min)"
 # Pin torch first so Unsloth picks the right wheels.
 pip install -q -U \
     "unsloth[colab-new]" \
-    "vllm>=0.6.0" \
+    "vllm==0.18.0" \
     "trl>=0.13.0" \
     "transformers>=4.45.0" \
     "accelerate>=0.34.0" \
