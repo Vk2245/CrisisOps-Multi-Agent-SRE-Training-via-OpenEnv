@@ -35,24 +35,7 @@
 > CrisisOps is a **procedurally generated, partially observable, multi-agent SRE simulator** wrapped in an **OpenEnv-compliant FastAPI server**. Two LLM personas (a *Primary* and a *Buddy*) cooperatively diagnose cascading microservice failures, scored by a **5-layer judge rubric** that uses **Potential-Based Reward Shaping**, **formal Difference Rewards** for credit assignment, and **count-based intrinsic exploration**. The deadline-safe live run completed **Qwen2.5-7B-Instruct GRPO on 2× A10G large** with Unsloth QLoRA + vLLM, producing 1000 scored rollouts, 95.1% parseable completions, and a measurable first-50 → last-50 reward gain.
 >
 > **In one line:** *We turned a 3 AM PagerDuty page into a benchmark for cooperative-competitive multi-agent reasoning — and made it deployable in a single `docker run`.*
-
 ---
-
-## 30-Second Judge's Cheat Sheet
-
-Every official judging axis maps to a precise section, a precise file, and a precise piece of math. **Click and verify in under a minute.**
-
-| Judging Axis | Weight | Where it lives in this repo | What to look for |
-|---|:---:|---|---|
-| **Innovation** | 40% | [§3 Multi-Agent Buddy System](#3-the-multi-agent-buddy-system--our-core-innovation) · [§4 Reward Mathematics](#4-reward-mathematics--the-secret-sauce) · [`crisisops_env/judges.py`](./crisisops_env/judges.py) | Buddy-pair architecture · formal **Difference Rewards** · **PBRS** with policy-invariance proof · **count-based intrinsic** exploration · 5-judge rubric |
-| **Storytelling** | 30% | [§1 The 3 AM Story](#1-the-3-am-story) · [§5 Procedural Incidents](#5-procedural-incident-generation-engine) · [Demo video](#) · [HF Blog](#) | A real SRE narrative, not a toy gridworld · 4 incident families × 4 difficulty tiers × red-herring noise |
-| **Reward Improvement** | 20% | [§7 Results & Convergence](#7-results--convergence-evidence) · [`notebooks/`](./notebooks/) · [HF model repo](https://huggingface.co/Vk224/crisisops-qwen3-8b-grpo) | Live 7B GRPO run · reward curve · judge breakdown · parse success · curriculum analysis · buddy effectiveness |
-| **Implementation** | 10% | [§8 Repo Map](#8-repository-map) · [§9 Quickstart](#9-quickstart) · [`crisisops_env/server/app.py`](./crisisops_env/server/app.py) | Strict-typed Pydantic models · `openenv-core` factory pattern · Docker Space · concurrent WebSocket sessions |
-
-> **Reading time for a judge: 30 seconds. Verification time: 3 minutes. Wow time: from the very first scroll.**
-
----
-
 ## Table of Contents
 
 1. [The 3 AM Story](#1-the-3-am-story)
