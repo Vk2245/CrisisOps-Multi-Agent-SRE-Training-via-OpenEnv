@@ -583,17 +583,17 @@ hf jobs run \
 
 ---
 
-## Team — AI APEX
+## VISHAL KUMAR
 
 <div align="center">
 
 | | |
 |:---:|:---|
-| <img src="https://huggingface.co/avatars/default.svg" width="80"/> | **Vishal Kumar** · Lead Engineer & Project Architect<br/>[GitHub @Vk2245](https://github.com/Vk2245) · [Hugging Face @Vk224](https://huggingface.co/Vk224) · [LinkedIn](https://linkedin.com/in/vishal-kumar-7a74462a0) |
+| <img src="me2.jpeg" width="80"/> | **Vishal Kumar** · Lead Engineer & Project Architect<br/>[GitHub @Vk2245](https://github.com/Vk2245) · [Hugging Face @Vk224](https://huggingface.co/Vk224) · [LinkedIn](https://linkedin.com/in/vishal-kumar-7a74462a0) |
 
 </div>
 
-> *Team **AI APEX** builds production-grade reinforcement-learning systems where the math, the engineering, and the story all reinforce each other. CrisisOps is our entry to the Meta PyTorch OpenEnv Hackathon India 2026.*
+>  **VISHAL KUMAR** builds production-grade reinforcement-learning systems where the math, the engineering, and the story all reinforce each other. CrisisOps is our entry to the Meta PyTorch OpenEnv Hackathon India 2026.*
 
 ---
 
@@ -609,7 +609,7 @@ Released under the **MIT License**. See [`LICENSE`](./LICENSE) for the full text
 
 <br/>
 
-**🚨 CrisisOps · Team AI APEX · Meta PyTorch OpenEnv Hackathon India 2026 🚨**
+**🚨 CrisisOps · VISHAL KUMAR · Meta PyTorch OpenEnv Hackathon India 2026 🚨**
 
 <br/>
 
