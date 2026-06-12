@@ -10,10 +10,6 @@
 
 <br/>
 
-[![Team — AI APEX](https://img.shields.io/badge/Team-AI%20APEX-ff5e5e?style=for-the-badge&labelColor=0a0a0a)](#team--ai-apex)
-[![Hackathon](https://img.shields.io/badge/Meta%20PyTorch-OpenEnv%20Hackathon%20India%202026-1f6feb?style=for-the-badge&labelColor=0a0a0a)](#)
-[![License](https://img.shields.io/badge/License-MIT-2ea043?style=for-the-badge&labelColor=0a0a0a)](#license)
-
 [![OpenEnv](https://img.shields.io/badge/OpenEnv-core%20%E2%89%A5%200.2.2-blue.svg)](https://github.com/meta-pytorch/OpenEnv)
 [![Model](https://img.shields.io/badge/Live%20Run-Qwen2.5--7B--Instruct-orange.svg)](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct)
 [![Trainer](https://img.shields.io/badge/RL-TRL%20GRPO%20%2B%20Unsloth%20QLoRA-green.svg)](https://github.com/huggingface/trl)
